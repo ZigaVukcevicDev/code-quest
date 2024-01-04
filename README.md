@@ -4,7 +4,7 @@
 
 TODO: Brief description of your project.
 
-## Features
+## 🎁 Features
 
 TODO:
 
@@ -12,12 +12,7 @@ TODO:
 - Feature 2
 - ...
 
-## Tech stack
-
-- [Angular](https://angular.io/)
-- [Nest.js](https://nestjs.com/)
-
-## Project structure of monorepo
+## 💻 Project structure of monorepo and tech stack
 
 ```bash
 project-root/
@@ -29,6 +24,9 @@ project-root/
   └── ...
 ```
 
+- [Angular (v16.2)](https://angular.io/)
+- [Nest.js (v10.0)](https://nestjs.com/)
+
 ## 👉 Getting started
 
 ### Installation
@@ -39,7 +37,7 @@ project-root/
    - For the client: `cd client && yarn install`
    - For the API: `cd api && yarn install`
 
-## Usage
+## 📚 Usage
 
 ### Running the client
 
@@ -55,15 +53,18 @@ cd api
 yarn start:dev
 ```
 
-Visit [http://localhost:4200](http://localhost:4200) for the client and [http://localhost:3000](http://localhost:3000) for the API.
+Visit
+
+- [http://localhost:4200](http://localhost:4200) for the client and
+- [http://localhost:3000](http://localhost:3000) for the API.
 
 ### Design system
 
-Visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, elements or components which you can reuse.
+Also visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, elements or components which you can reuse.
 
-This is always a **good entry point** to start development. If you develop something new, please add it to this page, so next developer can pick it up.
+This page is always a **good entry point** to continue development. If you develop something new, please add it to the page, so next developer can pick it up.
 
-## VSC plugins for smoother DX
+## ⛭ VSC plugins for smoother DX
 
 - [Tailwind Config Viewer](https://marketplace.visualstudio.com/items?itemName=KalimahApps.tailwind-config-viewer)
 - [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=alfredbirk.tailwind-documentation)
