@@ -57,6 +57,12 @@ yarn start:dev
 
 Visit [http://localhost:4200](http://localhost:4200) for the client and [http://localhost:3000](http://localhost:3000) for the API.
 
+### Design system
+
+See [design system page](http://localhost:4200/design-system) for styling guides, elements or components which you can reuse.
+
+This is always a **good entry point** to start development. If you develop something new, please add it to this page, so next developer can pick it up.
+
 ## VSC plugins for smoother DX
 
 - [Tailwind Config Viewer](https://marketplace.visualstudio.com/items?itemName=KalimahApps.tailwind-config-viewer)
