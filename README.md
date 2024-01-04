@@ -19,6 +19,7 @@ TODO:
 
 ## Project structure
 
+```bash
 project-root/
 │
 ├── client/
@@ -26,6 +27,7 @@ project-root/
 │
 └── api/
   └── ...
+```
 
 ## Getting started
 
@@ -45,7 +47,7 @@ project-root/
 
 ## Usage
 
-### Running the Client
+### Running the client
 
 ```bash
 cd client
