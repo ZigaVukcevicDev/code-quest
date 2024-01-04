@@ -1,4 +1,4 @@
-# Code quest 🚀
+# 🚀 Code quest
 
 ## Overview
 
@@ -17,7 +17,7 @@ TODO:
 - [Angular](https://angular.io/)
 - [Nest.js](https://nestjs.com/)
 
-## Project structure
+## Project structure of monorepo
 
 ```bash
 project-root/
@@ -29,7 +29,7 @@ project-root/
   └── ...
 ```
 
-## Getting started
+## 👉 Getting started
 
 ### Prerequisites
 
@@ -39,8 +39,8 @@ project-root/
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
-2. Change to the project directory: `cd your-repo`
+1. Clone the repository: `git clone https://github.com/ZigaVukcevicDev/code-quest`
+2. Change to the project directory: `cd code-quest`
 3. Install dependencies:
    - For the client: `cd client && yarn install`
    - For the API: `cd api && yarn install`
@@ -51,7 +51,7 @@ project-root/
 
 ```bash
 cd client
-ng serve
+yarn start
 ```
 
 ### Running the API
@@ -62,7 +62,3 @@ yarn start:dev
 ```
 
 Visit [http://localhost:4200](http://localhost:4200) for the client and [http://localhost:3000](http://localhost:3000) for the API.
-
-## License
-
-This project is licensed under the MIT License.
