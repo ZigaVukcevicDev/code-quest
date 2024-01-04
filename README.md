@@ -59,7 +59,7 @@ Visit [http://localhost:4200](http://localhost:4200) for the client and [http://
 
 ### Design system
 
-See [design system page](http://localhost:4200/design-system) for styling guides, elements or components which you can reuse.
+Visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, elements or components which you can reuse.
 
 This is always a **good entry point** to start development. If you develop something new, please add it to this page, so next developer can pick it up.
 
