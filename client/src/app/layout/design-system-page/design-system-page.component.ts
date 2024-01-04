@@ -8,17 +8,17 @@ import Breadcrumbs from '@app/data/interfaces/breadcrumbs.interface';
 })
 export class DesignSystemPageComponent {
   breadcrumbsExample1: Breadcrumbs = {
-    text: 'Breadcrumb text lorem ipsum',
+    text: 'Breadcrumb text',
     link: null,
     childText: null,
   };
 
   breadcrumbsExample2: Breadcrumbs = {
-    text: 'Breadcrumb text lorem ipsum',
+    text: 'Breadcrumb text',
     link: {
       title: 'Breadcrumb title',
       href: '/',
     },
-    childText: 'Child breadcrumb text ipsum dolor',
+    childText: 'Breadcrumb child text',
   };
 }
