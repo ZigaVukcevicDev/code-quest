@@ -16,8 +16,8 @@
       "@components/*": [
         "app/shared/components/*"
       ],
-      "@env/*": [
-        "environment/*"
+      "@environments/*": [
+        "environments/*"
       ],
       "@modules/*": [
         "app/modules/*"
