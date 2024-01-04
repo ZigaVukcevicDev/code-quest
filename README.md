@@ -62,7 +62,9 @@ Visit
 
 Also visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, representations of elements or components which you can reuse.
 
-This page is always a **good entry point** to continue development. If you develop something new, please add it to the page, so next developer can pick it up.
+> NOTE
+>
+> This page is always a **good entry point** to continue development. If you develop something new, please add it to the page, so next developer can pick it up.
 
 ### VSC plugins for smoother DX 🏄
 
