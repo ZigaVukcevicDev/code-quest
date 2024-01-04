@@ -31,12 +31,6 @@ project-root/
 
 ## 👉 Getting started
 
-### Prerequisites
-
-- Node.js and yarn installed
-- Angular CLI installed (`npm install -g @angular/cli`)
-- Nest.js CLI installed (`npm install -g @nestjs/cli`)
-
 ### Installation
 
 1. Clone the repository: `git clone https://github.com/ZigaVukcevicDev/code-quest`
@@ -62,3 +56,11 @@ yarn start:dev
 ```
 
 Visit [http://localhost:4200](http://localhost:4200) for the client and [http://localhost:3000](http://localhost:3000) for the API.
+
+## VSC plugins for smoother DX
+
+- [Tailwind Config Viewer](https://marketplace.visualstudio.com/items?itemName=KalimahApps.tailwind-config-viewer)
+- [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=alfredbirk.tailwind-documentation)
+- [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [TODO: perhaps classes sort?](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
