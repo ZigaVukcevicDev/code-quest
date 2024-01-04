@@ -8,7 +8,7 @@ TODO: Brief description of your project.
 
 TODO:
 
-- Feature 1
+- Breadcrumbs component
 - Feature 2
 - ...
 

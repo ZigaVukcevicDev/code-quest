@@ -1,0 +1,19 @@
+<nav>
+  <ol class="list-none text-sm py-2">
+    <li class="my-1 pr-4 inline-block">
+      <a
+        *ngIf="breadcrumbs.link"
+        [title]="breadcrumbs.link.title"
+        [routerLink]="[breadcrumbs.link.href]"
+        class="text-yellow-600 underline underline-offset-4 hover:text-yellow-800 transition-colors duration-200"
+        >{{ breadcrumbs.text }}</a
+      >
+      <ng-container *ngIf="!breadcrumbs.link">{{
+        breadcrumbs.text
+      }}</ng-container>
+    </li>
+    <li *ngIf="breadcrumbs.childText" class="my-1 inline-block">
+      {{ breadcrumbs.childText }}
+    </li>
+  </ol>
+</nav>

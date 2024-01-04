@@ -1,0 +1,14 @@
+:host {
+  li:not(:last-child) {
+    position: relative;
+    @apply mr-2;
+
+    &::after {
+      content: "/";
+      position: absolute;
+      right: 0;
+      top: 0;
+      @apply text-gray-400;
+    }
+  }
+}
