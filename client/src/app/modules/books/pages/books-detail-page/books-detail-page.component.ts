@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { bookDetailMock } from '@app/data/books/mocks/book-detail.mock';
 import BookDetail from '@app/data/books/models/book-detail.interface';
 
 @Component({
@@ -7,15 +8,5 @@ import BookDetail from '@app/data/books/models/book-detail.interface';
   styleUrls: ['./books-detail-page.component.scss'],
 })
 export class BooksDetailPageComponent {
-  bookDetail: BookDetail = {
-    id: 2,
-    name: 'The Rogue Prince',
-    authors: ['George R. R. Martin', 'Paul Davies'],
-    publisher: 'Bantam Books',
-    isFavorite: false,
-    isbn: '978-0553103540',
-    numberOfPages: 694,
-    country: 'United States',
-    mediaType: 'Hardcover',
-  };
+  bookDetail: BookDetail = bookDetailMock;
 }

@@ -13,10 +13,8 @@ export class BookComponent {
   readonly Divider: typeof Divider = Divider;
   readonly UrlPath: typeof UrlPath = UrlPath;
 
-  // TODO: remove exclamation
-  @Input() book!: Book;
+  @Input() book: Book | undefined;
 
   // Column widths are used for widths above small devices
-  // TODO: remove exclamation
-  @Input() columnWidths!: BookColumnWidths;
+  @Input() columnWidths: BookColumnWidths | undefined;
 }

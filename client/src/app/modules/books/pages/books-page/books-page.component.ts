@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { bookMock1, bookMock2 } from '@app/data/books/mocks/book.mock';
 import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
 import Book from '@app/data/books/models/book.interface';
 
@@ -8,22 +9,7 @@ import Book from '@app/data/books/models/book.interface';
   styleUrls: ['./books-page.component.scss'],
 })
 export class BooksPageComponent {
-  books: Book[] = [
-    {
-      id: 1,
-      name: 'A Game of Thrones',
-      authors: ['George R. R. Martin'],
-      publisher: 'Bantam Books',
-      isFavorite: false,
-    },
-    {
-      id: 2,
-      name: 'The Rogue Prince',
-      authors: ['George R. R. Martin', 'Paul Davies'],
-      publisher: 'Bantam Books',
-      isFavorite: false,
-    },
-  ];
+  books: Book[] = [bookMock1, bookMock2];
 
   columnWidths: BookColumnWidths = {
     name: 35,

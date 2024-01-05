@@ -1,28 +1,30 @@
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Name</strong></p>
-  <p>{{ bookDetail.name }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Author(s)</strong></p>
-  <p>{{ bookDetail.authors | divider : Divider.COMMA }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Publisher</strong></p>
-  <p>{{ bookDetail.publisher }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>ISBN</strong></p>
-  <p>{{ bookDetail.isbn }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Number of pages</strong></p>
-  <p>{{ bookDetail.numberOfPages }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Country</strong></p>
-  <p>{{ bookDetail.country }}</p>
-</div>
-<div class="mb-3 md:flex md:items-center">
-  <p class="text-sm md:basis-48"><strong>Media type</strong></p>
-  <p>{{ bookDetail.mediaType }}</p>
+<div *ngIf="bookDetail">
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Name</strong></p>
+    <p>{{ bookDetail.name }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Author(s)</strong></p>
+    <p>{{ bookDetail.authors | divider : Divider.COMMA }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Publisher</strong></p>
+    <p>{{ bookDetail.publisher }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>ISBN</strong></p>
+    <p>{{ bookDetail.isbn }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Number of pages</strong></p>
+    <p>{{ bookDetail.numberOfPages }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Country</strong></p>
+    <p>{{ bookDetail.country }}</p>
+  </div>
+  <div class="mb-3 md:flex md:items-center">
+    <p class="text-sm md:basis-48"><strong>Media type</strong></p>
+    <p>{{ bookDetail.mediaType }}</p>
+  </div>
 </div>

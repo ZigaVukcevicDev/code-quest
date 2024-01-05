@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { bookDetailMock } from '@app/data/books/mocks/book-detail.mock';
 import { SharedModule } from '@app/shared/shared.module';
 import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
 
@@ -17,6 +18,8 @@ describe('BookDetailComponent', () => {
   });
 
   it('should create', () => {
+    component.bookDetail = bookDetailMock;
+
     expect(component).toBeTruthy();
   });
 });

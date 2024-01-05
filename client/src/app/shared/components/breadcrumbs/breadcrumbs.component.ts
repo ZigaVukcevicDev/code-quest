@@ -15,6 +15,5 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
   styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent {
-  // TODO: remove exclamation
-  @Input() breadcrumbs!: Breadcrumbs;
+  @Input() breadcrumbs: Breadcrumbs | undefined;
 }

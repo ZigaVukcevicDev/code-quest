@@ -1,4 +1,4 @@
-<div class="sm:flex">
+<div *ngIf="book && columnWidths" class="sm:flex">
   <div class="sm:basis-[{{ columnWidths['name'] }}%]">
     <p class="text-sm sm:hidden"><strong>Name</strong></p>
     <p class="mb-3 sm:mb-0">

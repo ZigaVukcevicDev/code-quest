@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {
+  breadcrumbsMock1,
+  breadcrumbsMock2,
+} from '@app/data/shared/breadcrumbs/mocks/breadcrumbs.mock';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 @Component({
@@ -7,18 +11,6 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
   styleUrls: ['./design-system-page.component.scss'],
 })
 export class DesignSystemPageComponent {
-  breadcrumbsExample1: Breadcrumbs = {
-    text: 'Breadcrumb text',
-    link: null,
-    childText: null,
-  };
-
-  breadcrumbsExample2: Breadcrumbs = {
-    text: 'Breadcrumb text',
-    link: {
-      title: 'Breadcrumb title',
-      href: '/',
-    },
-    childText: 'Breadcrumb child text',
-  };
+  breadcrumbsExample1: Breadcrumbs = breadcrumbsMock1;
+  breadcrumbsExample2: Breadcrumbs = breadcrumbsMock2;
 }

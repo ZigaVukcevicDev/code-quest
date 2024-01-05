@@ -10,6 +10,5 @@ import { Divider } from '@app/data/shared/divider.enum';
 export class BookDetailComponent {
   readonly Divider: typeof Divider = Divider;
 
-  // TODO: remove exclamation
-  @Input() bookDetail!: BookDetail;
+  @Input() bookDetail: BookDetail | undefined;
 }
