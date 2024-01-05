@@ -1,10 +1,10 @@
 <div>
   <div>{{ book.name }}</div>
   <div>
-    {{ book.authors | divider : dividerSlash }}
+    {{ book.authors | divider : Divider.SLASH }}
   </div>
   <div>
-    {{ book.authors | divider : dividerComma }}
+    {{ book.authors | divider : Divider.COMMA }}
   </div>
   <div>{{ book.publisher }}</div>
   <div>Favorite indicator</div>

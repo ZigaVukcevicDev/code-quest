@@ -16,13 +16,12 @@ export class DividerPipe implements PipeTransform {
         joinedDataByDivider = data.join(', ');
         break;
       default:
-        /**
-         * NOTE
-         *
-         * This case should never happen as divider uses Enum. It is here
-         * because of reason that switch requires default behavior.
-         */
-        joinedDataByDivider = data.join();
+      /**
+       * NOTE
+       *
+       * Default case should never happen as divider uses Enum. It is here
+       * because of reason that switch requires default behavior.
+       */
     }
 
     return joinedDataByDivider;

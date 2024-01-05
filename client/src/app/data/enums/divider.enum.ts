@@ -1,4 +1,4 @@
-export const enum Divider {
+export enum Divider {
   SLASH = '/',
   COMMA = ',',
 }

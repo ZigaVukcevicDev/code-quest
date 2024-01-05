@@ -8,8 +8,7 @@ import Book from '@app/data/interfaces/book.interface';
   styleUrls: ['./book.component.scss'],
 })
 export class BookComponent {
-  dividerSlash: Divider = Divider.SLASH;
-  dividerComma: Divider = Divider.COMMA;
+  Divider: typeof Divider = Divider;
 
   // TODO: remove exclamation
   @Input() book!: Book;
