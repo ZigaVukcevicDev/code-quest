@@ -7,7 +7,7 @@ import BookDetail from '@app/data/interfaces/book-detail.interface';
   styleUrls: ['./book-detail-page.component.scss'],
 })
 export class BookDetailPageComponent {
-  book: BookDetail = {
+  bookDetail: BookDetail = {
     id: 2,
     name: 'The Rogue Prince',
     authors: ['George R. R. Martin', 'Paul Davies'],

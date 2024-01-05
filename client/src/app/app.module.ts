@@ -7,6 +7,7 @@ import { BookDetailPageComponent } from '@layout/book-detail-page/book-detail-pa
 import { BooksPageComponent } from '@layout/books-page/books-page.component';
 import { DesignSystemPageComponent } from '@layout/design-system-page/design-system-page.component';
 import { BooksRoutingModule } from '@modules/books/books-routing.module';
+import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
 import { BookComponent } from '@modules/books/components/book/book.component';
 import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
 
@@ -16,6 +17,7 @@ import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
     AppComponent,
     BreadcrumbsComponent,
     BookComponent,
+    BookDetailComponent,
     // Pages
     BooksPageComponent,
     BookDetailPageComponent,
