@@ -1,1 +1,4 @@
-<zv-book></zv-book>
+<div *ngFor="let book of books; trackBy: bookTrackBy">
+  <zv-book [book]="book"></zv-book>
+  <br />
+</div>
