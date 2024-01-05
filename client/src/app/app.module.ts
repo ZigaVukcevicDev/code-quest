@@ -2,30 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { BreadcrumbsComponent } from '@app/shared/components/breadcrumbs/breadcrumbs.component';
-import { BookDetailPageComponent } from '@layout/book-detail-page/book-detail-page.component';
-import { BooksPageComponent } from '@layout/books-page/books-page.component';
-import { DesignSystemPageComponent } from '@layout/design-system-page/design-system-page.component';
-import { BooksRoutingModule } from '@modules/books/books-routing.module';
-import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
-import { BookComponent } from '@modules/books/components/book/book.component';
-import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
+import { MainPageComponent } from '@app/layout/main-page/main-page.component';
+import { HeaderComponent } from '@layout/header/header.component';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
     // Components
     AppComponent,
-    BreadcrumbsComponent,
-    BookComponent,
-    BookDetailComponent,
-    // Pages
-    BooksPageComponent,
-    BookDetailPageComponent,
-    DesignSystemPageComponent,
-    // Pipes
-    DividerPipe,
+    // Layout components
+    HeaderComponent,
+    MainPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BooksRoutingModule],
+  imports: [BrowserModule, SharedModule, AppRoutingModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

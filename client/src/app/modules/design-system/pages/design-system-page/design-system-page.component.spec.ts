@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DesignSystemPageComponent } from '@layout/design-system-page/design-system-page.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from '@app/shared/shared.module';
+import { DesignSystemPageComponent } from '@modules/design-system/pages/design-system-page/design-system-page.component';
 
 describe('DesignSystemPageComponent', () => {
   let component: DesignSystemPageComponent;
@@ -8,6 +10,7 @@ describe('DesignSystemPageComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DesignSystemPageComponent],
+      imports: [SharedModule, RouterTestingModule],
     });
     fixture = TestBed.createComponent(DesignSystemPageComponent);
     component = fixture.componentInstance;

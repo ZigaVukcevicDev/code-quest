@@ -73,3 +73,7 @@ Also visit [http://localhost:4200/design-system](http://localhost:4200/design-sy
 - [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [TODO: perhaps classes sort?](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+
+### Resources for best practices
+
+- [How to define a top-level folder structure for your Angular project](https://medium.com/@VenuThomas/how-to-define-a-top-level-folder-structure-for-your-angular-project-de6d151783e5) with [source code](https://github.com/venuthomas/AngularFileStructure)

@@ -1,4 +1,4 @@
-import { DividerPipe } from './divider.pipe';
+import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
 
 describe('DividerPipe', () => {
   it('create an instance', () => {

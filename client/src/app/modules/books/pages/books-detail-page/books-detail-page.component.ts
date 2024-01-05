@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import BookDetail from '@app/data/interfaces/book-detail.interface';
 
 @Component({
-  selector: 'zv-book-detail-page',
-  templateUrl: './book-detail-page.component.html',
-  styleUrls: ['./book-detail-page.component.scss'],
+  selector: 'zv-books-detail-page',
+  templateUrl: './books-detail-page.component.html',
+  styleUrls: ['./books-detail-page.component.scss'],
 })
-export class BookDetailPageComponent {
+export class BooksDetailPageComponent {
   bookDetail: BookDetail = {
     id: 2,
     name: 'The Rogue Prince',
