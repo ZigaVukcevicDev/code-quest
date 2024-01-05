@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Divider } from '@app/data/enums/divider.enum';
+import { UrlPath } from '@app/data/enums/url-path.enum';
 import Book from '@app/data/interfaces/book.interface';
 
 @Component({
@@ -8,7 +9,8 @@ import Book from '@app/data/interfaces/book.interface';
   styleUrls: ['./book.component.scss'],
 })
 export class BookComponent {
-  Divider: typeof Divider = Divider;
+  readonly Divider: typeof Divider = Divider;
+  readonly UrlPath: typeof UrlPath = UrlPath;
 
   // TODO: remove exclamation
   @Input() book!: Book;

@@ -8,7 +8,7 @@ import BookDetail from '@app/data/interfaces/book-detail.interface';
   styleUrls: ['./book-detail.component.scss'],
 })
 export class BookDetailComponent {
-  Divider: typeof Divider = Divider;
+  readonly Divider: typeof Divider = Divider;
 
   // TODO: remove exclamation
   @Input() bookDetail!: BookDetail;

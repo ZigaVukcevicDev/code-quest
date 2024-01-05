@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UrlPath } from '@data/enums/url-path.enum';
 import { environment } from '@environments/environment';
 import { MainPageComponent } from '@layout/main-page/main-page.component';
 import { BooksModule } from '@modules/books/books.module';
@@ -10,7 +11,7 @@ const routes: Routes = [
     component: MainPageComponent,
     children: [
       {
-        path: 'books',
+        path: UrlPath.BOOKS,
         loadChildren: () =>
           import('@modules/books/books.module').then(
             (module): typeof BooksModule => module.BooksModule
@@ -29,15 +30,13 @@ const routes: Routes = [
  */
 
 if (!environment.production) {
-  if (routes[0].children) {
-    routes[0].children.push({
-      path: 'design-system',
-      loadChildren: () =>
-        import('@modules/design-system/design-system.module').then(
-          (module): typeof BooksModule => module.DesignSystemModule
-        ),
-    });
-  }
+  routes[0].children?.push({
+    path: UrlPath.DESIGN_SYSTEM,
+    loadChildren: () =>
+      import('@modules/design-system/design-system.module').then(
+        (module): typeof BooksModule => module.DesignSystemModule
+      ),
+  });
 }
 
 @NgModule({
