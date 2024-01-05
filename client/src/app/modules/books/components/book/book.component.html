@@ -1,10 +1,22 @@
-<div>
-  <div>
-    <a [routerLink]="['/' + UrlPath.BOOKS]" title="">{{ book.name }}</a>
+<div class="sm:flex">
+  <div class="sm:basis-[35%]">
+    <p class="text-sm sm:hidden"><strong>Name</strong></p>
+    <p class="mb-3 sm:mb-0">
+      <a
+        [routerLink]="['/' + UrlPath.BOOKS]"
+        [title]="book.name"
+        class="text-yellow-600 underline underline-offset-4 hover:text-yellow-800 transition-colors duration-200"
+        >{{ book.name }}</a
+      >
+    </p>
   </div>
-  <div>
-    {{ book.authors | divider : Divider.SLASH }}
+  <div class="sm:basis-[35%]">
+    <p class="text-sm sm:hidden"><strong>Author(s)</strong></p>
+    <p>{{ book.authors | divider : Divider.SLASH }}</p>
   </div>
-  <div>{{ book.publisher }}</div>
-  <div>Favorite indicator</div>
+  <div class="sm:basis-[20%]">
+    <p class="text-sm sm:hidden"><strong>Publisher</strong></p>
+    <p>{{ book.publisher }}</p>
+  </div>
+  <div class="sm:basis-[10%]">Icon</div>
 </div>

@@ -1,4 +1,19 @@
-<div *ngFor="let book of books; trackBy: bookTrackBy">
-  <zv-book [book]="book"></zv-book>
-  <br />
+<!-- Header -->
+<!--
+  NOTE: Following header is shown only for width above small devices,
+  where it composes like a table header. Book component handles header
+  (for each book) for width below small devices.
+-->
+<div class="hidden sm:flex py-3">
+  <p class="text-sm sm:basis-[35%]"><strong>Name</strong></p>
+  <p class="text-sm sm:basis-[35%]"><strong>Author(s)</strong></p>
+  <p class="text-sm sm:basis-[20%]"><strong>Publisher</strong></p>
+  <p class="text-sm sm:basis-[10%]"><strong>Favorite</strong></p>
 </div>
+<!-- / Header -->
+
+<!-- Books -->
+<div *ngFor="let book of books; trackBy: bookTrackBy" class="mb-6 sm:mb-3">
+  <zv-book [book]="book"></zv-book>
+</div>
+<!-- / Books -->
