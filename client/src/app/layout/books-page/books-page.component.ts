@@ -9,13 +9,13 @@ import Book from '@app/data/interfaces/book.interface';
 export class BooksPageComponent {
   books: Book[] = [
     {
-      url: '1',
+      id: 1,
       name: 'A Game of Thrones',
       authors: ['George R. R. Martin'],
       publisher: 'Bantam Books',
     },
     {
-      url: '2',
+      id: 2,
       name: 'The Rogue Prince',
       authors: ['George R. R. Martin', 'Paul Davies'],
       publisher: 'Bantam Books',
@@ -38,10 +38,6 @@ export class BooksPageComponent {
    */
 
   bookTrackBy(index: number, item: Book) {
-    /**
-     * As API is not returning traditional `id` property,
-     * existing `url` property can be used as unique identifier.
-     */
-    return item.url;
+    return item.id;
   }
 }

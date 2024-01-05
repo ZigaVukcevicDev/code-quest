@@ -1,5 +1,5 @@
 export default interface Book {
-  url: string; // NOTE: Can be used as unique id
+  id: number;
   name: string;
   authors: string[];
   publisher: string;

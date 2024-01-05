@@ -1,5 +1,7 @@
 <div>
-  <div>{{ book.name }}</div>
+  <div>
+    <a [routerLink]="['/book', book.id]" title="">{{ book.name }}</a>
+  </div>
   <div>
     {{ book.authors | divider : Divider.SLASH }}
   </div>
