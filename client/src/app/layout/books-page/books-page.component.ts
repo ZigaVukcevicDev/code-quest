@@ -13,18 +13,12 @@ export class BooksPageComponent {
       name: 'A Game of Thrones',
       authors: ['George R. R. Martin'],
       publisher: 'Bantam Books',
-      mediaType: 'Hardcover',
-      numberOfPages: 694,
-      isbn: '978-0553103540',
     },
     {
       url: '2',
       name: 'The Rogue Prince',
       authors: ['George R. R. Martin', 'Paul Davies'],
       publisher: 'Bantam Books',
-      mediaType: 'Hardcover',
-      numberOfPages: 832,
-      isbn: '978-0345537263',
     },
   ];
 
@@ -38,7 +32,7 @@ export class BooksPageComponent {
    * to check the content of the elements and will only repaint/re-render if the content
    * is changed.
    *
-   * There is also a rumor that trackBy will be mandatory in next versions of Angular.
+   * There is also a rumor that usage of trackBy will be mandatory in next versions of Angular.
    *
    * Read more at: https://stackoverflow.com/questions/42108217/how-to-use-trackby-with-ngfor
    */

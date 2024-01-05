@@ -3,7 +3,4 @@ export default interface Book {
   name: string;
   authors: string[];
   publisher: string;
-  numberOfPages: number;
-  isbn: string;
-  mediaType: string;
 }
