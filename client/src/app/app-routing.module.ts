@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UrlPath } from '@data/enums/url-path.enum';
+import { UrlPath } from '@app/data/shared/url-path.enum';
 import { environment } from '@environments/environment';
 import { MainPageComponent } from '@layout/main-page/main-page.component';
 import { BooksModule } from '@modules/books/books.module';

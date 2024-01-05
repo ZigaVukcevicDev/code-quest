@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import BookDetail from '@app/data/interfaces/book-detail.interface';
+import BookDetail from '@app/data/books/models/book-detail.interface';
 
 @Component({
   selector: 'zv-books-detail-page',

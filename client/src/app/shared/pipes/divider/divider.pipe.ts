@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Divider } from '@app/data/enums/divider.enum';
+import { Divider } from '@app/data/shared/divider.enum';
 
 @Pipe({
   name: 'divider',

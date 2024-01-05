@@ -1,4 +1,4 @@
-import Book from '@data/interfaces/book.interface';
+import Book from '@app/data/books/models/book.interface';
 
 export default interface BookDetail extends Book {
   isbn: string;

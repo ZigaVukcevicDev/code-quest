@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Divider } from '@app/data/enums/divider.enum';
-import BookDetail from '@app/data/interfaces/book-detail.interface';
+import BookDetail from '@app/data/books/models/book-detail.interface';
+import { Divider } from '@app/data/shared/divider.enum';
 
 @Component({
   selector: 'zv-book-detail',

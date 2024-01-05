@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import Breadcrumbs from '@app/data/interfaces/breadcrumbs.interface';
+import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 @Component({
   selector: 'zv-design-system-page',

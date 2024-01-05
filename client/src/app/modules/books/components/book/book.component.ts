@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Divider } from '@app/data/enums/divider.enum';
-import { UrlPath } from '@app/data/enums/url-path.enum';
-import BookColumnWidths from '@app/data/interfaces/book-column-widths.interface';
-import Book from '@app/data/interfaces/book.interface';
+import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
+import Book from '@app/data/books/models/book.interface';
+import { Divider } from '@app/data/shared/divider.enum';
+import { UrlPath } from '@app/data/shared/url-path.enum';
 
 @Component({
   selector: 'zv-book',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import BookColumnWidths from '@app/data/interfaces/book-column-widths.interface';
-import Book from '@app/data/interfaces/book.interface';
+import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
+import Book from '@app/data/books/models/book.interface';
 
 @Component({
   selector: 'zv-books-page',

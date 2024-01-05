@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import Breadcrumbs from '@app/data/interfaces/breadcrumbs.interface';
+import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 /**
  * NOTE to code reviewer
