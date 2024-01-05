@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Divider } from '@app/data/enums/divider.enum';
 import { UrlPath } from '@app/data/enums/url-path.enum';
+import BookColumnWidths from '@app/data/interfaces/book-column-widths.interface';
 import Book from '@app/data/interfaces/book.interface';
 
 @Component({
@@ -14,4 +15,8 @@ export class BookComponent {
 
   // TODO: remove exclamation
   @Input() book!: Book;
+
+  // Column widths are used for widths above small devices
+  // TODO: remove exclamation
+  @Input() columnWidths!: BookColumnWidths;
 }

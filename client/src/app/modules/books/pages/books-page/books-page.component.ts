@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import BookColumnWidths from '@app/data/interfaces/book-column-widths.interface';
 import Book from '@app/data/interfaces/book.interface';
 
 @Component({
@@ -23,6 +24,13 @@ export class BooksPageComponent {
       isFavorite: false,
     },
   ];
+
+  columnWidths: BookColumnWidths = {
+    name: 35,
+    authors: 35,
+    publisher: 20,
+    favorite: 10,
+  };
 
   /**
    * NOTE
