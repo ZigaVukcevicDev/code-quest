@@ -12,6 +12,7 @@ export class BookDetailPageComponent {
     name: 'The Rogue Prince',
     authors: ['George R. R. Martin', 'Paul Davies'],
     publisher: 'Bantam Books',
+    isFavorite: false,
     isbn: '978-0553103540',
     numberOfPages: 694,
     country: 'United States',

@@ -3,4 +3,5 @@ export default interface Book {
   name: string;
   authors: string[];
   publisher: string;
+  isFavorite: boolean;
 }

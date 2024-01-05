@@ -13,12 +13,14 @@ export class BooksPageComponent {
       name: 'A Game of Thrones',
       authors: ['George R. R. Martin'],
       publisher: 'Bantam Books',
+      isFavorite: false,
     },
     {
       id: 2,
       name: 'The Rogue Prince',
       authors: ['George R. R. Martin', 'Paul Davies'],
       publisher: 'Bantam Books',
+      isFavorite: false,
     },
   ];
 
