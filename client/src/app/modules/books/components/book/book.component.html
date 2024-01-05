@@ -1,6 +1,12 @@
 <div>
   <div>{{ book.name }}</div>
-  <div>{{ book.authors }}, published by {{ book.publisher }}</div>
+  <div>
+    {{ book.authors | divider : dividerSlash }}
+  </div>
+  <div>
+    {{ book.authors | divider : dividerComma }}
+  </div>
+  <div>{{ book.publisher }}</div>
   <div>{{ book.mediaType }}</div>
   <div>{{ book.numberOfPages }}</div>
   <div>{{ book.isbn }}</div>

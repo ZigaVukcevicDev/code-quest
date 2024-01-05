@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Divider } from '@app/data/enums/divider.enum';
 import Book from '@app/data/interfaces/book.interface';
 
 @Component({
@@ -7,6 +8,9 @@ import Book from '@app/data/interfaces/book.interface';
   styleUrls: ['./book.component.scss'],
 })
 export class BookComponent {
+  dividerSlash: Divider = Divider.SLASH;
+  dividerComma: Divider = Divider.COMMA;
+
   // TODO: remove exclamation
   @Input() book!: Book;
 }
