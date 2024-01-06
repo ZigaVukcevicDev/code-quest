@@ -58,12 +58,10 @@ Visit
 - [http://localhost:4200](http://localhost:4200) for the client and
 - [http://localhost:3000](http://localhost:3000) for the API.
 
-#### Design system
+### Design system 🎨
 
-Also visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, representations of elements or components which you can reuse.
+Visit [http://localhost:4200/design-system](http://localhost:4200/design-system) for styling guides, representations of elements or components which you can reuse.
 
-> NOTE
->
 > This page is always a **good entry point** to continue development. If you develop something new, please add it to the page, so next developer can pick it up.
 
 ### VSC plugins for smoother DX 🏄
