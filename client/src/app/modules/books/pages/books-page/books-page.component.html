@@ -1,3 +1,5 @@
+<zv-breadcrumbs [breadcrumbs]="breadcrumbs"></zv-breadcrumbs>
+
 <!-- Header -->
 <!--
   Note: Following header is shown only for width above small devices,
@@ -14,7 +16,10 @@
   <p class="text-sm text-yellow-600" [ngClass]="bookColumnClasses['publisher']">
     <strong>Publisher</strong>
   </p>
-  <p class="text-sm text-yellow-600" [ngClass]="bookColumnClasses['favorite']">
+  <p
+    class="text-sm text-yellow-600 sm:text-center"
+    [ngClass]="bookColumnClasses['favorite']"
+  >
     <strong>Favorite</strong>
   </p>
 </div>

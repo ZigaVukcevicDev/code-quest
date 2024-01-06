@@ -3,6 +3,7 @@ import { AppState } from '@app/app-state.interface';
 import BookColumnClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/books-service/books-service';
+import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { selectBooksData } from '@modules/books/store/selectors/books.selector';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -13,6 +14,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./books-page.component.scss'],
 })
 export class BooksPageComponent implements OnInit {
+  breadcrumbs: Breadcrumbs = {
+    text: 'Books',
+    link: null,
+    childText: null,
+  };
+
   books$: Observable<Book[]> = this.store.select(selectBooksData);
 
   /**

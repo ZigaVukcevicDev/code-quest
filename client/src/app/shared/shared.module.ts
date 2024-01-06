@@ -18,7 +18,7 @@ import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
     RouterModule,
     NgIconsModule.withIcons({
       featherHome,
-    }), // NOTE: see all available icons at https://feathericons.com/],
+    }),
   ],
   exports: [
     // Components

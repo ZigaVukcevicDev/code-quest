@@ -1,10 +1,10 @@
 <h2 class="text-2xl mb-5"><strong>Design system</strong></h2>
 
 <!-- Forms -->
-<h3 class="text-xl text-gray-500 mb-5">&bull; Forms</h3>
+<h3 class="text-xl text-gray-400 mb-5">Forms</h3>
 
 <!-- Buttons -->
-<h4 class="text-md text-gray-500 mb-5">&mdash;&bull; Buttons</h4>
+<h4 class="text-md text-gray-400 mb-5">Buttons</h4>
 <div
   class="mb-10 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 >
@@ -29,14 +29,60 @@
 <!-- / Buttons -->
 <!-- / Forms -->
 
-<!-- Breadcrumbs -->
-<h3 class="text-xl text-gray-500 mb-5">&bull; Breadcrumbs</h3>
+<!-- Icons -->
+<h3 class="text-xl text-gray-400 mb-5">Icons</h3>
 
 <div class="mb-10">
-  <h4 class="text-md text-gray-500 mb-1">&mdash;&bull; One level</h4>
+  <p>
+    <ng-icon
+      name="featherCoffee"
+      class="inline-block mr-2"
+      strokeWidth="1"
+      size="24"
+      [ngStyle]="{
+        transform: 'translateX(0) translateY(5px)'
+      }"
+    ></ng-icon>
+    <ng-icon
+      name="featherChrome"
+      class="inline-block mr-2"
+      strokeWidth="1"
+      size="24"
+      [ngStyle]="{
+        transform: 'translateX(0) translateY(5px)'
+      }"
+    ></ng-icon>
+    <ng-icon
+      name="featherHome"
+      class="inline-block mr-2"
+      strokeWidth="1"
+      size="24"
+      [ngStyle]="{
+        transform: 'translateX(0) translateY(5px)'
+      }"
+    ></ng-icon>
+    <span class="text-gray-400">
+      See all available icons at
+      <a
+        href="https://feathericons.com"
+        title="feathericons.com"
+        target="_blank"
+        rel="noopener"
+        >feathericons.com</a
+      >.
+    </span>
+  </p>
+</div>
+<!-- / Icons -->
+
+<!-- Breadcrumbs -->
+<h3 class="text-xl text-gray-400 mb-5">Breadcrumbs</h3>
+
+<div class="mb-10">
+  <h4 class="text-md text-gray-400 mb-1">One level</h4>
   <zv-breadcrumbs [breadcrumbs]="breadcrumbsExample1"></zv-breadcrumbs>
 
-  <h4 class="text-md text-gray-500 mt-4 mb-1">&mdash;&bull; Two levels</h4>
+  <h4 class="text-md text-gray-400 mt-4 mb-1">Two levels</h4>
   <zv-breadcrumbs [breadcrumbs]="breadcrumbsExample2"></zv-breadcrumbs>
 </div>
 <!-- / Breadcrumbs -->

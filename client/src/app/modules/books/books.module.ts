@@ -7,6 +7,8 @@ import { BookComponent } from '@modules/books/components/book/book.component';
 import { BooksDetailPageComponent } from '@modules/books/pages/books-detail-page/books-detail-page.component';
 import { BooksPageComponent } from '@modules/books/pages/books-page/books-page.component';
 import { booksReducer } from '@modules/books/store/reducers/books.reducer';
+import { NgIconsModule } from '@ng-icons/core';
+import { featherHeart } from '@ng-icons/feather-icons';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
@@ -23,6 +25,9 @@ import { StoreModule } from '@ngrx/store';
     SharedModule,
     BooksRoutingModule,
     StoreModule.forRoot({ books: booksReducer }),
+    NgIconsModule.withIcons({
+      featherHeart,
+    }),
   ],
 })
 export class BooksModule {}
