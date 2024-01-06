@@ -1,22 +1,39 @@
 <div *ngIf="book && columnClasses" class="sm:flex">
-  <div [ngClass]="columnClasses['name']">
-    <p class="text-sm sm:hidden"><strong>Name</strong></p>
+  <div
+    [ngClass]="columnClasses['name']"
+    class="sm:border-b-[1px] sm:border-solid sm:border-orange-950 sm:py-3 pr-3"
+  >
+    <p class="text-sm text-yellow-600 mt-3 sm:hidden sm:mt-0">
+      <strong>Name</strong>
+    </p>
     <p class="mb-3 sm:mb-0">
-      <a
-        [routerLink]="['/' + UrlPath.BOOKS]"
-        [title]="book.name"
-        class="text-yellow-600 underline underline-offset-4 hover:text-yellow-800 transition-colors duration-200"
-        >{{ book.name }}</a
-      >
+      <a [routerLink]="['/' + UrlPath.BOOKS]" [title]="book.name">{{
+        book.name
+      }}</a>
     </p>
   </div>
-  <div [ngClass]="columnClasses['authors']">
-    <p class="text-sm sm:hidden"><strong>Author(s)</strong></p>
+  <div
+    [ngClass]="columnClasses['authors']"
+    class="sm:border-b-[1px] sm:border-solid sm:border-orange-950 sm:py-3 pr-3"
+  >
+    <p class="text-sm text-yellow-600 mt-4 sm:hidden sm:mt-0">
+      <strong>Author(s)</strong>
+    </p>
     <p>{{ book.authors | divider : Divider.SLASH }}</p>
   </div>
-  <div [ngClass]="columnClasses['publisher']">
-    <p class="text-sm sm:hidden"><strong>Publisher</strong></p>
+  <div
+    [ngClass]="columnClasses['publisher']"
+    class="sm:border-b-[1px] sm:border-solid sm:border-orange-950 sm:py-3 pr-3"
+  >
+    <p class="text-sm text-yellow-600 mt-4 sm:hidden sm:mt-0">
+      <strong>Publisher</strong>
+    </p>
     <p>{{ book.publisher }}</p>
   </div>
-  <div [ngClass]="columnClasses['favorite']">Icon</div>
+  <div
+    [ngClass]="columnClasses['favorite']"
+    class="border-b-[1px] border-solid border-orange-950 py-3"
+  >
+    Icon
+  </div>
 </div>
