@@ -1,4 +1,4 @@
-<zv-breadcrumbs [breadcrumbs]="breadcrumbs"></zv-breadcrumbs>
+<cq-breadcrumbs [breadcrumbs]="breadcrumbs"></cq-breadcrumbs>
 
 <!-- Header -->
 <!--
@@ -30,6 +30,6 @@
   *ngFor="let book of books$ | async; trackBy: bookTrackBy"
   class="mb-6 sm:mb-3"
 >
-  <zv-book [book]="book" [columnClasses]="bookColumnClasses"></zv-book>
+  <cq-book [book]="book" [columnClasses]="bookColumnClasses"></cq-book>
 </div>
 <!-- / Books -->

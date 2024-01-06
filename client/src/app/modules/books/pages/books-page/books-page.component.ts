@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'zv-books-page',
+  selector: 'cq-books-page',
   templateUrl: './books-page.component.html',
   styleUrls: ['./books-page.component.scss'],
 })

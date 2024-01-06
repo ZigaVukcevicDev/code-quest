@@ -10,7 +10,7 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
  */
 
 @Component({
-  selector: 'zv-breadcrumbs',
+  selector: 'cq-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss'],
 })

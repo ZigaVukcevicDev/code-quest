@@ -5,7 +5,7 @@ import { Divider } from '@app/data/shared/divider.enum';
 import { UrlPath } from '@app/data/shared/url-path.enum';
 
 @Component({
-  selector: 'zv-book',
+  selector: 'cq-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })

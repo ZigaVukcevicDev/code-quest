@@ -3,7 +3,7 @@ import BookDetail from '@app/data/books/models/book-detail.interface';
 import { Divider } from '@app/data/shared/divider.enum';
 
 @Component({
-  selector: 'zv-book-detail',
+  selector: 'cq-book-detail',
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss'],
 })

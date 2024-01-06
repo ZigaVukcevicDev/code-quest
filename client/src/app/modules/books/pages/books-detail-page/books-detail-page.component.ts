@@ -5,7 +5,7 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
 import { UrlPath } from '@app/data/shared/url-path.enum';
 
 @Component({
-  selector: 'zv-books-detail-page',
+  selector: 'cq-books-detail-page',
   templateUrl: './books-detail-page.component.html',
   styleUrls: ['./books-detail-page.component.scss'],
 })

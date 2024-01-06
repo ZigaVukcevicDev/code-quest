@@ -6,7 +6,7 @@ import {
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 @Component({
-  selector: 'zv-design-system-page',
+  selector: 'cq-design-system-page',
   templateUrl: './design-system-page.component.html',
   styleUrls: ['./design-system-page.component.scss'],
 })
