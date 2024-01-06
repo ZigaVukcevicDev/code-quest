@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '@app/app-state.interface';
-import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
+import BookColumnClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/books-service/books-service';
 import { selectBooksData } from '@modules/books/store/selectors/books.selector';
@@ -15,11 +15,17 @@ import { Observable } from 'rxjs';
 export class BooksPageComponent implements OnInit {
   books$: Observable<Book[]> = this.store.select(selectBooksData);
 
-  columnWidths: BookColumnWidths = {
-    name: 35,
-    authors: 35,
-    publisher: 20,
-    favorite: 10,
+  /**
+   * Note:
+   *
+   * Tailwindcss is not capable to pick up dynamic classes.
+   * We must provide whole class names.
+   */
+  bookColumnClasses: BookColumnClasses = {
+    name: 'sm:basis-[35%]',
+    authors: 'sm:basis-[35%]',
+    publisher: 'sm:basis-[20%]',
+    favorite: 'sm:basis-[10%]',
   };
 
   constructor(

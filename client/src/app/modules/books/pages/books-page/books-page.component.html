@@ -5,16 +5,16 @@
   (for each book) for width below small devices.
 -->
 <div class="hidden sm:flex py-3">
-  <p class="text-sm sm:basis-[{{ columnWidths['name'] }}%]">
+  <p class="text-sm" [ngClass]="bookColumnClasses['name']">
     <strong>Name</strong>
   </p>
-  <p class="text-sm sm:basis-[{{ columnWidths['authors'] }}%]">
+  <p class="text-sm" [ngClass]="bookColumnClasses['authors']">
     <strong>Author(s)</strong>
   </p>
-  <p class="text-sm sm:basis-[{{ columnWidths['publisher'] }}%]">
+  <p class="text-sm" [ngClass]="bookColumnClasses['publisher']">
     <strong>Publisher</strong>
   </p>
-  <p class="text-sm sm:basis-[{{ columnWidths['favorite'] }}%]">
+  <p class="text-sm" [ngClass]="bookColumnClasses['favorite']">
     <strong>Favorite</strong>
   </p>
 </div>
@@ -25,6 +25,6 @@
   *ngFor="let book of books$ | async; trackBy: bookTrackBy"
   class="mb-6 sm:mb-3"
 >
-  <zv-book [book]="book" [columnWidths]="columnWidths"></zv-book>
+  <zv-book [book]="book" [columnClasses]="bookColumnClasses"></zv-book>
 </div>
 <!-- / Books -->

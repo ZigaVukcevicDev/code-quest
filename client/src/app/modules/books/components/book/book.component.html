@@ -1,5 +1,5 @@
-<div *ngIf="book && columnWidths" class="sm:flex">
-  <div class="sm:basis-[{{ columnWidths['name'] }}%]">
+<div *ngIf="book && columnClasses" class="sm:flex">
+  <div [ngClass]="columnClasses['name']">
     <p class="text-sm sm:hidden"><strong>Name</strong></p>
     <p class="mb-3 sm:mb-0">
       <a
@@ -10,13 +10,13 @@
       >
     </p>
   </div>
-  <div class="sm:basis-[{{ columnWidths['authors'] }}%]">
+  <div [ngClass]="columnClasses['authors']">
     <p class="text-sm sm:hidden"><strong>Author(s)</strong></p>
     <p>{{ book.authors | divider : Divider.SLASH }}</p>
   </div>
-  <div class="sm:basis-[{{ columnWidths['publisher'] }}%]">
+  <div [ngClass]="columnClasses['publisher']">
     <p class="text-sm sm:hidden"><strong>Publisher</strong></p>
     <p>{{ book.publisher }}</p>
   </div>
-  <div class="sm:basis-[{{ columnWidths['favorite'] }}%]">Icon</div>
+  <div [ngClass]="columnClasses['favorite']">Icon</div>
 </div>

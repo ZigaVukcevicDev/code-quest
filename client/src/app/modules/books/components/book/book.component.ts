@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
+import BookColumnWidthsClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 import { Divider } from '@app/data/shared/divider.enum';
 import { UrlPath } from '@app/data/shared/url-path.enum';
@@ -15,6 +15,6 @@ export class BookComponent {
 
   @Input() book: Book | undefined;
 
-  // Column widths are used for widths above small devices
-  @Input() columnWidths: BookColumnWidths | undefined;
+  // Column classes are used for widths above small devices
+  @Input() columnClasses: BookColumnWidthsClasses | undefined;
 }
