@@ -21,7 +21,10 @@
 <!-- / Header -->
 
 <!-- Books -->
-<div *ngFor="let book of books; trackBy: bookTrackBy" class="mb-6 sm:mb-3">
+<div
+  *ngFor="let book of books$ | async; trackBy: bookTrackBy"
+  class="mb-6 sm:mb-3"
+>
   <zv-book [book]="book" [columnWidths]="columnWidths"></zv-book>
 </div>
 <!-- / Books -->

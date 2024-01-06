@@ -6,24 +6,14 @@ import { Divider } from '@app/data/shared/divider.enum';
 })
 export class DividerPipe implements PipeTransform {
   transform(data: string[], divider: Divider): unknown {
-    let joinedDataByDivider;
-
     switch (divider) {
-      case Divider.SLASH:
-        joinedDataByDivider = data.join(' / ');
-        break;
-      case Divider.COMMA:
-        joinedDataByDivider = data.join(', ');
-        break;
-      default:
-      /**
-       * NOTE
-       *
-       * Default case should never happen as divider uses Enum. It is here
-       * because of reason that switch requires default behavior.
-       */
-    }
+      case Divider.SLASH: {
+        return data.join(' / ');
+      }
 
-    return joinedDataByDivider;
+      case Divider.COMMA: {
+        return data.join(', ');
+      }
+    }
   }
 }

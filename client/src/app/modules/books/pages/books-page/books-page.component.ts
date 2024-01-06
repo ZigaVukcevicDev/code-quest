@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
-import { bookMock1, bookMock2 } from '@app/data/books/mocks/book.mock';
+import { Component, OnInit } from '@angular/core';
+import { AppState } from '@app/app-state.interface';
 import BookColumnWidths from '@app/data/books/models/book-column-widths.interface';
 import Book from '@app/data/books/models/book.interface';
+import { selectBooksData } from '@modules/books/store/selectors/books.selector';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'zv-books-page',
   templateUrl: './books-page.component.html',
   styleUrls: ['./books-page.component.scss'],
 })
-export class BooksPageComponent {
-  books: Book[] = [bookMock1, bookMock2];
+export class BooksPageComponent implements OnInit {
+  books$: Observable<Book[]> = this.store.select(selectBooksData);
 
   columnWidths: BookColumnWidths = {
     name: 35,
@@ -17,6 +20,15 @@ export class BooksPageComponent {
     publisher: 20,
     favorite: 10,
   };
+
+  constructor(private readonly store: Store<AppState>) {}
+
+  ngOnInit() {
+    // TODO: remove
+    this.store
+      .select((state) => state)
+      .subscribe((state) => console.log({ state }));
+  }
 
   /**
    * NOTE
