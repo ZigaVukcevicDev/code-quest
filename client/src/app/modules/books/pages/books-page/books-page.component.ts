@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from '@app/app-state.interface';
 import BookColumnClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
-import { BooksService } from '@app/data/services/books-service/books-service';
+import { BooksService } from '@app/data/services/api/books-service/books-service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { selectBooksData } from '@modules/books/store/selectors/books.selector';
 import { Store } from '@ngrx/store';

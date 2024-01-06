@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
-import { ApiUrl } from '@data/services/api-url.enum';
+import { ApiUrl } from '@app/data/services/models/api-url.enum';
 import { Observable } from 'rxjs';
 
 @Injectable({
