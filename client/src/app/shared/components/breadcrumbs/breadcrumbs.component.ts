@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 /**
- * NOTE to code reviewer
+ * Note to code reviewer:
  *
  * For simplicity and demo purpose, this component assumes we have breadcrumbs
  * with only 2 levels. If there would be more levels (and not knowing

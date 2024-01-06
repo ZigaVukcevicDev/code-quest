@@ -22,7 +22,7 @@ const routes: Routes = [
 ];
 
 /**
- * NOTE
+ * Note:
  *
  * Design system page uses semantic tags (e.g. h1) and should never be visible on production.
  * It should be available only outside of production, avoiding web crawlers to index it and
