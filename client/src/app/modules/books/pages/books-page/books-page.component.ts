@@ -38,7 +38,7 @@ export class BooksPageComponent implements OnInit {
   /**
    * Note:
    *
-   * Tailwindcss is not capable to pick up dynamic classes.
+   * tailwindcss is not capable to pick up dynamic classes.
    * We must provide whole class names.
    */
 

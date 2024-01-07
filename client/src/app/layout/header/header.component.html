@@ -1,1 +1,29 @@
-<p>header works!</p>
+<a
+  [routerLink]="['/']"
+  routerLinkActive="text-red-300"
+  [routerLinkActiveOptions]="{ exact: true }"
+  title="Home"
+  >Logo</a
+>
+
+<nav>
+  <ul>
+    <li>
+      <a
+        [routerLink]="['/' + UrlPath.BOOKS]"
+        routerLinkActive="text-red-300"
+        title="Books"
+        >Books</a
+      >
+    </li>
+    <li routerLinkActive="mt-5">
+      <a
+        [routerLink]="['/' + UrlPath.BOOKS_FAVORITE]"
+        routerLinkActive="text-red-300"
+        [routerLinkActiveOptions]="{ exact: true }"
+        title="Books"
+        >Favorite books</a
+      >
+    </li>
+  </ul>
+</nav>
