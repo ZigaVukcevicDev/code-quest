@@ -4,7 +4,12 @@ import BookColumnClasses from '@app/data/books/models/book-column-classes.interf
 import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/api/books-service/books-service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
-import { selectBooksData } from '@modules/books/store/selectors/books.selector';
+import { BooksActionTypes } from '@modules/books/store/data/models/books-action-types.enum';
+import {
+  selectBooksData,
+  selectBooksHasLoaded,
+  selectBooksIsLoading,
+} from '@modules/books/store/selectors/books.selector';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -21,6 +26,8 @@ export class BooksPageComponent implements OnInit {
   };
 
   books$: Observable<Book[]> = this.store.select(selectBooksData);
+  isLoading$: Observable<boolean> = this.store.select(selectBooksIsLoading);
+  hasLoaded$: Observable<boolean> = this.store.select(selectBooksHasLoaded);
 
   /**
    * Note:
@@ -46,19 +53,26 @@ export class BooksPageComponent implements OnInit {
       .select((state) => state)
       .subscribe((state) => console.log({ state }));
 
-    this.booksService.getBooks().subscribe({
-      next: (value) => {
-        console.log('Books');
-        console.log(value);
-      },
-    });
+    console.log('dispatching');
+    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS_DATA });
 
-    this.booksService.getBookById(1).subscribe({
-      next: (value) => {
-        console.log('Book with id 1');
-        console.log(value);
-      },
-    });
+    this.store
+      .select((state) => state)
+      .subscribe((state) => console.log({ state }));
+
+    // this.booksService.getBooks().subscribe({
+    //   next: (value) => {
+    //     // console.log('Books');
+    //     console.log(value);
+    //   },
+    // });
+
+    // this.booksService.getBookById(1).subscribe({
+    //   next: (value) => {
+    //     console.log('Book with id 1');
+    //     console.log(value);
+    //   },
+    // });
   }
 
   /**

@@ -15,7 +15,7 @@ describe('BooksPageComponent', () => {
   beforeEach(() => {
     const initialState: BooksState = {
       data: [bookMock1, bookMock2],
-      isPending: false,
+      isLoading: false,
       hasLoaded: false,
     };
 

@@ -26,10 +26,21 @@
 <!-- / Header -->
 
 <!-- Books -->
-<div
-  *ngFor="let book of books$ | async; trackBy: bookTrackBy"
-  class="mb-6 sm:mb-3"
->
-  <cq-book [book]="book" [columnClasses]="bookColumnClasses"></cq-book>
-</div>
+<div *ngIf="isLoading$ | async">Loading ...</div>
+<ng-container *ngIf="!(isLoading$ | async)">
+  <ng-container *ngIf="hasLoaded$ | async">
+    <div
+      *ngFor="let book of books$ | async; trackBy: bookTrackBy"
+      class="mb-6 sm:mb-3"
+    >
+      <cq-book [book]="book" [columnClasses]="bookColumnClasses"></cq-book>
+    </div>
+  </ng-container>
+  <!--
+    Note to code reviewer: To see error, e.g. corrupt apiUrl in books-service.ts file.
+  -->
+  <div *ngIf="!(hasLoaded$ | async)">
+    Uh, we have run into a problem. Please refresh the page or try later.
+  </div>
+</ng-container>
 <!-- / Books -->

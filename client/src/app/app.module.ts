@@ -5,6 +5,8 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { MainPageComponent } from '@app/layout/main-page/main-page.component';
 import { HeaderComponent } from '@layout/header/header.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
@@ -15,7 +17,14 @@ import { SharedModule } from '@shared/shared.module';
     HeaderComponent,
     MainPageComponent,
   ],
-  imports: [BrowserModule, SharedModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    SharedModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot({}),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
