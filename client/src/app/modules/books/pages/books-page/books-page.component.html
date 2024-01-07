@@ -1,9 +1,23 @@
 <cq-breadcrumbs [breadcrumbs]="breadcrumbs"></cq-breadcrumbs>
 
-<button type="button" (click)="searchBooksByName()" class="button">
-  Search
+<!-- Search -->
+
+<!-- TODO: add search icon -->
+
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  (ngModelChange)="searchTermChange$.next($event)"
+/>
+<button type="button" (click)="clearSearch()" class="button mr-3">
+  Clear search
 </button>
-<p>E.g. The Mystery Knight</p>
+
+<p>
+  <small>Enter book name (case-insensitive), e.g. The Mystery Knight</small>
+</p>
+
+<!-- Search -->
 
 <!-- Header -->
 <!--
@@ -42,10 +56,20 @@
     </div>
   </ng-container>
   <!--
-    Note to code reviewer: To see error, e.g. corrupt apiUrl in books-service.ts file.
+    Note to code reviewer:
+
+    To see error, e.g. corrupt apiUrl in books-service.ts file. I have tested it with
+    `${ApiUrl.BASE}/${ApiUrl.PATH}-not-there`.
+
+    In the real scenario we would expect verbose errors from API to guarantee good user
+    experience. It is always a good practice to show user two things:
+      a) error
+      b) what can be done (but will not necessarily solve the issue)
   -->
   <div *ngIf="!(hasLoaded$ | async)">
     Uh, we have run into a problem. Please refresh the page or try later.
   </div>
 </ng-container>
 <!-- / Books -->
+
+<!-- TODO missing No results -->

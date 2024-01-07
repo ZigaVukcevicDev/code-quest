@@ -6,7 +6,8 @@ import { createAction, props } from '@ngrx/store';
 
 export const loadBooksAction = createAction(BooksActionTypes.LOAD_BOOKS);
 export const loadBooksByNameAction = createAction(
-  BooksActionTypes.LOAD_BOOKS_BY_NAME
+  BooksActionTypes.LOAD_BOOKS_BY_NAME,
+  props<{ payload: string }>()
 );
 export const loadBooksSuccessAction = createAction(
   BooksActionTypes.LOAD_BOOKS_SUCCESS,

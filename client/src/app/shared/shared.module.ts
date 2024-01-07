@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgIconsModule } from '@ng-icons/core';
 import { featherHome } from '@ng-icons/feather-icons';
@@ -19,6 +20,7 @@ import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
     NgIconsModule.withIcons({
       featherHome,
     }),
+    FormsModule,
   ],
   exports: [
     // Components

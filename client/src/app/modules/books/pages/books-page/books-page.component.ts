@@ -4,14 +4,17 @@ import BookColumnClasses from '@app/data/books/models/book-column-classes.interf
 import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/api/books-service/books-service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
-import { BooksActionTypes } from '@modules/books/store/data/models/books-action-types.enum';
 import {
   selectBooks,
   selectBooksHasLoaded,
   selectBooksIsLoading,
 } from '@modules/books/store/selectors/books.selector';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
+import {
+  loadBooksAction,
+  loadBooksByNameAction,
+} from '../../store/actions/books.action';
 
 @Component({
   selector: 'cq-books-page',
@@ -29,6 +32,9 @@ export class BooksPageComponent implements OnInit {
   isLoading$: Observable<boolean> = this.store.select(selectBooksIsLoading);
   hasLoaded$: Observable<boolean> = this.store.select(selectBooksHasLoaded);
 
+  searchTerm: string = '';
+  searchTermChange$ = new Subject<string>();
+
   /**
    * Note:
    *
@@ -44,37 +50,27 @@ export class BooksPageComponent implements OnInit {
   };
 
   constructor(
+    // TODO: remove
     private readonly booksService: BooksService,
     private readonly store: Store<AppState>
   ) {}
 
   ngOnInit() {
+    this.store.dispatch(loadBooksAction());
+
+    this.searchTermChange$
+      .pipe(debounceTime(200), distinctUntilChanged())
+      .subscribe(() => {
+        const actionToDispatch = this.searchTerm
+          ? loadBooksByNameAction({ payload: this.searchTerm })
+          : loadBooksAction();
+        this.store.dispatch(actionToDispatch);
+      });
+
     // TODO: remove
     this.store
       .select((state) => state)
       .subscribe((state) => console.log({ state }));
-
-    console.log('dispatching LOAD_BOOKS');
-    // TODO: can this be replaced with action?
-    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS });
-
-    this.store
-      .select((state) => state)
-      .subscribe((state) => console.log({ state }));
-
-    // this.booksService.getBooks().subscribe({
-    //   next: (value) => {
-    //     // console.log('Books');
-    //     console.log(value);
-    //   },
-    // });
-
-    // this.booksService.getBooksByName('A Game Of Thrones').subscribe({
-    //   next: (value) => {
-    //     console.log('Book with name');
-    //     console.log(value);
-    //   },
-    // });
 
     // this.booksService.getBookById(1).subscribe({
     //   next: (value) => {
@@ -84,10 +80,11 @@ export class BooksPageComponent implements OnInit {
     // });
   }
 
-  searchBooksByName() {
-    console.log('dispatching LOAD_BOOKS_BY_NAME');
-    // TODO: can this be replaced with action?
-    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS_BY_NAME });
+  searchBooksByName() {}
+
+  clearSearch() {
+    this.searchTerm = '';
+    this.store.dispatch(loadBooksAction());
   }
 
   /**

@@ -35,8 +35,9 @@ export class BooksEffects {
   loadBooksByName$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadBooksByNameAction),
-      exhaustMap(() =>
-        this.booksService.getBooksByName('The Mystery Knight').pipe(
+      map((action) => action.payload),
+      exhaustMap((searchTerm) =>
+        this.booksService.getBooksByName(searchTerm).pipe(
           map((books) => {
             console.log('effect loadBooksByName$ success', books);
             return loadBooksSuccessAction({ payload: books });

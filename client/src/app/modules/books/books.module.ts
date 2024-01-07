@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@app/shared/shared.module';
 import { BooksRoutingModule } from '@modules/books/books-routing.module';
 import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
@@ -25,6 +26,7 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
     NgIconsModule.withIcons({
       featherHeart,
     }),
