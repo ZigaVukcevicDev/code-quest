@@ -10,7 +10,7 @@ import { BooksPageComponent } from '@modules/books/pages/books-page/books-page.c
 import { BooksEffects } from '@modules/books/store/effects/books.effect';
 import { booksReducer } from '@modules/books/store/reducers/books.reducer';
 import { NgIconsModule } from '@ng-icons/core';
-import { featherHeart } from '@ng-icons/feather-icons';
+import { featherHeart, featherSearch } from '@ng-icons/feather-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
@@ -29,6 +29,7 @@ import { StoreModule } from '@ngrx/store';
     FormsModule,
     NgIconsModule.withIcons({
       featherHeart,
+      featherSearch,
     }),
     BooksRoutingModule,
     StoreModule.forFeature('books', booksReducer),

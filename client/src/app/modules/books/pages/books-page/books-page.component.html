@@ -1,22 +1,38 @@
 <cq-breadcrumbs [breadcrumbs]="breadcrumbs"></cq-breadcrumbs>
 
 <!-- Search -->
+<div class="mt-3 mb-5">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="searchTermChange$.next($event)"
+    placeholder="Search for books ..."
+    class="w-64 rounded-xl h-10 bg-transparent px-4 py-0 outline-none border-[2px] border-yellow-500 focus:text-white focus:border-yellow-400"
+    spellcheck="false"
+  />
+  <ng-icon
+    name="featherSearch"
+    class="inline-block ml-2 mr-2 text-black"
+    strokeWidth="2"
+    size="32"
+    [ngStyle]="{
+      transform: 'translateX(0) translateY(10px)'
+    }"
+  ></ng-icon>
+  <!-- TODO: styling -->
+  <!--
+  <button type="button" (click)="clearSearch()" class="button mr-3">
+    Clear search
+  </button>
+-->
 
-<!-- TODO: add search icon -->
-
-<input
-  type="text"
-  [(ngModel)]="searchTerm"
-  (ngModelChange)="searchTermChange$.next($event)"
-/>
-<button type="button" (click)="clearSearch()" class="button mr-3">
-  Clear search
-</button>
-
-<p>
-  <small>Enter book name (case-insensitive), e.g. The Mystery Knight</small>
-</p>
-
+  <p class="leading-[100%] mt-2 text-gray-300">
+    <small
+      >Enter full book name (case-insensitive),<br />
+      e.g. The Mystery Knight</small
+    >
+  </p>
+</div>
 <!-- Search -->
 
 <!-- Header -->
