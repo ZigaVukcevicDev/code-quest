@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BooksService } from '@app/data/services/api/books-service/books-service';
 import {
   loadBooksAction,
+  loadBooksByNameAction,
   loadBooksErrorAction,
   loadBooksSuccessAction,
 } from '@modules/books/store/actions/books.action';
@@ -24,6 +25,24 @@ export class BooksEffects {
           }),
           catchError((error) => {
             console.log('effect loadBooks$ error', error);
+            return of(loadBooksErrorAction());
+          })
+        )
+      )
+    )
+  );
+
+  loadBooksByName$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadBooksByNameAction),
+      exhaustMap(() =>
+        this.booksService.getBooksByName('The Mystery Knight').pipe(
+          map((books) => {
+            console.log('effect loadBooksByName$ success', books);
+            return loadBooksSuccessAction({ payload: books });
+          }),
+          catchError((error) => {
+            console.log('effect loadBooksByName$ error', error);
             return of(loadBooksErrorAction());
           })
         )

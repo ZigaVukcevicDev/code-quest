@@ -1,6 +1,7 @@
 import { BooksState } from '@app/modules/books/store/data/models/books-state.interface';
 import {
   loadBooksAction,
+  loadBooksByNameAction,
   loadBooksErrorAction,
   loadBooksSuccessAction,
 } from '@modules/books/store/actions/books.action';
@@ -16,6 +17,14 @@ export const booksReducer: ActionReducer<BooksState, Action> = createReducer(
   initialState,
   on(
     loadBooksAction,
+    (state): BooksState => ({
+      ...state,
+      isLoading: true,
+      hasLoaded: false,
+    })
+  ),
+  on(
+    loadBooksByNameAction,
     (state): BooksState => ({
       ...state,
       isLoading: true,

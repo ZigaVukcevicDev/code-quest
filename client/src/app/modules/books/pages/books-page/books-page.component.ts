@@ -6,7 +6,7 @@ import { BooksService } from '@app/data/services/api/books-service/books-service
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { BooksActionTypes } from '@modules/books/store/data/models/books-action-types.enum';
 import {
-  selectBooksData,
+  selectBooks,
   selectBooksHasLoaded,
   selectBooksIsLoading,
 } from '@modules/books/store/selectors/books.selector';
@@ -25,7 +25,7 @@ export class BooksPageComponent implements OnInit {
     childText: null,
   };
 
-  books$: Observable<Book[]> = this.store.select(selectBooksData);
+  books$: Observable<Book[]> = this.store.select(selectBooks);
   isLoading$: Observable<boolean> = this.store.select(selectBooksIsLoading);
   hasLoaded$: Observable<boolean> = this.store.select(selectBooksHasLoaded);
 
@@ -35,6 +35,7 @@ export class BooksPageComponent implements OnInit {
    * Tailwindcss is not capable to pick up dynamic classes.
    * We must provide whole class names.
    */
+
   bookColumnClasses: BookColumnClasses = {
     name: 'sm:basis-[35%]',
     authors: 'sm:basis-[35%]',
@@ -53,8 +54,9 @@ export class BooksPageComponent implements OnInit {
       .select((state) => state)
       .subscribe((state) => console.log({ state }));
 
-    console.log('dispatching');
-    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS_DATA });
+    console.log('dispatching LOAD_BOOKS');
+    // TODO: can this be replaced with action?
+    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS });
 
     this.store
       .select((state) => state)
@@ -67,12 +69,25 @@ export class BooksPageComponent implements OnInit {
     //   },
     // });
 
+    // this.booksService.getBooksByName('A Game Of Thrones').subscribe({
+    //   next: (value) => {
+    //     console.log('Book with name');
+    //     console.log(value);
+    //   },
+    // });
+
     // this.booksService.getBookById(1).subscribe({
     //   next: (value) => {
     //     console.log('Book with id 1');
     //     console.log(value);
     //   },
     // });
+  }
+
+  searchBooksByName() {
+    console.log('dispatching LOAD_BOOKS_BY_NAME');
+    // TODO: can this be replaced with action?
+    this.store.dispatch({ type: BooksActionTypes.LOAD_BOOKS_BY_NAME });
   }
 
   /**

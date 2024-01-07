@@ -4,7 +4,10 @@ import { createAction, props } from '@ngrx/store';
 
 // Action creators
 
-export const loadBooksAction = createAction(BooksActionTypes.LOAD_BOOKS_DATA);
+export const loadBooksAction = createAction(BooksActionTypes.LOAD_BOOKS);
+export const loadBooksByNameAction = createAction(
+  BooksActionTypes.LOAD_BOOKS_BY_NAME
+);
 export const loadBooksSuccessAction = createAction(
   BooksActionTypes.LOAD_BOOKS_SUCCESS,
   props<{ payload: Book[] }>()
