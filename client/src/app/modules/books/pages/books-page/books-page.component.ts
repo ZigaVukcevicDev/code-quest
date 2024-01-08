@@ -5,16 +5,16 @@ import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/api/books-service/books-service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import {
+  loadBooksAction,
+  loadBooksByNameAction,
+} from '@modules/books/store/actions/books.action';
+import {
   selectBooks,
   selectBooksHasLoaded,
   selectBooksIsLoading,
 } from '@modules/books/store/selectors/books.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
-import {
-  loadBooksAction,
-  loadBooksByNameAction,
-} from '../../store/actions/books.action';
 
 @Component({
   selector: 'cq-books-page',

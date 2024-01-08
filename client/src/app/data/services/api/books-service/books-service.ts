@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
 import { ApiUrl } from '@app/data/services/models/api-url.enum';
-import { Observable } from 'rxjs';
+import BookFromApi from '@data/services/api/books-service/models/book-from-api.interface';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,28 @@ export class BooksService {
     apiUrlQuery.searchParams.set('page', '1');
     apiUrlQuery.searchParams.set('pageSize', '10');
 
-    return this.http.get<Book[]>(apiUrlQuery.toString());
+    return this.http.get<BookFromApi[]>(apiUrlQuery.toString()).pipe(
+      map((booksFromApi: BookFromApi[]) => {
+        return booksFromApi.map((book, index) => {
+          /**
+           * API does not specifically return an id property.
+           * It returns a url property, e.g., `https://anapioficeandfire.com/api/books/3` - which
+           * could be parsed, taking the last segment as the unique identifier.
+           */
+
+          const bookUrlSegments = book.url.split('/');
+          const parsedId = Number(bookUrlSegments[bookUrlSegments.length - 1]);
+
+          return {
+            id: parsedId,
+            name: book.name,
+            authors: book.authors,
+            publisher: book.publisher,
+            isFavorite: index === 2 ? true : false,
+          };
+        });
+      })
+    );
   }
 
   /**
