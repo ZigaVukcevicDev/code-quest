@@ -4,7 +4,7 @@ import {
   loadBookListErrorAction,
   loadBookListSuccessAction,
 } from '@app/modules/books/store/actions/book-list.action';
-import { BookListState } from '@app/modules/books/store/data/models/book-list-state.interface';
+import { BookListState } from '@app/modules/books/store/data/models/book-list.state.interface';
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
 export const initialState: BookListState = {

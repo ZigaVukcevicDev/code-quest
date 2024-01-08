@@ -1,5 +1,5 @@
 import Book from '@app/data/books/models/book.interface';
-import { BookListActionTypes } from '@app/modules/books/store/data/models/book-list-action-types.enum';
+import { BookListActionTypes } from '@app/modules/books/store/data/models/book-list.action-types.enum';
 import { createAction, props } from '@ngrx/store';
 
 // Action creators
