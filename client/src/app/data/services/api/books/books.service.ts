@@ -35,7 +35,7 @@ export class BooksService {
            */
 
           const bookUrlSegments = book.url.split('/');
-          const parsedId = Number(bookUrlSegments[bookUrlSegments.length - 1]);
+          const parsedId = bookUrlSegments[bookUrlSegments.length - 1];
 
           return {
             id: parsedId,
@@ -71,7 +71,7 @@ export class BooksService {
     return this.http.get<Book[]>(apiUrlQuery.toString());
   }
 
-  getBookById(id: number): Observable<Book> {
+  getBookById(id: string): Observable<Book> {
     return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 }

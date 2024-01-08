@@ -45,6 +45,11 @@
         }"
       ></ng-icon>
       {{ book.isFavorite }}
+      <button type="button" (click)="createFavoriteBook(book.id)">Create</button
+      >&nbsp;&nbsp;
+      <button type="button" (click)="removeFavoriteBook(book.id)">
+        Remove
+      </button>
     </p>
   </div>
 </div>

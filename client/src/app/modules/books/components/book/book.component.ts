@@ -17,4 +17,12 @@ export class BookComponent {
 
   // Column classes are used for widths above small devices
   @Input() columnClasses: BookColumnWidthsClasses | undefined;
+
+  createFavoriteBook(bookId: string) {
+    console.log('adding book to favorites', bookId);
+  }
+
+  removeFavoriteBook(bookId: string) {
+    console.log('removing book to favorites', bookId);
+  }
 }
