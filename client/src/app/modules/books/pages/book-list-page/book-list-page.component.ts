@@ -17,10 +17,10 @@ import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'cq-books-page',
-  templateUrl: './books-page.component.html',
-  styleUrls: ['./books-page.component.scss'],
+  templateUrl: './book-list-page.component.html',
+  styleUrls: ['./book-list-page.component.scss'],
 })
-export class BooksPageComponent implements OnInit {
+export class BookListPageComponent implements OnInit {
   breadcrumbs: Breadcrumbs = {
     text: 'Books',
     link: null,

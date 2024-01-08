@@ -3,14 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { bookMock1, bookMock2 } from '@app/data/books/mocks/book.mock';
 import { BookComponent } from '@app/modules/books/components/book/book.component';
-import { BooksPageComponent } from '@app/modules/books/pages/books-page/books-page.component';
+import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list-page.component';
 import { BooksState } from '@app/modules/books/store/data/models/books-state.interface';
 import { SharedModule } from '@app/shared/shared.module';
 import { provideMockStore } from '@ngrx/store/testing';
 
-describe('BooksPageComponent', () => {
-  let component: BooksPageComponent;
-  let fixture: ComponentFixture<BooksPageComponent>;
+describe('BookListPageComponent', () => {
+  let component: BookListPageComponent;
+  let fixture: ComponentFixture<BookListPageComponent>;
 
   beforeEach(() => {
     const initialState: BooksState = {
@@ -24,13 +24,12 @@ describe('BooksPageComponent', () => {
         // Components
         BookComponent,
         // Pages
-        BooksPageComponent,
-        BooksPageComponent,
+        BookListPageComponent,
       ],
       imports: [SharedModule, RouterTestingModule, HttpClientModule],
       providers: [provideMockStore({ initialState })],
     });
-    fixture = TestBed.createComponent(BooksPageComponent);
+    fixture = TestBed.createComponent(BookListPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

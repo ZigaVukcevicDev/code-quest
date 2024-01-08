@@ -7,8 +7,8 @@ import { BookDetailComponent } from '@modules/books/components/book-detail/book-
 import { BookListComponent } from '@modules/books/components/book-list/book-list.component';
 import { BookComponent } from '@modules/books/components/book/book.component';
 import { BookFavoriteListPageComponent } from '@modules/books/pages/book-favorite-list-page/book-favorite-list-page.component';
+import { BookListPageComponent } from '@modules/books/pages/book-list-page/book-list-page.component';
 import { BooksDetailPageComponent } from '@modules/books/pages/books-detail-page/books-detail-page.component';
-import { BooksPageComponent } from '@modules/books/pages/books-page/books-page.component';
 import { BooksEffects } from '@modules/books/store/effects/books.effect';
 import { booksReducer } from '@modules/books/store/reducers/books.reducer';
 import { NgIconsModule } from '@ng-icons/core';
@@ -22,7 +22,7 @@ import { StoreModule } from '@ngrx/store';
     BookComponent,
     BookDetailComponent,
     // Pages
-    BooksPageComponent,
+    BookListPageComponent,
     BooksDetailPageComponent,
     BookFavoriteListPageComponent,
     BookListComponent,
