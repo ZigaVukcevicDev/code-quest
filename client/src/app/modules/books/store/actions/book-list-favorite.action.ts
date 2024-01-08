@@ -1,6 +1,6 @@
 import Book from '@app/data/books/models/book.interface';
+import { BookListFavoriteActionTypes } from '@app/modules/books/store/data/models/book-list-favorite.action-types.enum';
 import { createAction, props } from '@ngrx/store';
-import { BookListFavoriteActionTypes } from '../data/models/book-list-favorite.action-types.enum';
 
 // Action creators
 

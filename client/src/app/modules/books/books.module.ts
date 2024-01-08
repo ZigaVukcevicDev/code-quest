@@ -5,6 +5,7 @@ import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-pa
 import { BookFavoriteListPageComponent } from '@app/modules/books/pages/book-list-favorites-page/book-favorite-list.page.component';
 import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list.page.component';
 import { BookListEffects } from '@app/modules/books/store/effects/book-list.effect';
+import { bookListFavoriteReducer } from '@app/modules/books/store/reducers/book-list-favorite.reducer';
 import { bookListReducer } from '@app/modules/books/store/reducers/book-list.reducer';
 import { SharedModule } from '@app/shared/shared.module';
 import { BooksRoutingModule } from '@modules/books/books-routing.module';
@@ -37,6 +38,8 @@ import { StoreModule } from '@ngrx/store';
     }),
     BooksRoutingModule,
     StoreModule.forFeature('bookList', bookListReducer),
+    EffectsModule.forFeature([BookListEffects]),
+    StoreModule.forFeature('bookListFavorite', bookListFavoriteReducer),
     EffectsModule.forFeature([BookListEffects]),
   ],
 })
