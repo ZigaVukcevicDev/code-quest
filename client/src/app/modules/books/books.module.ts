@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail.page.component';
 import { BookFavoriteListPageComponent } from '@app/modules/books/pages/book-list-favorite-page/book-list-favorite.page.component';
 import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list.page.component';
+import { BookListFavoriteEffects } from '@app/modules/books/store/effects/book-list-favorite.effect';
 import { BookListEffects } from '@app/modules/books/store/effects/book-list.effect';
 import { bookListFavoriteReducer } from '@app/modules/books/store/reducers/book-list-favorite.reducer';
 import { bookListReducer } from '@app/modules/books/store/reducers/book-list.reducer';
@@ -40,7 +41,7 @@ import { StoreModule } from '@ngrx/store';
     StoreModule.forFeature('bookList', bookListReducer),
     EffectsModule.forFeature([BookListEffects]),
     StoreModule.forFeature('bookListFavorite', bookListFavoriteReducer),
-    EffectsModule.forFeature([BookListEffects]),
+    EffectsModule.forFeature([BookListFavoriteEffects]),
   ],
 })
 export class BooksModule {}
