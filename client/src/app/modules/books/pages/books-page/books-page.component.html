@@ -32,57 +32,29 @@
 </div>
 <!-- Search -->
 
-<!-- Header -->
-<!--
-  Note: Following header is shown only for width above small devices,
-  where it composes like a table header. Book component handles header
-  (for each book) for width below small devices.
--->
-<div class="hidden sm:flex py-3">
-  <p class="text-sm text-yellow-600" [ngClass]="bookColumnClasses['name']">
-    <strong>Name</strong>
-  </p>
-  <p class="text-sm text-yellow-600" [ngClass]="bookColumnClasses['authors']">
-    <strong>Author(s)</strong>
-  </p>
-  <p class="text-sm text-yellow-600" [ngClass]="bookColumnClasses['publisher']">
-    <strong>Publisher</strong>
-  </p>
-  <p
-    class="text-sm text-yellow-600 sm:text-center"
-    [ngClass]="bookColumnClasses['favorite']"
-  >
-    <strong>Favorite</strong>
-  </p>
-</div>
-<!-- / Header -->
-
-<!-- Books -->
 <div *ngIf="isLoading$ | async">Loading ...</div>
+
 <ng-container *ngIf="!(isLoading$ | async)">
-  <ng-container *ngIf="hasLoaded$ | async">
-    <div
-      *ngFor="let book of books$ | async; trackBy: bookTrackBy"
-      class="mb-6 sm:mb-3"
-    >
-      <cq-book [book]="book" [columnClasses]="bookColumnClasses"></cq-book>
+  <ng-container *ngIf="!(hasLoaded$ | async)">
+    <!--
+      Note to code reviewer:
+
+      To see error, e.g. corrupt apiUrl in books-service.ts file. I have tested it with
+      `${ApiUrl.BASE}/${ApiUrl.PATH}-not-there`.
+
+      In the real scenario we would expect verbose errors from API to guarantee good user
+      experience. It is always a good practice to show user two things:
+        a) error
+        b) what can be done (but will not necessarily solve the issue)
+    -->
+    <div>
+      Uh, we have run into a problem. Please refresh the page or try later.
     </div>
   </ng-container>
-  <!--
-    Note to code reviewer:
 
-    To see error, e.g. corrupt apiUrl in books-service.ts file. I have tested it with
-    `${ApiUrl.BASE}/${ApiUrl.PATH}-not-there`.
-
-    In the real scenario we would expect verbose errors from API to guarantee good user
-    experience. It is always a good practice to show user two things:
-      a) error
-      b) what can be done (but will not necessarily solve the issue)
-  -->
-  <div *ngIf="!(hasLoaded$ | async)">
-    Uh, we have run into a problem. Please refresh the page or try later.
-  </div>
+  <ng-container *ngIf="hasLoaded$ | async">
+    <ng-container *ngIf="bookList$ | async as bookList">
+      <cq-book-list [list]="bookList"></cq-book-list>
+    </ng-container>
+  </ng-container>
 </ng-container>
-<!-- / Books -->
-
-<!-- TODO missing No results -->

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookFavoriteListPageComponent } from '@modules/books/pages/book-favorite-list-page/book-favorite-list-page.component';
 import { BooksDetailPageComponent } from '@modules/books/pages/books-detail-page/books-detail-page.component';
 import { BooksPageComponent } from '@modules/books/pages/books-page/books-page.component';
-import { BookFavoriteListPageComponent } from './pages/book-favorite-list-page/book-favorite-list-page.component';
 
 const routes: Routes = [
   { path: '', component: BooksPageComponent },

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BookFavoriteListPageComponent } from './book-favorite-list-page.component';
+import { BookFavoriteListPageComponent } from '@modules/books/pages/book-favorite-list-page/book-favorite-list-page.component';
 
 describe('BookFavoriteListPageComponent', () => {
   let component: BookFavoriteListPageComponent;

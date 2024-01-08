@@ -1,1 +1,32 @@
-<p>book-list works!</p>
+<!-- Header -->
+<!--
+  Note: Following header is shown only for width above small devices,
+  where it composes like a table header. Book component handles header
+  (for each book) for width below small devices.
+-->
+<div class="hidden sm:flex py-3">
+  <p class="text-sm text-yellow-600" [ngClass]="columnClasses['name']">
+    <strong>Name</strong>
+  </p>
+  <p class="text-sm text-yellow-600" [ngClass]="columnClasses['authors']">
+    <strong>Author(s)</strong>
+  </p>
+  <p class="text-sm text-yellow-600" [ngClass]="columnClasses['publisher']">
+    <strong>Publisher</strong>
+  </p>
+  <p
+    class="text-sm text-yellow-600 sm:text-center"
+    [ngClass]="columnClasses['favorite']"
+  >
+    <strong>Favorite</strong>
+  </p>
+</div>
+<!-- / Header -->
+
+<ng-container *ngIf="list.length > 0">
+  <div *ngFor="let book of list; trackBy: bookTrackBy" class="mb-6 sm:mb-3">
+    <cq-book [book]="book" [columnClasses]="columnClasses"></cq-book>
+  </div>
+</ng-container>
+
+<p *ngIf="list.length === 0">List seems to be empty.</p>

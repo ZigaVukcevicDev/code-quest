@@ -19,11 +19,12 @@ export class BooksService {
     /**
      * Note to code reviewer:
      *
+     * TODO: is information correct?
      * For demo purpose I am getting just first 10 records.
      */
 
     apiUrlQuery.searchParams.set('page', '1');
-    apiUrlQuery.searchParams.set('pageSize', '10');
+    apiUrlQuery.searchParams.set('pageSize', '3');
 
     return this.http.get<BookFromApi[]>(apiUrlQuery.toString()).pipe(
       map((booksFromApi: BookFromApi[]) => {
