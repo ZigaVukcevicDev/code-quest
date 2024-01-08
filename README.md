@@ -1,5 +1,7 @@
 ## 🚀 Code quest
 
+TODO: add screenshot of landing page and compodoc
+
 ### Overview 🔖
 
 TODO: Brief description of your project.
@@ -32,6 +34,10 @@ project-root/
 
 - [Angular (v16.2)](https://angular.io/)
 - [Nest.js (v10.0)](https://nestjs.com/)
+
+> To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
+
+Their official page [compodoc](https://compodoc.app/).
 
 ### Getting started 💪
 
