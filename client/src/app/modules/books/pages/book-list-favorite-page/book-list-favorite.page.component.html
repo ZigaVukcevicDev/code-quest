@@ -10,9 +10,7 @@
 
 <ng-container *ngIf="!(isLoading$ | async)">
   <ng-container *ngIf="!(hasLoaded$ | async)">
-    <div>
-      Uh, we have run into a problem. Please refresh the page or try later.
-    </div>
+    <cq-error-generic></cq-error-generic>
   </ng-container>
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookListFavorite$ | async as bookListFavorite">

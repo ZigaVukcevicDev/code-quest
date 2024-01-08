@@ -44,12 +44,10 @@
 
       In the real scenario we would expect verbose errors from API to guarantee good user
       experience. It is always a good practice to show user two things:
-        a) error
-        b) what can be done (but will not necessarily solve the issue)
+        a) descriptive error
+        b) what can be done (but unfortunately will not necessarily solve the issue)
     -->
-    <div>
-      Uh, we have run into a problem. Please refresh the page or try later.
-    </div>
+    <cq-error-generic></cq-error-generic>
   </ng-container>
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookList$ | async as bookList">

@@ -6,11 +6,13 @@ import { NgIconsModule } from '@ng-icons/core';
 import { featherHome } from '@ng-icons/feather-icons';
 import { BreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
 import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
+import { ErrorGenericComponent } from './components/error-generic/error-generic.component';
 
 @NgModule({
   declarations: [
     // Components
     BreadcrumbsComponent,
+    ErrorGenericComponent,
     // Pipes
     DividerPipe,
   ],
@@ -25,6 +27,7 @@ import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
   exports: [
     // Components
     BreadcrumbsComponent,
+    ErrorGenericComponent,
     // Pipes
     DividerPipe,
   ],
