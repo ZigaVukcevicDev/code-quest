@@ -33,7 +33,10 @@ export class BookFavoriteListPageComponent {
     selectBookListFavoriteHasLoaded
   );
 
-  constructor(private readonly store: Store<AppState>) {}
+  constructor(
+    // TODO: remove
+    private readonly store: Store<AppState>
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(loadBookListFavoriteAction());
@@ -41,6 +44,8 @@ export class BookFavoriteListPageComponent {
     // TODO: remove
     this.store
       .select((state) => state)
-      .subscribe((state) => console.log({ state }));
+      .subscribe((state) =>
+        console.log('BookFavoriteListPageComponent', { state })
+      );
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
-import { BooksService } from '@app/data/services/api/books/books.service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import {
   loadBookListAction,
@@ -36,7 +35,6 @@ export class BookListPageComponent implements OnInit {
 
   constructor(
     // TODO: remove
-    private readonly booksService: BooksService,
     private readonly store: Store<AppState>
   ) {}
 
@@ -55,14 +53,7 @@ export class BookListPageComponent implements OnInit {
     // TODO: remove
     this.store
       .select((state) => state)
-      .subscribe((state) => console.log({ state }));
-
-    // this.booksService.getBookById(1).subscribe({
-    //   next: (value) => {
-    //     console.log('Book with id 1');
-    //     console.log(value);
-    //   },
-    // });
+      .subscribe((state) => console.log('BookListPageComponent', { state }));
   }
 
   clearSearch() {
