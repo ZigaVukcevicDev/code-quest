@@ -51,7 +51,6 @@
       Uh, we have run into a problem. Please refresh the page or try later.
     </div>
   </ng-container>
-
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookList$ | async as bookList">
       <cq-book-list [list]="bookList"></cq-book-list>

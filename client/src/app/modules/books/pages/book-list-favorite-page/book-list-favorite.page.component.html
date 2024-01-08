@@ -10,25 +10,13 @@
 
 <ng-container *ngIf="!(isLoading$ | async)">
   <ng-container *ngIf="!(hasLoaded$ | async)">
-    <!--
-      Note to code reviewer:
-
-      To see error, e.g. corrupt apiUrl in books-service.ts file. I have tested it with
-      `${ApiUrl.BASE}/${ApiUrl.PATH}-not-there`.
-
-      In the real scenario we would expect verbose errors from API to guarantee good user
-      experience. It is always a good practice to show user two things:
-        a) error
-        b) what can be done (but will not necessarily solve the issue)
-    -->
     <div>
       Uh, we have run into a problem. Please refresh the page or try later.
     </div>
   </ng-container>
-
   <ng-container *ngIf="hasLoaded$ | async">
-    <ng-container *ngIf="favoriteBookList$ | async as favoriteBookList">
-      <cq-book-list [list]="favoriteBookList"></cq-book-list>
+    <ng-container *ngIf="bookListFavorite$ | async as bookListFavorite">
+      <cq-book-list [list]="bookListFavorite"></cq-book-list>
     </ng-container>
   </ng-container>
 </ng-container>
