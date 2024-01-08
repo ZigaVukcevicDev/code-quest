@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { BooksService } from '@app/data/services/api/books-service/books-service';
+import { BooksService } from '@app/data/services/api/books/books.service';
 
 describe('BooksService', () => {
   let service: BooksService;

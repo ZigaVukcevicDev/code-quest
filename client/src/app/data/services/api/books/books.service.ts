@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
-import { ApiUrl } from '@app/data/services/models/api-url.enum';
-import BookFromApi from '@data/services/api/books-service/models/book-from-api.interface';
+import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
+import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
 import { Observable, map } from 'rxjs';
 
 @Injectable({

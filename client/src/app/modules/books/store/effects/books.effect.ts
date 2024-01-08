@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BooksService } from '@app/data/services/api/books-service/books-service';
+import { BooksService } from '@app/data/services/api/books/books.service';
 import {
   loadBooksAction,
   loadBooksByNameAction,
