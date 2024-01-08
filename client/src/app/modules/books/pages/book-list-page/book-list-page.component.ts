@@ -16,7 +16,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
-  selector: 'cq-books-page',
+  selector: 'cq-book-list.page',
   templateUrl: './book-list-page.component.html',
   styleUrls: ['./book-list-page.component.scss'],
 })

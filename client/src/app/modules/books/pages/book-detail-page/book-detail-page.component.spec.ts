@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookDetailComponent } from '@app/modules/books/components/book-detail/book-detail.component';
-import { BooksDetailPageComponent } from '@app/modules/books/pages/books-detail-page/books-detail-page.component';
+import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail-page.component';
 import { SharedModule } from '@app/shared/shared.module';
 
-describe('BooksDetailPageComponent', () => {
-  let component: BooksDetailPageComponent;
-  let fixture: ComponentFixture<BooksDetailPageComponent>;
+describe('BookDetailPageComponent', () => {
+  let component: BookDetailPageComponent;
+  let fixture: ComponentFixture<BookDetailPageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -13,11 +13,11 @@ describe('BooksDetailPageComponent', () => {
         // Components
         BookDetailComponent,
         // Pages
-        BooksDetailPageComponent,
+        BookDetailPageComponent,
       ],
       imports: [SharedModule],
     });
-    fixture = TestBed.createComponent(BooksDetailPageComponent);
+    fixture = TestBed.createComponent(BookDetailPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

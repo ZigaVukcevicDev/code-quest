@@ -5,11 +5,11 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
 import { UrlPath } from '@app/data/shared/url-path.enum';
 
 @Component({
-  selector: 'cq-books-detail-page',
-  templateUrl: './books-detail-page.component.html',
-  styleUrls: ['./books-detail-page.component.scss'],
+  selector: 'cq-book-detail-page',
+  templateUrl: './book-detail-page.component.html',
+  styleUrls: ['./book-detail-page.component.scss'],
 })
-export class BooksDetailPageComponent {
+export class BookDetailPageComponent {
   breadcrumbs: Breadcrumbs = {
     text: 'Books',
     link: {
