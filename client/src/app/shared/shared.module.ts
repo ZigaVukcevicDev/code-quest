@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { NgIconsModule } from '@ng-icons/core';
 import { featherHome } from '@ng-icons/feather-icons';
 import { BreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
+import { ErrorGenericComponent } from '@shared/components/error-generic/error-generic.component';
 import { DividerPipe } from '@shared/pipes/divider/divider.pipe';
-import { ErrorGenericComponent } from './components/error-generic/error-generic.component';
 
 @NgModule({
   declarations: [
