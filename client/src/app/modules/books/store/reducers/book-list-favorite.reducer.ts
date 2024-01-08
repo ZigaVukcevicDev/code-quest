@@ -1,3 +1,4 @@
+import { bookMock1 } from '@app/data/books/mocks/book.mock';
 import {
   loadBookListFavoriteAction,
   loadBookListFavoriteErrorAction,
@@ -7,7 +8,7 @@ import { BookListFavoriteState } from '@app/modules/books/store/data/models/book
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
 export const initialState: BookListFavoriteState = {
-  data: [],
+  data: [bookMock1],
   isLoading: false,
   hasLoaded: false,
 };
@@ -17,14 +18,6 @@ export const bookListFavoriteReducer: ActionReducer<
   Action
 > = createReducer(
   initialState,
-  on(
-    loadBookListFavoriteAction,
-    (state): BookListFavoriteState => ({
-      ...state,
-      isLoading: true,
-      hasLoaded: false,
-    })
-  ),
   on(
     loadBookListFavoriteAction,
     (state): BookListFavoriteState => ({
