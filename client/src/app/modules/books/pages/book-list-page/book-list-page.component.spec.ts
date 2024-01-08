@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { bookMock1, bookMock2 } from '@app/data/books/mocks/book.mock';
 import { BookComponent } from '@app/modules/books/components/book/book.component';
 import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list-page.component';
-import { BooksState } from '@app/modules/books/store/data/models/books-state.interface';
+import { BookListState } from '@app/modules/books/store/data/models/book-list-state.interface';
 import { SharedModule } from '@app/shared/shared.module';
 import { provideMockStore } from '@ngrx/store/testing';
 
@@ -13,7 +13,7 @@ describe('BookListPageComponent', () => {
   let fixture: ComponentFixture<BookListPageComponent>;
 
   beforeEach(() => {
-    const initialState: BooksState = {
+    const initialState: BookListState = {
       data: [bookMock1, bookMock2],
       isLoading: false,
       hasLoaded: false,

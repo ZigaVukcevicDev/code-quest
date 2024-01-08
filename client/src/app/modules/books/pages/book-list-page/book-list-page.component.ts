@@ -4,14 +4,14 @@ import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/api/books/books.service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import {
-  loadBooksAction,
-  loadBooksByNameAction,
-} from '@modules/books/store/actions/books.action';
+  loadBookListAction,
+  loadBookListByNameAction,
+} from '@app/modules/books/store/actions/book-list.action';
 import {
-  selectBooks,
-  selectBooksHasLoaded,
-  selectBooksIsLoading,
-} from '@modules/books/store/selectors/books.selector';
+  selectBookList,
+  selectBookListHasLoaded,
+  selectBookListIsLoading,
+} from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 
@@ -27,9 +27,9 @@ export class BookListPageComponent implements OnInit {
     childText: null,
   };
 
-  bookList$: Observable<Book[]> = this.store.select(selectBooks);
-  isLoading$: Observable<boolean> = this.store.select(selectBooksIsLoading);
-  hasLoaded$: Observable<boolean> = this.store.select(selectBooksHasLoaded);
+  bookList$: Observable<Book[]> = this.store.select(selectBookList);
+  isLoading$: Observable<boolean> = this.store.select(selectBookListIsLoading);
+  hasLoaded$: Observable<boolean> = this.store.select(selectBookListHasLoaded);
 
   searchTerm: string = '';
   searchTermChange$ = new Subject<string>();
@@ -41,14 +41,14 @@ export class BookListPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.store.dispatch(loadBooksAction());
+    this.store.dispatch(loadBookListAction());
 
     this.searchTermChange$
       .pipe(debounceTime(200), distinctUntilChanged())
       .subscribe(() => {
         const actionToDispatch = this.searchTerm
-          ? loadBooksByNameAction({ payload: this.searchTerm })
-          : loadBooksAction();
+          ? loadBookListByNameAction({ payload: this.searchTerm })
+          : loadBookListAction();
         this.store.dispatch(actionToDispatch);
       });
 
@@ -67,6 +67,6 @@ export class BookListPageComponent implements OnInit {
 
   clearSearch() {
     this.searchTerm = '';
-    this.store.dispatch(loadBooksAction());
+    this.store.dispatch(loadBookListAction());
   }
 }

@@ -13,7 +13,7 @@ export class BooksService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<Book[]> {
+  getBookList(): Observable<Book[]> {
     const apiUrlQuery = new URL(this.apiUrl);
 
     /**
@@ -27,8 +27,8 @@ export class BooksService {
     apiUrlQuery.searchParams.set('pageSize', '3');
 
     return this.http.get<BookFromApi[]>(apiUrlQuery.toString()).pipe(
-      map((booksFromApi: BookFromApi[]) => {
-        return booksFromApi.map((book, index) => {
+      map((bookListFromApi: BookFromApi[]) => {
+        return bookListFromApi.map((book, index) => {
           /**
            * API does not specifically return an id property.
            * It returns a url property, e.g., `https://anapioficeandfire.com/api/books/3` - which
@@ -65,7 +65,7 @@ export class BooksService {
    * is why I am keeping name of method in plural.
    */
 
-  getBooksByName(name: string): Observable<Book[]> {
+  getBookListByName(name: string): Observable<Book[]> {
     const apiUrlQuery = new URL(this.apiUrl);
     apiUrlQuery.searchParams.set('name', name);
 

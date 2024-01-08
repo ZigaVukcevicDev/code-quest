@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { AppState } from '@app/app-state.interface';
 import Book from '@app/data/books/models/book.interface';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
-import { loadBooksAction } from '@modules/books/store/actions/books.action';
+import { loadBookListAction } from '@app/modules/books/store/actions/book-list.action';
 import {
-  selectBooks,
-  selectBooksHasLoaded,
-  selectBooksIsLoading,
-} from '@modules/books/store/selectors/books.selector';
+  selectBookList,
+  selectBookListHasLoaded,
+  selectBookListIsLoading,
+} from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -23,13 +23,13 @@ export class BookFavoriteListPageComponent {
     childText: null,
   };
 
-  favoriteBookList$: Observable<Book[]> = this.store.select(selectBooks);
-  isLoading$: Observable<boolean> = this.store.select(selectBooksIsLoading);
-  hasLoaded$: Observable<boolean> = this.store.select(selectBooksHasLoaded);
+  favoriteBookList$: Observable<Book[]> = this.store.select(selectBookList);
+  isLoading$: Observable<boolean> = this.store.select(selectBookListIsLoading);
+  hasLoaded$: Observable<boolean> = this.store.select(selectBookListHasLoaded);
 
   constructor(private readonly store: Store<AppState>) {}
 
   ngOnInit() {
-    this.store.dispatch(loadBooksAction());
+    this.store.dispatch(loadBookListAction());
   }
 }

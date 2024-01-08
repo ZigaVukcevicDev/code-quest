@@ -1,5 +1,5 @@
-import { BooksState } from '@app/modules/books/store/data/models/books-state.interface';
+import { BookListState } from '@app/modules/books/store/data/models/book-list-state.interface';
 
 export interface AppState {
-  books: BooksState;
+  bookList: BookListState;
 }

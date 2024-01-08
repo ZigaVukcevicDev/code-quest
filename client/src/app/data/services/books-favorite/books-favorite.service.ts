@@ -7,38 +7,38 @@ import { v4 as uuidv4 } from 'uuid';
   providedIn: 'root',
 })
 export class BooksFavoriteService {
-  private favoriteBooksSubject = new BehaviorSubject<BookFavorite[]>([]);
-  favoriteBooks$ = this.favoriteBooksSubject.asObservable();
+  private favoriteBookListSubject = new BehaviorSubject<BookFavorite[]>([]);
+  private favoriteBookList$ = this.favoriteBookListSubject.asObservable();
 
   createFavoriteBook(bookId: string): void {
-    const favoriteBooks = this.favoriteBooksSubject.getValue();
-    const isBookInFavorites = this.isBookInFavorites(bookId);
+    const currentList = this.favoriteBookListSubject.getValue();
+    const isBookInFavoriteList = this.isBookInFavoriteList(bookId);
 
-    if (!isBookInFavorites) {
-      const updatedFavoriteBooks: BookFavorite[] = [
-        ...favoriteBooks,
+    if (!isBookInFavoriteList) {
+      const updatedList: BookFavorite[] = [
+        ...currentList,
         { id: uuidv4(), bookId },
       ];
-      this.favoriteBooksSubject.next(updatedFavoriteBooks);
+      this.favoriteBookListSubject.next(updatedList);
     }
   }
 
-  getFavoriteBooks(): Observable<BookFavorite[]> {
-    return this.favoriteBooks$;
+  getFavoriteBookList(): Observable<BookFavorite[]> {
+    return this.favoriteBookList$;
   }
 
   removeFavoriteBook(favoriteBookId: string): void {
-    const favoriteBooks = this.favoriteBooksSubject.getValue();
-    const updatedFavoriteBooks = favoriteBooks.filter(
+    const currentList = this.favoriteBookListSubject.getValue();
+    const updatedList = currentList.filter(
       (favoriteBook) => favoriteBook.id !== favoriteBookId
     );
-    this.favoriteBooksSubject.next(updatedFavoriteBooks);
+    this.favoriteBookListSubject.next(updatedList);
   }
 
-  private isBookInFavorites(bookId: string): Observable<boolean> {
-    return this.favoriteBooks$.pipe(
-      map((favoriteBooks) =>
-        favoriteBooks.some((favoriteBook) => bookId === favoriteBook.id)
+  private isBookInFavoriteList(bookId: string): Observable<boolean> {
+    return this.favoriteBookList$.pipe(
+      map((favoriteBookList) =>
+        favoriteBookList.some((favoriteBook) => bookId === favoriteBook.id)
       )
     );
   }
