@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@app/shared/shared.module';
 import { BooksRoutingModule } from '@modules/books/books-routing.module';
 import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
+import { BookListComponent } from '@modules/books/components/book-list/book-list.component';
 import { BookComponent } from '@modules/books/components/book/book.component';
 import { BookFavoriteListPageComponent } from '@modules/books/pages/book-favorite-list-page/book-favorite-list-page.component';
 import { BooksDetailPageComponent } from '@modules/books/pages/books-detail-page/books-detail-page.component';
@@ -24,6 +25,7 @@ import { StoreModule } from '@ngrx/store';
     BooksPageComponent,
     BooksDetailPageComponent,
     BookFavoriteListPageComponent,
+    BookListComponent,
   ],
   imports: [
     CommonModule,

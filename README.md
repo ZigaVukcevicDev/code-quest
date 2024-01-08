@@ -16,6 +16,8 @@ TODO:
 
 - Used lazy loading of module based on given route
 
+All components and directives are prefixed with `cq` (code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
+
 ### Project structure of monorepo and tech stack 💻
 
 ```bash
