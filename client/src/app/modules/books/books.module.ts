@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail.page.component';
-import { BookFavoriteListPageComponent } from '@app/modules/books/pages/book-list-favorites-page/book-favorite-list.page.component';
+import { BookFavoriteListPageComponent } from '@app/modules/books/pages/book-list-favorite-page/book-list-favorite.page.component';
 import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list.page.component';
 import { BookListEffects } from '@app/modules/books/store/effects/book-list.effect';
 import { bookListFavoriteReducer } from '@app/modules/books/store/reducers/book-list-favorite.reducer';
