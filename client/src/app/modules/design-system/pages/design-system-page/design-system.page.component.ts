@@ -7,8 +7,8 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
 
 @Component({
   selector: 'cq-design-system-page',
-  templateUrl: './design-system-page.component.html',
-  styleUrls: ['./design-system-page.component.scss'],
+  templateUrl: './design-system.page.component.html',
+  styleUrls: ['./design-system.page.component.scss'],
 })
 export class DesignSystemPageComponent {
   breadcrumbs: Breadcrumbs = {

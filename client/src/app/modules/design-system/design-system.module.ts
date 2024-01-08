@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { DesignSystemPageComponent } from '@app/modules/design-system/pages/design-system-page/design-system.page.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { DesignSystemRoutingModule } from '@modules/design-system/design-system-routing.module';
-import { DesignSystemPageComponent } from '@modules/design-system/pages/design-system-page/design-system-page.component';
 import { NgIconsModule } from '@ng-icons/core';
 import {
   featherChrome,

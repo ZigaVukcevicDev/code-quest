@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookDetailComponent } from '@app/modules/books/components/book-detail/book-detail.component';
-import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail-page.component';
+import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail.page.component';
 import { SharedModule } from '@app/shared/shared.module';
 
 describe('BookDetailPageComponent', () => {

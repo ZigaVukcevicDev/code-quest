@@ -1,4 +1,4 @@
-import { AppState } from '@app/app-state.interface';
+import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import { BookListState } from '@app/modules/books/store/data/models/book-list.state.interface';
 import { MemoizedSelector, createSelector } from '@ngrx/store';

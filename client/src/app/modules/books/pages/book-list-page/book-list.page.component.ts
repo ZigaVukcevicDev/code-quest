@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '@app/app-state.interface';
+import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import { BooksService } from '@app/data/services/api/books/books.service';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
@@ -17,8 +17,8 @@ import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'cq-book-list.page',
-  templateUrl: './book-list-page.component.html',
-  styleUrls: ['./book-list-page.component.scss'],
+  templateUrl: './book-list.page.component.html',
+  styleUrls: ['./book-list.page.component.scss'],
 })
 export class BookListPageComponent implements OnInit {
   breadcrumbs: Breadcrumbs = {

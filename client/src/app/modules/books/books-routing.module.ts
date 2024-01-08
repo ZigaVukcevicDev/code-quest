@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail-page.component';
-import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list-page.component';
-import { BookFavoriteListPageComponent } from '@modules/books/pages/book-favorite-list-page/book-favorite-list-page.component';
+import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail.page.component';
+import { BookFavoriteListPageComponent } from '@app/modules/books/pages/book-list-favorites-page/book-favorite-list.page.component';
+import { BookListPageComponent } from '@app/modules/books/pages/book-list-page/book-list.page.component';
 
 const routes: Routes = [
   { path: '', component: BookListPageComponent },

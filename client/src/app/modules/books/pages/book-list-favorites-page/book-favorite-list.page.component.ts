@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppState } from '@app/app-state.interface';
+import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { loadBookListAction } from '@app/modules/books/store/actions/book-list.action';
@@ -13,8 +13,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'cq-book-favorite-list-page',
-  templateUrl: './book-favorite-list-page.component.html',
-  styleUrls: ['./book-favorite-list-page.component.scss'],
+  templateUrl: './book-list-favorite.page.component.html',
+  styleUrls: ['./book-list-favorite.page.component.scss'],
 })
 export class BookFavoriteListPageComponent {
   breadcrumbs: Breadcrumbs = {

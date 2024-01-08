@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UrlPath } from '@app/data/shared/url-path.enum';
+import { MainPageComponent } from '@app/layout/main-page/main.page.component';
 import { environment } from '@environments/environment';
-import { MainPageComponent } from '@layout/main-page/main-page.component';
 import { BooksModule } from '@modules/books/books.module';
 
 const routes: Routes = [
