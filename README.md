@@ -39,6 +39,10 @@ project-root/
 
 Their official page [compodoc](https://compodoc.app/).
 
+### API
+
+[An API of Ice And Fire](https://anapioficeandfire.com/) has been used to provide mock data.
+
 ### Getting started 💪
 
 #### Installation
