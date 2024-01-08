@@ -42,7 +42,7 @@ export class BooksService {
             name: book.name,
             authors: book.authors,
             publisher: book.publisher,
-            isFavorite: index === 2 ? true : false,
+            isFavorite: index === 1 ? true : false,
           };
         });
       })

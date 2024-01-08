@@ -33,14 +33,63 @@
   }
 }
 
-.container {
-  max-width: 768px;
-}
+/**
+  * Note to code reviewer:
+  *
+  * I will be a bit long here. In my personal opinion, sometimes it is a thin line whether use tailwindcss classes in
+  * HTML or use them with @apply in SCSS files. Imagine that we are having a simple button, which is very rich from the
+  * design perspective. Button needs classes for default, hover and active state. Then needs classes for decorations
+  * which are normally put on pseudo selectors, like before and after. Then also needs classes for transitions or
+  * animations. And at last, button can be have different styling depending on various breakpoints.
+  *
+  * By having all these classes in HTML, things get pretty unmaintainable. Not to mention that we would copy them to all
+  * buttons across application, which is unmaintainable even more.
+  *
+  * We could use all of those classes with @apply in SCSS file. It is much more maintainable. The drawback is that we are
+  * inventing new names for classes (if we not selecting a button by tag name - but we would have more of the buttons,
+  * so we can not avoid naming). And we are unnecessary bloating our CSS.
+  *
+  * If we would really like to stick having classes only in HTML, one way I can think of is to create an Angular component
+  * for button. But then we run into inputs/outputs much more.
+  *
+  * From their documentation: https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+  * I would really love to have a discussion on this matter, how are others handling this.
+  *
+  * In this case I have used @apply for elements which are often in application, e.g. link, button or input.
+  */
 
 a {
-  @apply text-cyan-400 underline underline-offset-4 hover:text-cyan-200 transition-colors duration-200;
+  @apply text-cyan-400;
+  @apply underline;
+  @apply underline-offset-4;
+  @apply transition-colors;
+  @apply duration-200;
+  @apply hover:text-cyan-200;
+}
+
+button {
+  @apply inline-block;
+  @apply bg-yellow-500;
+  @apply rounded-lg;
+  @apply cursor-pointer;
+  @apply hover:text-yellow-500;
+  @apply hover:bg-black;
+  @apply active:bg-yellow-900;
+  @apply active:text-white;
+}
+
+input {
+  &::placeholder {
+    @apply text-yellow-500;
+  }
 }
 
 ng-icon {
   @apply text-orange-600;
+
+  &.icon-favorite {
+    button & {
+      @apply hover:text-yellow-500;
+    }
+  }
 }

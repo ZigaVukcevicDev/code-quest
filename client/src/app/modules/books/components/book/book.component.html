@@ -35,19 +35,27 @@
     class="border-b-[1px] border-solid border-orange-950 py-3"
   >
     <p class="sm:text-center">
-      <ng-icon
-        name="featherHeart"
-        class="inline-block mr-2"
-        strokeWidth="1"
-        size="24"
-        [ngStyle]="{
-          transform: 'translateX(0) translateY(0)'
-        }"
-      ></ng-icon>
-      {{ book.isFavorite }}
-      <button type="button" (click)="createFavoriteBook(book.id)">Create</button
+      <button type="button" class="sm:px-2 pt-2 pb-0 mr-2 -translate-y-2">
+        <ng-icon
+          name="featherHeart"
+          class="icon-favorite inline-block"
+          [class.text-white]="!book.isFavorite"
+          strokeWidth="1"
+          size="28"
+        ></ng-icon>
+      </button>
+      <button
+        *ngIf="!book.isFavorite"
+        type="button"
+        (click)="createFavoriteBook(book.id)"
+      >
+        Create</button
       >&nbsp;&nbsp;
-      <button type="button" (click)="removeFavoriteBook(book.id)">
+      <button
+        *ngIf="book.isFavorite"
+        type="button"
+        (click)="removeFavoriteBook(book.id)"
+      >
         Remove
       </button>
     </p>
