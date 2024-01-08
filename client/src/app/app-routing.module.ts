@@ -11,7 +11,7 @@ const routes: Routes = [
     component: MainPageComponent,
     children: [
       {
-        path: UrlPath.BOOKS,
+        path: UrlPath.BOOK_LIST,
         loadChildren: () =>
           import('@modules/books/books.module').then(
             (module): typeof BooksModule => module.BooksModule

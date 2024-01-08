@@ -7,9 +7,11 @@
       <strong>Name</strong>
     </p>
     <p class="mb-3 sm:mb-0">
-      <a [routerLink]="['/' + UrlPath.BOOKS, book.id]" [title]="book.name">{{
-        book.name
-      }}</a>
+      <a
+        [routerLink]="['/' + UrlPath.BOOK_DETAIL, book.id]"
+        [title]="book.name"
+        >{{ book.name }}</a
+      >
     </p>
   </div>
   <div

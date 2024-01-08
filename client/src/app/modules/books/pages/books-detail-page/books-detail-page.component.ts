@@ -14,7 +14,7 @@ export class BooksDetailPageComponent {
     text: 'Books',
     link: {
       title: 'Books',
-      href: `/${UrlPath.BOOKS}`,
+      href: `/${UrlPath.BOOK_LIST}`,
     },
     childText: 'TODO',
   };

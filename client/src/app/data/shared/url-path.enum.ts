@@ -1,5 +1,8 @@
+const mainPath = 'books';
+
 export enum UrlPath {
-  BOOKS = 'books',
-  BOOKS_FAVORITE = 'favorite-books',
+  BOOK_LIST = mainPath,
+  BOOK_FAVORITE_LIST = `${mainPath}/favorite`,
+  BOOK_DETAIL = `${mainPath}/detail`,
   DESIGN_SYSTEM = 'design-system',
 }

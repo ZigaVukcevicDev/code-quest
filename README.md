@@ -12,6 +12,10 @@ TODO:
 - Feature 2
 - ...
 
+#### Technical details
+
+- Used lazy loading of module based on given route
+
 ### Project structure of monorepo and tech stack 💻
 
 ```bash
