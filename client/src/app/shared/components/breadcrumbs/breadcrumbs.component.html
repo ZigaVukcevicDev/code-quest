@@ -11,6 +11,9 @@
         *ngIf="breadcrumbs.link"
         [title]="breadcrumbs.link.title"
         [routerLink]="[breadcrumbs.link.href]"
+        [queryParams]="
+          breadcrumbs.link.queryParams ? breadcrumbs.link.queryParams : {}
+        "
         >{{ breadcrumbs.text }}</a
       >
       <ng-container *ngIf="!breadcrumbs.link">{{

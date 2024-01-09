@@ -24,7 +24,7 @@
 <!-- / Header -->
 
 <ng-container *ngIf="list.length > 0">
-  <div *ngFor="let book of list; trackBy: bookTrackBy" class="mb-6 sm:mb-3">
+  <div *ngFor="let book of list; trackBy: trackBookById" class="mb-6 sm:mb-3">
     <cq-book [book]="book" [columnClasses]="columnClasses"></cq-book>
   </div>
 </ng-container>

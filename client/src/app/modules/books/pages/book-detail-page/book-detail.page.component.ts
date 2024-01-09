@@ -15,6 +15,7 @@ export class BookDetailPageComponent {
     link: {
       title: 'Books',
       href: `/${UrlPath.BOOK_LIST}`,
+      queryParams: { page: 1 },
     },
     childText: 'TODO',
   };

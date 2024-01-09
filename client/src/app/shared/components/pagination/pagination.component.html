@@ -1,0 +1,17 @@
+<div class="w-full flex justify-center mt-5 mb-10">
+  <ul class="list-none flex flex-wrap justify-center">
+    <li *ngFor="let page of numberOfPages | numericList">
+      <ng-template [ngIf]="page === currentPage" [ngIfElse]="elseTemplate">
+        <span class="mx-2 my-2 p-2">{{ page }}</span>
+      </ng-template>
+      <ng-template #elseTemplate>
+        <a
+          [routerLink]="['/' + UrlPath.BOOK_LIST]"
+          [queryParams]="{ page }"
+          class="mx-2 my-2 p-2"
+          >{{ page }}</a
+        >
+      </ng-template>
+    </li>
+  </ul>
+</div>

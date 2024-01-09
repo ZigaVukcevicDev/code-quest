@@ -11,6 +11,7 @@ export const breadcrumbsMock2: Breadcrumbs = {
   link: {
     title: 'Breadcrumb title',
     href: '/',
+    queryParams: null,
   },
   childText: 'Breadcrumb child text',
 };

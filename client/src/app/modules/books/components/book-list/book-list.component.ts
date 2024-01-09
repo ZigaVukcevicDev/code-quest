@@ -39,7 +39,7 @@ export class BookListComponent {
    * Read more at: https://stackoverflow.com/questions/42108217/how-to-use-trackby-with-ngfor
    */
 
-  bookTrackBy(index: number, item: Book) {
+  trackBookById(index: number, item: Book) {
     return item.id;
   }
 }

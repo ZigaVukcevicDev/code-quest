@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
 import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
 import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
+import perPage from '@app/data/shared/pagination';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -14,8 +15,6 @@ export class BooksService {
   constructor(private http: HttpClient) {}
 
   getBookList(): Observable<Book[]> {
-    const apiUrlQuery = new URL(this.apiUrl);
-
     /**
      * Note to code reviewer:
      *
@@ -23,10 +22,10 @@ export class BooksService {
      * For demo purpose I am getting just first 10 records.
      */
 
-    apiUrlQuery.searchParams.set('page', '1');
-    apiUrlQuery.searchParams.set('pageSize', '3');
+    const newParams = new HttpParams();
+    const params = { ...newParams, page: 1, pageSize: perPage };
 
-    return this.http.get<BookFromApi[]>(apiUrlQuery.toString()).pipe(
+    return this.http.get<BookFromApi[]>(this.apiUrl, { params }).pipe(
       map((bookListFromApi: BookFromApi[]) => {
         return bookListFromApi.map((book, index) => {
           /**
@@ -66,10 +65,10 @@ export class BooksService {
    */
 
   getBookListByName(name: string): Observable<Book[]> {
-    const apiUrlQuery = new URL(this.apiUrl);
-    apiUrlQuery.searchParams.set('name', name);
+    const newParams = new HttpParams();
+    const params = { ...newParams, name };
 
-    return this.http.get<Book[]>(apiUrlQuery.toString());
+    return this.http.get<Book[]>(this.apiUrl, { params });
   }
 
   getBookById(id: string): Observable<Book> {

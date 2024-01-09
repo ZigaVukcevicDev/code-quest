@@ -12,6 +12,7 @@
       <li>
         <a
           [routerLink]="['/' + UrlPath.BOOK_LIST]"
+          [queryParams]="{ page: 1 }"
           routerLinkActive="text-red-300"
           title="Books"
           >Books</a

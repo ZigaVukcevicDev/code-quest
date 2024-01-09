@@ -52,6 +52,11 @@
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookList$ | async as bookList">
       <cq-book-list [list]="bookList"></cq-book-list>
+      <cq-pagination
+        [currentPage]="currentPage"
+        [perPage]="perPage"
+        [total]="total"
+      ></cq-pagination>
     </ng-container>
   </ng-container>
 </ng-container>
