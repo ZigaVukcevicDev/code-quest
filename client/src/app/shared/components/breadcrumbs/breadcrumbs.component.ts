@@ -15,5 +15,5 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
   styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent {
-  @Input() breadcrumbs: Breadcrumbs | undefined;
+  @Input({ required: true }) breadcrumbs: Breadcrumbs | undefined;
 }

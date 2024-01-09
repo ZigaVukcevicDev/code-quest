@@ -8,7 +8,7 @@ import Book from '@app/data/books/models/book.interface';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent {
-  @Input() list: Book[] = [];
+  @Input({ required: true }) list: Book[] = [];
   @Output() createFavoriteBook: EventEmitter<string> =
     new EventEmitter<string>();
   @Output() removeFavoriteBook: EventEmitter<string> =

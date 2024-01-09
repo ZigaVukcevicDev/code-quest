@@ -13,9 +13,9 @@ export class BookComponent {
   readonly Divider: typeof Divider = Divider;
   readonly UrlPath: typeof UrlPath = UrlPath;
 
-  @Input() book: Book | undefined;
+  @Input({ required: true }) book: Book | undefined;
   // Column classes are used for widths above small devices
-  @Input() columnClasses: BookColumnWidthsClasses | undefined;
+  @Input({ required: true }) columnClasses: BookColumnWidthsClasses | undefined;
 
   // TODO: write note how this work
   // TODO: write fot the reviewer, is there a better practice, but still keep dumb component?

@@ -10,5 +10,5 @@ import { Divider } from '@app/data/shared/divider.enum';
 export class BookDetailComponent {
   readonly Divider: typeof Divider = Divider;
 
-  @Input() bookDetail: BookDetail | undefined;
+  @Input({ required: true }) bookDetail: BookDetail | undefined;
 }
