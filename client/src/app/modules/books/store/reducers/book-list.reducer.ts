@@ -1,8 +1,11 @@
+import Book from '@app/data/books/models/book.interface';
 import {
   loadBookListAction,
   loadBookListByNameAction,
   loadBookListErrorAction,
   loadBookListSuccessAction,
+  updateBookAsFavoriteAction,
+  updateBookAsNotFavoriteAction,
 } from '@app/modules/books/store/actions/book-list.action';
 import { BookListState } from '@app/modules/books/store/data/models/book-list.state.interface';
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
@@ -48,6 +51,46 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
         data: [],
         isLoading: false,
         hasLoaded: false,
+      };
+    }),
+    on(updateBookAsFavoriteAction, (state, { payload }): BookListState => {
+      console.log('reducer updateBookAsFavoriteAction');
+      console.log('payload', payload);
+
+      const updatedData = state.data.map((book: Book) => {
+        if (book.id === payload) {
+          return { ...book, isFavorite: true };
+        }
+        return { ...book };
+      });
+
+      console.log('updatedData', updatedData);
+
+      return {
+        ...state,
+        data: updatedData,
+        isLoading: false,
+        hasLoaded: true,
+      };
+    }),
+    on(updateBookAsNotFavoriteAction, (state, { payload }): BookListState => {
+      console.log('reducer updateBookAsNotFavoriteAction');
+      console.log('payload', payload);
+
+      const updatedData = state.data.map((book: Book) => {
+        if (book.id === payload) {
+          return { ...book, isFavorite: false };
+        }
+        return book;
+      });
+
+      console.log('updatedData', updatedData);
+
+      return {
+        ...state,
+        data: updatedData,
+        isLoading: false,
+        hasLoaded: true,
       };
     })
   );

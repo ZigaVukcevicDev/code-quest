@@ -8,6 +8,8 @@ import { UrlPath } from '@app/data/shared/url-path.enum';
 import {
   loadBookListAction,
   loadBookListByNameAction,
+  updateBookAsFavoriteAction,
+  updateBookAsNotFavoriteAction,
 } from '@app/modules/books/store/actions/book-list.action';
 import {
   selectBookList,
@@ -77,12 +79,10 @@ export class BookListPageComponent implements OnInit {
   }
 
   onCreateFavoriteBook(bookId: string) {
-    // TODO: dispatch
-    console.log('>>>', bookId);
+    this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
   }
 
   onRemoveFavoriteBook(bookId: string) {
-    // TODO: dispatch
-    console.log('>>>', bookId);
+    this.store.dispatch(updateBookAsNotFavoriteAction({ payload: bookId }));
   }
 }

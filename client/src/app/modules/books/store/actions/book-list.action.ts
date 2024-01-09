@@ -18,3 +18,11 @@ export const loadBookListSuccessAction = createAction(
 export const loadBookListErrorAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_ERROR
 );
+export const updateBookAsFavoriteAction = createAction(
+  BookListActionTypes.UPDATE_BOOK_AS_FAVORITE,
+  props<{ payload: string }>()
+);
+export const updateBookAsNotFavoriteAction = createAction(
+  BookListActionTypes.UPDATE_BOOK_AS_NOT_FAVORITE,
+  props<{ payload: string }>()
+);
