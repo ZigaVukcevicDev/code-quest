@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import BookColumnWidthsClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 import { Divider } from '@app/data/shared/divider.enum';
@@ -14,22 +14,28 @@ export class BookComponent {
   readonly UrlPath: typeof UrlPath = UrlPath;
 
   @Input() book: Book | undefined;
-
   // Column classes are used for widths above small devices
   @Input() columnClasses: BookColumnWidthsClasses | undefined;
 
-  // TODO:
-  toggleFavoriteBook(book: Book) {
-    book.isFavorite
-      ? this.removeFavoriteBook(book.id)
-      : this.createFavoriteBook(book.id);
+  // TODO: write note how this work
+  // TODO: write fot the reviewer, is there a better practice, but still keep dumb component?
+
+  @Output() createFavoriteBook: EventEmitter<string> =
+    new EventEmitter<string>();
+  @Output() removeFavoriteBook: EventEmitter<string> =
+    new EventEmitter<string>();
+
+  emitCreateFavoriteBook() {
+    console.log('create favorite book', this.book);
+    if (this.book) {
+      this.createFavoriteBook.emit(this.book.id);
+    }
   }
 
-  createFavoriteBook(bookId: string) {
-    console.log('adding book to favorites', bookId);
-  }
-
-  removeFavoriteBook(bookId: string) {
-    console.log('removing book to favorites', bookId);
+  emitRemoveFavoriteBook() {
+    console.log('remove favorite book', this.book);
+    if (this.book) {
+      this.removeFavoriteBook.emit(this.book.id);
+    }
   }
 }

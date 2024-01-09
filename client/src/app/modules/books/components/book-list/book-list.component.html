@@ -25,7 +25,12 @@
 
 <ng-container *ngIf="list.length > 0">
   <div *ngFor="let book of list; trackBy: trackBookById" class="mb-6 sm:mb-3">
-    <cq-book [book]="book" [columnClasses]="columnClasses"></cq-book>
+    <cq-book
+      [book]="book"
+      [columnClasses]="columnClasses"
+      (createFavoriteBook)="onCreateFavoriteBook($event)"
+      (removeFavoriteBook)="onRemoveFavoriteBook($event)"
+    ></cq-book>
   </div>
 </ng-container>
 

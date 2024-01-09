@@ -75,4 +75,14 @@ export class BookListPageComponent implements OnInit {
     this.searchTerm = '';
     this.store.dispatch(loadBookListAction());
   }
+
+  onCreateFavoriteBook(bookId: string) {
+    // TODO: dispatch
+    console.log('>>>', bookId);
+  }
+
+  onRemoveFavoriteBook(bookId: string) {
+    // TODO: dispatch
+    console.log('>>>', bookId);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import BookColumnClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 
@@ -9,6 +9,10 @@ import Book from '@app/data/books/models/book.interface';
 })
 export class BookListComponent {
   @Input() list: Book[] = [];
+  @Output() createFavoriteBook: EventEmitter<string> =
+    new EventEmitter<string>();
+  @Output() removeFavoriteBook: EventEmitter<string> =
+    new EventEmitter<string>();
 
   /**
    * Note:
@@ -39,7 +43,16 @@ export class BookListComponent {
    * Read more at: https://stackoverflow.com/questions/42108217/how-to-use-trackby-with-ngfor
    */
 
-  trackBookById(index: number, item: Book) {
+  // `_` stands as a placeholder for an unused parameter
+  trackBookById(_: number, item: Book) {
     return item.id;
+  }
+
+  onCreateFavoriteBook(bookId: string) {
+    this.createFavoriteBook.emit(bookId);
+  }
+
+  onRemoveFavoriteBook(bookId: string) {
+    this.removeFavoriteBook.emit(bookId);
   }
 }
