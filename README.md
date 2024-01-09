@@ -61,7 +61,7 @@ project-root/
 
 > To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
 
-Their official page [compodoc](https://compodoc.app/).
+You can read more at [official page of compodoc](https://compodoc.app/).
 
 ### API
 
