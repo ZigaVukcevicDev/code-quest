@@ -4,21 +4,45 @@ TODO: add screenshot of landing page and compodoc
 
 ### Overview 🔖
 
-TODO: Brief description of your project.
+Explore the world of Angular and NgRx with **Code quest**, a single-page application (SPA) that showcases key features in frontend development.
 
 ### Features 🎁
 
-TODO:
+User is available to run application, then:
 
-- Breadcrumbs component
-- Feature 2
-- ...
+- visit page with books
+  - perform search for book's name
+  - add/remove book to favorite books
+- visit page with favorite books
+  - remove book from favorite books
+
+> IMPORTANT
+>
+> Out of demo purpose, all functionality related to favorite books is stored locally in the browser.
+>
+> Please note that page refresh or server restart will cause DATA LOSS of all favorite books.
 
 #### Technical details
 
-- Used lazy loading of module based on given route
+- complete UI styling with responsiveness (mobile and desktop, starting with mobile first), having good UX in mind
+- modules (books, shared and design system) with lazy loading
+- layout (header with navigation, footer and main)
+- components (breadcrumbs, pagination, generic error, book, book list and book detail)
+- routing with page components
+  - /
+  - /books
+  - /books/detail/:id
+  - /books/favorite
+  - /design-system
+- services (books and favorite books)
+- store (using actions, effects, reducers and selectors for books and favorite books)
+- pipes (divider and numeric list)
+- icons with lazy loading
+- mocks (used at design system page and unit tests)
+- utility functions
+- generated documentation of application parts
 
-All components and directives are prefixed with `cq` (code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
+All components are prefixed with `cq` (meaning code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
 
 ### Project structure of monorepo and tech stack 💻
 
@@ -86,7 +110,6 @@ Visit [http://localhost:4200/design-system](http://localhost:4200/design-system)
 - [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=alfredbirk.tailwind-documentation)
 - [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [TODO: perhaps classes sort?](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
 
 ### Resources for best practices
 
