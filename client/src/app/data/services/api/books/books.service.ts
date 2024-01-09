@@ -4,6 +4,7 @@ import Book from '@app/data/books/models/book.interface';
 import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
 import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
 import perPage from '@app/data/shared/pagination.config';
+import parseIdFromApiBookUrlProperty from '@app/shared/utils/parse-id-from-api-book-url-property';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -15,30 +16,14 @@ export class BooksService {
   constructor(private http: HttpClient) {}
 
   getBookList(): Observable<Book[]> {
-    /**
-     * Note to code reviewer:
-     *
-     * TODO: is information correct?
-     * For demo purpose I am getting just first 10 records.
-     */
-
     const newParams = new HttpParams();
     const params = { ...newParams, page: 1, pageSize: perPage };
 
     return this.http.get<BookFromApi[]>(this.apiUrl, { params }).pipe(
       map((bookListFromApi: BookFromApi[]) => {
         return bookListFromApi.map((book, index) => {
-          /**
-           * API does not specifically return an id property.
-           * It returns a url property, e.g., `https://anapioficeandfire.com/api/books/3` - which
-           * could be parsed, taking the last segment as the unique identifier.
-           */
-
-          const bookUrlSegments = book.url.split('/');
-          const parsedId = bookUrlSegments[bookUrlSegments.length - 1];
-
           return {
-            id: parsedId,
+            id: parseIdFromApiBookUrlProperty(book),
             name: book.name,
             authors: book.authors,
             publisher: book.publisher,
@@ -71,7 +56,7 @@ export class BooksService {
     return this.http.get<Book[]>(this.apiUrl, { params });
   }
 
-  getBookById(id: string): Observable<Book> {
-    return this.http.get<Book>(`${this.apiUrl}/${id}`);
+  getBookById(id: string): Observable<BookFromApi> {
+    return this.http.get<BookFromApi>(`${this.apiUrl}/${id}`);
   }
 }

@@ -16,17 +16,10 @@ export class BookListEffects {
   loadBookList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadBookListAction),
-      // exhaustMap waits for the inner observable to finish
       exhaustMap(() =>
         this.booksService.getBookList().pipe(
-          map((bookList) => {
-            console.log('effect loadBookList$ success', bookList);
-            return loadBookListSuccessAction({ payload: bookList });
-          }),
-          catchError((error) => {
-            console.log('effect loadBookList$ error', error);
-            return of(loadBookListErrorAction());
-          })
+          map((bookList) => loadBookListSuccessAction({ payload: bookList })),
+          catchError(() => of(loadBookListErrorAction()))
         )
       )
     )
@@ -38,14 +31,8 @@ export class BookListEffects {
       map((action) => action.payload),
       exhaustMap((searchTerm) =>
         this.booksService.getBookListByName(searchTerm).pipe(
-          map((bookList) => {
-            console.log('effect loadBookListByName$ success', bookList);
-            return loadBookListSuccessAction({ payload: bookList });
-          }),
-          catchError((error) => {
-            console.log('effect loadBookListByName$ error', error);
-            return of(loadBookListErrorAction());
-          })
+          map((bookList) => loadBookListSuccessAction({ payload: bookList })),
+          catchError(() => of(loadBookListErrorAction()))
         )
       )
     )

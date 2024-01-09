@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
-import { loadBookListFavoriteAction } from '@app/modules/books/store/actions/book-list-favorite.action';
+import {
+  loadBookListFavoriteAction,
+  removeBookFavoriteInListAction,
+} from '@app/modules/books/store/actions/book-list-favorite.action';
 import {
   selectBookListFavorite,
   selectBookListFavoriteHasLoaded,
@@ -10,6 +13,7 @@ import {
 } from '@modules/books/store/selectors/book-list-favorite.selector';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { removeBookFavoriteAction } from '../../store/actions/book-favorite.action';
 
 @Component({
   selector: 'cq-book-favorite-list-page',
@@ -47,5 +51,11 @@ export class BookFavoriteListPageComponent {
       .subscribe((state) =>
         console.log('BookFavoriteListPageComponent', { state })
       );
+  }
+
+  onRemoveFavoriteBook(bookId: string) {
+    console.log('onRemoveFavoriteBook here?');
+    this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
+    this.store.dispatch(removeBookFavoriteInListAction({ payload: bookId }));
   }
 }

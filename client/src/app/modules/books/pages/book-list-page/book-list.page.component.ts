@@ -9,7 +9,6 @@ import {
   loadBookListAction,
   loadBookListByNameAction,
   updateBookAsFavoriteAction,
-  updateBookAsNotFavoriteAction,
 } from '@app/modules/books/store/actions/book-list.action';
 import {
   selectBookList,
@@ -18,6 +17,10 @@ import {
 } from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
+import {
+  createBookFavoriteAction,
+  removeBookFavoriteAction,
+} from '../../store/actions/book-favorite.action';
 
 @Component({
   selector: 'cq-book-list.page',
@@ -80,9 +83,11 @@ export class BookListPageComponent implements OnInit {
 
   onCreateFavoriteBook(bookId: string) {
     this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
+    this.store.dispatch(createBookFavoriteAction({ payload: bookId }));
   }
 
   onRemoveFavoriteBook(bookId: string) {
-    this.store.dispatch(updateBookAsNotFavoriteAction({ payload: bookId }));
+    this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
+    this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
   }
 }

@@ -8,13 +8,17 @@
 
 <div *ngIf="isLoading$ | async">Loading ...</div>
 
+<!-- TODO: refactor with if/else blocks -->
 <ng-container *ngIf="!(isLoading$ | async)">
   <ng-container *ngIf="!(hasLoaded$ | async)">
     <cq-error-generic></cq-error-generic>
   </ng-container>
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookListFavorite$ | async as bookListFavorite">
-      <cq-book-list [list]="bookListFavorite"></cq-book-list>
+      <cq-book-list
+        [list]="bookListFavorite"
+        (removeFavoriteBook)="onRemoveFavoriteBook($event)"
+      ></cq-book-list>
     </ng-container>
   </ng-container>
 </ng-container>

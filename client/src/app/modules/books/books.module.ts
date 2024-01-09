@@ -17,6 +17,7 @@ import { NgIconsModule } from '@ng-icons/core';
 import { featherHeart, featherSearch } from '@ng-icons/feather-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { BookFavoriteEffects } from './store/effects/book-favorite.effect';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,13 @@ import { StoreModule } from '@ngrx/store';
       featherSearch,
     }),
     BooksRoutingModule,
+    // Store features
     StoreModule.forFeature('bookList', bookListReducer),
-    EffectsModule.forFeature([BookListEffects]),
     StoreModule.forFeature('bookListFavorite', bookListFavoriteReducer),
+    // Effects
+    EffectsModule.forFeature([BookListEffects]),
     EffectsModule.forFeature([BookListFavoriteEffects]),
+    EffectsModule.forFeature([BookFavoriteEffects]),
   ],
 })
 export class BooksModule {}

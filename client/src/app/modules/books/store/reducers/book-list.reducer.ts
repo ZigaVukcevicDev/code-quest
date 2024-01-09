@@ -35,36 +35,31 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
         hasLoaded: false,
       })
     ),
-    on(loadBookListSuccessAction, (state, { payload }): BookListState => {
-      console.log('reducer loadBookListSuccessAction', state.data);
-      return {
+    on(
+      loadBookListSuccessAction,
+      (state, { payload }): BookListState => ({
         ...state,
         data: payload,
         isLoading: false,
         hasLoaded: true,
-      };
-    }),
-    on(loadBookListErrorAction, (state): BookListState => {
-      console.log('reducer loadBookListErrorAction');
-      return {
+      })
+    ),
+    on(
+      loadBookListErrorAction,
+      (state): BookListState => ({
         ...state,
         data: [],
         isLoading: false,
         hasLoaded: false,
-      };
-    }),
+      })
+    ),
     on(updateBookAsFavoriteAction, (state, { payload }): BookListState => {
-      console.log('reducer updateBookAsFavoriteAction');
-      console.log('payload', payload);
-
       const updatedData = state.data.map((book: Book) => {
         if (book.id === payload) {
           return { ...book, isFavorite: true };
         }
         return { ...book };
       });
-
-      console.log('updatedData', updatedData);
 
       return {
         ...state,
@@ -74,17 +69,12 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
       };
     }),
     on(updateBookAsNotFavoriteAction, (state, { payload }): BookListState => {
-      console.log('reducer updateBookAsNotFavoriteAction');
-      console.log('payload', payload);
-
       const updatedData = state.data.map((book: Book) => {
         if (book.id === payload) {
           return { ...book, isFavorite: false };
         }
         return book;
       });
-
-      console.log('updatedData', updatedData);
 
       return {
         ...state,

@@ -6,6 +6,7 @@ import {
   loadBookListFavoriteErrorAction,
   loadBookListFavoriteSuccessAction,
 } from '@app/modules/books/store/actions/book-list-favorite.action';
+import parseIdFromApiBookUrlProperty from '@app/shared/utils/parse-id-from-api-book-url-property';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { forkJoin, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
@@ -27,29 +28,27 @@ export class BookListFavoriteEffects {
     this.actions$.pipe(
       ofType(loadBookListFavoriteAction),
       switchMap(() =>
-        this.booksFavoriteService.getFavoriteBookListIds().pipe(
-          switchMap((favoriteBooks) => {
-            // TODO: refactor this part with better naming and comment rxjs operators
-            // Perform HTTP calls using bookService
-            const httpRequests = favoriteBooks.map((favoriteBook) =>
-              this.booksService.getBookById(favoriteBook.bookId).pipe(
-                map((book) => ({
-                  id: book.id, // TODO
-                  name: book.name,
-                  authors: book.authors,
-                  publisher: book.publisher,
-                  isFavorite: true, // TODO: really? or do i even need this for favorites?
-                }))
+        this.booksFavoriteService.getFavoriteBookIdList().pipe(
+          switchMap((favoriteBookIdList) => {
+            const requests = favoriteBookIdList.map((bookId) =>
+              this.booksService.getBookById(bookId).pipe(
+                map((book) => {
+                  return {
+                    id: parseIdFromApiBookUrlProperty(book),
+                    name: book.name,
+                    authors: book.authors,
+                    publisher: book.publisher,
+                    isFavorite: true,
+                  };
+                })
               )
             );
 
-            return forkJoin(httpRequests).pipe(
+            return forkJoin(requests).pipe(
               map((bookList) => {
-                console.log('effect loadBookListFavorite$ success', bookList);
                 return loadBookListFavoriteSuccessAction({ payload: bookList });
               }),
-              catchError((error) => {
-                console.log('effect loadBookListFavorite$ error', error);
+              catchError(() => {
                 return of(loadBookListFavoriteErrorAction());
               })
             );

@@ -1,36 +1,30 @@
 import { Injectable } from '@angular/core';
-import BookFavorite from '@app/data/books/models/book-favorite.interface';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { v4 as uuidv4 } from 'uuid';
+import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BooksFavoriteService {
-  private favoriteBookListSubject = new BehaviorSubject<BookFavorite[]>([]);
+  private favoriteBookListIdsSubject$$ = new BehaviorSubject<string[]>([]);
 
-  createFavoriteBook(bookId: string): void {
-    const currentList = this.favoriteBookListSubject.getValue();
-    const updatedList: BookFavorite[] = [
-      ...currentList,
-      { id: uuidv4(), bookId },
-    ];
+  constructor() {}
 
-    this.favoriteBookListSubject.next(updatedList);
+  createFavoriteBook(bookId: string): Observable<void> {
+    const currentList = this.favoriteBookListIdsSubject$$.value;
+    const updatedList = [...currentList, bookId];
+    this.favoriteBookListIdsSubject$$.next(updatedList);
+    // Needs to return observable to be able to pipe (e.g. in effect)
+    return EMPTY;
   }
 
-  // TODO: find a better name or just really provide ids
-  getFavoriteBookListIds(): Observable<BookFavorite[]> {
-    console.log('getFavoriteBookList called!');
-    // TODO: this is just a demo placeholder
-    return of([{ id: 'XXX', bookId: '5' }]);
+  getFavoriteBookIdList(): Observable<string[]> {
+    return this.favoriteBookListIdsSubject$$.asObservable();
   }
 
-  removeFavoriteBook(favoriteBookId: string): void {
-    const currentList = this.favoriteBookListSubject.getValue();
-    const updatedList = currentList.filter(
-      (favoriteBook) => favoriteBook.id !== favoriteBookId
-    );
-    this.favoriteBookListSubject.next(updatedList);
+  removeFavoriteBook(bookId: string): Observable<void> {
+    const currentList = this.favoriteBookListIdsSubject$$.value;
+    const updatedList = currentList.filter((id) => id !== bookId);
+    this.favoriteBookListIdsSubject$$.next(updatedList);
+    return EMPTY;
   }
 }

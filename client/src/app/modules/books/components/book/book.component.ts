@@ -26,14 +26,12 @@ export class BookComponent {
     new EventEmitter<string>();
 
   emitCreateFavoriteBook() {
-    console.log('create favorite book', this.book);
     if (this.book) {
       this.createFavoriteBook.emit(this.book.id);
     }
   }
 
   emitRemoveFavoriteBook() {
-    console.log('remove favorite book', this.book);
     if (this.book) {
       this.removeFavoriteBook.emit(this.book.id);
     }
