@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
-import perPage from '@app/data/shared/pagination';
+import perPage from '@app/data/shared/pagination.config';
+import { UrlPath } from '@app/data/shared/url-path.enum';
 import {
   loadBookListAction,
   loadBookListByNameAction,
@@ -35,10 +36,11 @@ export class BookListPageComponent implements OnInit {
   isLoading$: Observable<boolean> = this.store.select(selectBookListIsLoading);
   hasLoaded$: Observable<boolean> = this.store.select(selectBookListHasLoaded);
 
+  readonly UrlPath: typeof UrlPath = UrlPath;
+  paginationCurrentPage: number = this.getCurrentPage();
+  readonly paginationPerPage: number = perPage;
   // TODO: use real values
-  currentPage: number = this.getCurrentPage();
-  perPage: number = perPage;
-  total: number = 12;
+  paginationTotal: number = 12;
 
   constructor(
     // TODO: remove

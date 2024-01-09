@@ -53,9 +53,11 @@
     <ng-container *ngIf="bookList$ | async as bookList">
       <cq-book-list [list]="bookList"></cq-book-list>
       <cq-pagination
-        [currentPage]="currentPage"
-        [perPage]="perPage"
-        [total]="total"
+        *ngIf="bookList.length > 0 && paginationPerPage < paginationTotal"
+        [urlPath]="'/ + UrlPath.BOOK_LIST'"
+        [currentPage]="paginationCurrentPage"
+        [perPage]="paginationPerPage"
+        [total]="paginationTotal"
       ></cq-pagination>
     </ng-container>
   </ng-container>

@@ -72,3 +72,22 @@
   <cq-breadcrumbs [breadcrumbs]="breadcrumbsExample2"></cq-breadcrumbs>
 </div>
 <!-- / Breadcrumbs -->
+
+<!-- Pagination -->
+<h3 class="text-xl text-gray-400 mb-5">Pagination</h3>
+
+<div class="mb-10">
+  <cq-pagination
+    urlPath="/"
+    [currentPage]="paginationExample1.currentPage"
+    [perPage]="paginationExample1.perPage"
+    [total]="paginationExample1.total"
+  ></cq-pagination>
+  <cq-pagination
+    urlPath="/"
+    [currentPage]="paginationExample2.currentPage"
+    [perPage]="paginationExample2.perPage"
+    [total]="paginationExample2.total"
+  ></cq-pagination>
+</div>
+<!-- Pagination -->

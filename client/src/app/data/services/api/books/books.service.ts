@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
 import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
 import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
-import perPage from '@app/data/shared/pagination';
+import perPage from '@app/data/shared/pagination.config';
 import { Observable, map } from 'rxjs';
 
 @Injectable({

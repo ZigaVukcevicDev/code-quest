@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UrlPath } from '@app/data/shared/url-path.enum';
 
 @Component({
   selector: 'cq-pagination',
@@ -7,11 +6,11 @@ import { UrlPath } from '@app/data/shared/url-path.enum';
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
+  @Input() urlPath: string = '';
   @Input() currentPage: number = 1;
   @Input() perPage: number = 0;
   @Input() total: number = 0;
 
-  readonly UrlPath: typeof UrlPath = UrlPath;
   numberOfPages: number = 0;
   pageList: number[] = [];
 

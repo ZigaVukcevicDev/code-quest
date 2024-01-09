@@ -2,13 +2,14 @@
   <ul class="list-none flex flex-wrap justify-center">
     <li *ngFor="let page of numberOfPages | numericList">
       <ng-template [ngIf]="page === currentPage" [ngIfElse]="elseTemplate">
-        <span class="mx-2 my-2 p-2">{{ page }}</span>
+        <span class="mx-2 my-2 p-4">{{ page }}</span>
       </ng-template>
       <ng-template #elseTemplate>
         <a
-          [routerLink]="['/' + UrlPath.BOOK_LIST]"
+          [routerLink]="[urlPath]"
           [queryParams]="{ page }"
-          class="mx-2 my-2 p-2"
+          [title]=""
+          class="mx-2 my-2 p-4"
           >{{ page }}</a
         >
       </ng-template>
