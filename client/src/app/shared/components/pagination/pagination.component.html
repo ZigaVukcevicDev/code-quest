@@ -1,6 +1,6 @@
 <div class="w-full flex justify-center mt-5 mb-10">
   <ul class="list-none flex flex-wrap justify-center">
-    <li *ngFor="let page of numberOfPages | numericList">
+    <li *ngFor="let page of numberOfPages | numericList" class="py-2">
       <ng-template [ngIf]="page === currentPage" [ngIfElse]="elseTemplate">
         <span class="mx-2 my-2 p-4">{{ page }}</span>
       </ng-template>
