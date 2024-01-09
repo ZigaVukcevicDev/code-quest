@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BooksFavoriteService } from '@app/data/services/books-favorite/books-favorite.service';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap } from 'rxjs/operators';
 import {
   createBookFavoriteAction,
   createBookFavoriteSuccessAction,
   removeBookFavoriteAction,
   removeBookFavoriteSuccessAction,
-} from '../actions/book-favorite.action';
+} from '@app/modules/books/store/actions/book-favorite.action';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class BookFavoriteEffects {

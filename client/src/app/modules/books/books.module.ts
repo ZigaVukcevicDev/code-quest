@@ -13,11 +13,11 @@ import { BooksRoutingModule } from '@modules/books/books-routing.module';
 import { BookDetailComponent } from '@modules/books/components/book-detail/book-detail.component';
 import { BookListComponent } from '@modules/books/components/book-list/book-list.component';
 import { BookComponent } from '@modules/books/components/book/book.component';
+import { BookFavoriteEffects } from '@modules/books/store/effects/book-favorite.effect';
 import { NgIconsModule } from '@ng-icons/core';
 import { featherHeart, featherSearch } from '@ng-icons/feather-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { BookFavoriteEffects } from './store/effects/book-favorite.effect';
 
 @NgModule({
   declarations: [

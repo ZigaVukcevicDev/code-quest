@@ -1,5 +1,5 @@
+import { BookFavoriteActionTypes } from '@app/modules/books/store/data/models/book-favorite.action-types.enum';
 import { createAction, props } from '@ngrx/store';
-import { BookFavoriteActionTypes } from '../data/models/book-favorite.action-types.enum';
 
 export const createBookFavoriteAction = createAction(
   BookFavoriteActionTypes.CREATE_BOOK_FAVORITE,

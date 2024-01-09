@@ -11,16 +11,16 @@ import {
   updateBookAsFavoriteAction,
 } from '@app/modules/books/store/actions/book-list.action';
 import {
+  createBookFavoriteAction,
+  removeBookFavoriteAction,
+} from '@modules/books/store/actions/book-favorite.action';
+import {
   selectBookList,
   selectBookListHasLoaded,
   selectBookListIsLoading,
 } from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
-import {
-  createBookFavoriteAction,
-  removeBookFavoriteAction,
-} from '../../store/actions/book-favorite.action';
 
 @Component({
   selector: 'cq-book-list.page',

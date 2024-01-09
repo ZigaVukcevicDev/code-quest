@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
+import { removeBookFavoriteAction } from '@app/modules/books/store/actions/book-favorite.action';
 import {
   loadBookListFavoriteAction,
   removeBookFavoriteInListAction,
@@ -13,7 +14,6 @@ import {
 } from '@modules/books/store/selectors/book-list-favorite.selector';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { removeBookFavoriteAction } from '../../store/actions/book-favorite.action';
 
 @Component({
   selector: 'cq-book-favorite-list-page',
