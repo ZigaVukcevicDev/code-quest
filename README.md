@@ -55,7 +55,8 @@ project-root/
   └── ...
 ```
 
-- [Angular (v16.2)](https://angular.io/)
+- [Angular (v16.2)](https://angular.dev/)
+- [NgRx (v16)](https://ngrx.io/)
 - [Nest.js (v10.0)](https://nestjs.com/)
 
 > To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
