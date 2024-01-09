@@ -19,30 +19,29 @@ User is available to run application, then:
 > IMPORTANT
 >
 > Out of demo purpose, all functionality related to favorite books is stored locally in the browser.
->
 > Please note that page refresh or server restart will cause DATA LOSS of all favorite books.
 
 #### Technical details
 
-- complete UI styling with responsiveness (mobile and desktop, starting with mobile first), having good UX in mind
-- modules (books, shared and design system) with lazy loading
-- layout (header with navigation, footer and main)
-- components (breadcrumbs, pagination, generic error, book, book list and book detail)
-- routing with page components
+- **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
+- **modules** (books, shared and design system) with lazy loading
+- **layout** (header with navigation, footer and main)
+- **components** (breadcrumbs, pagination, generic error, book, book list and book detail)
+- **routing with page components**
   - /
   - /books
   - /books/detail/:id
   - /books/favorite
   - /design-system
-- services (books and favorite books)
-- store (using actions, effects, reducers and selectors for books and favorite books)
-- pipes (divider and numeric list)
-- icons with lazy loading
-- mocks (used at design system page and unit tests)
-- utility functions
-- generated documentation of application parts
+- **services** (books and favorite books)
+- **store** (using actions, effects, reducers and selectors for books and favorite books)
+- **pipes** (divider and numeric list)
+- **icons with lazy loading**
+- **mocks** (used at design system page and unit tests)
+- **utility functions**
+- **generated documentation** of application parts
 
-All components are prefixed with `cq` (meaning code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
+All components are prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
 
 ### Project structure of monorepo and tech stack 💻
 
