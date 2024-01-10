@@ -23,12 +23,19 @@ User is available to run application, then:
 > Please note that page refresh or server restart will cause DATA LOSS of all favorite books.
 
 #### Technical details
+
 <img width="1094" alt="compodoc" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/bf6ff867-9619-4fd4-bfab-0f9bf59c9e84">
 
 - **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
 - **modules** (books, shared and design system) with lazy loading
 - **layout** (header with navigation, footer and main)
-- **components** (breadcrumbs, pagination, generic error, book, book list and book detail - prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries, all components are using **onPush strategy detection**)
+- **components** (prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries, all components are using **onPush** strategy detection)
+  - breadcrumbs
+  - pagination
+  - generic error
+  - book
+  - book list
+  - book detail
 - **routing with page components**
   - `/`
   - `/books` (accepts page query parameter, e.g. `/books?page=2`)
@@ -36,11 +43,11 @@ User is available to run application, then:
   - `/books/favorite`
   - `/design-system`
 - **services** (books and favorite books)
-- **store** (using actions, effects, reducers and selectors for books and favorite books)
+- **store** (books, book detail and favorite books (using actions, effects, reducers and selectors))
 - **pipes** (divider and numeric list)
-- **icons with lazy loading**
+- **icons** with lazy loading
 - **mocks** (used at design system page and unit tests)
-- **basic unit tests for creation**
+- basic **unit tests for creation**
 - **utility functions**
 - **generated documentation** of application parts
 
