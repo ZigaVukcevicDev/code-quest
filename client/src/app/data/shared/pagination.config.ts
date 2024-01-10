@@ -1,3 +1,3 @@
-const perPage = 5;
+const perPage = 4;
 
 export default perPage;

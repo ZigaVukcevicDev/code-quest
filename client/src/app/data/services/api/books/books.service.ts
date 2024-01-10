@@ -35,6 +35,13 @@ export class BooksService {
     );
   }
 
+  // TODO: add comment for code reviewer that this is bad
+  getBookListTotal(): Observable<number> {
+    return this.http
+      .get<Book[]>(this.apiUrl)
+      .pipe(map((bookList) => bookList.length));
+  }
+
   /**
    * Note:
    *

@@ -14,9 +14,9 @@ import {
   removeBookFavoriteAction,
 } from '@modules/books/store/actions/book-favorite.action';
 import {
-  selectBookList,
   selectBookListHasLoaded,
   selectBookListIsLoading,
+  selectBookListWithTotal,
 } from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
@@ -30,15 +30,14 @@ export class BookListPageComponent implements OnInit {
   searchTerm: string = '';
   searchTermChange$ = new Subject<string>();
 
-  bookList$: Observable<Book[]> = this.store.select(selectBookList);
+  bookListWithTotal$: Observable<{ data: Book[]; total: number }> =
+    this.store.select(selectBookListWithTotal);
   isLoading$: Observable<boolean> = this.store.select(selectBookListIsLoading);
   hasLoaded$: Observable<boolean> = this.store.select(selectBookListHasLoaded);
 
   readonly UrlPath: typeof UrlPath = UrlPath;
   paginationCurrentPage: number = this.getCurrentPage();
   readonly paginationPerPage: number = perPage;
-  // TODO: use real values
-  paginationTotal: number = 12;
 
   constructor(
     private readonly store: Store<AppState>,

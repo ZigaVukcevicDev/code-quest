@@ -45,18 +45,21 @@
     <cq-error-generic></cq-error-generic>
   </ng-container>
   <ng-container *ngIf="hasLoaded$ | async">
-    <ng-container *ngIf="bookList$ | async as bookList">
+    <ng-container *ngIf="bookListWithTotal$ | async as bookListWithTotal">
       <cq-book-list
-        [list]="bookList"
+        [list]="bookListWithTotal.data"
         (createFavoriteBook)="onCreateFavoriteBook($event)"
         (removeFavoriteBook)="onRemoveFavoriteBook($event)"
       ></cq-book-list>
       <cq-pagination
-        *ngIf="bookList.length > 0 && paginationPerPage < paginationTotal"
+        *ngIf="
+          bookListWithTotal.data.length > 0 &&
+          paginationPerPage < bookListWithTotal.total
+        "
         [urlPath]="'/ + UrlPath.BOOK_LIST'"
         [currentPage]="paginationCurrentPage"
         [perPage]="paginationPerPage"
-        [total]="paginationTotal"
+        [total]="bookListWithTotal.total"
       ></cq-pagination>
     </ng-container>
   </ng-container>

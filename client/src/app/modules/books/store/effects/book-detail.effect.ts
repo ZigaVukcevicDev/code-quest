@@ -5,11 +5,6 @@ import {
   loadBookDetailErrorAction,
   loadBookDetailSuccessAction,
 } from '@app/modules/books/store/actions/book-detail.action';
-import {
-  loadBookListByNameAction,
-  loadBookListErrorAction,
-  loadBookListSuccessAction,
-} from '@app/modules/books/store/actions/book-list.action';
 import parseIdFromApiBookUrlProperty from '@app/shared/utils/parse-id-from-api-book-url-property';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -39,19 +34,6 @@ export class BookDetailEffects {
             loadBookDetailSuccessAction({ payload: bookDetail })
           ),
           catchError(() => of(loadBookDetailErrorAction()))
-        )
-      )
-    )
-  );
-
-  loadBookListByName$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(loadBookListByNameAction),
-      map((action) => action.payload),
-      exhaustMap((searchTerm) =>
-        this.booksService.getBookListByName(searchTerm).pipe(
-          map((bookList) => loadBookListSuccessAction({ payload: bookList })),
-          catchError(() => of(loadBookListErrorAction()))
         )
       )
     )

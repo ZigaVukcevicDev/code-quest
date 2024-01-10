@@ -12,6 +12,7 @@ import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
 export const initialState: BookListState = {
   data: [],
+  total: 0,
   isLoading: false,
   hasLoaded: false,
 };
@@ -39,7 +40,8 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
       loadBookListSuccessAction,
       (state, { payload }): BookListState => ({
         ...state,
-        data: payload,
+        data: payload.data,
+        total: payload.total,
         isLoading: false,
         hasLoaded: true,
       })
@@ -49,6 +51,7 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
       (state): BookListState => ({
         ...state,
         data: [],
+        total: 0,
         isLoading: false,
         hasLoaded: false,
       })

@@ -11,7 +11,7 @@ export const loadBookListByNameAction = createAction(
 );
 export const loadBookListSuccessAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_SUCCESS,
-  props<{ payload: Book[] }>()
+  props<{ payload: { data: Book[]; total: number } }>()
 );
 export const loadBookListErrorAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_ERROR
