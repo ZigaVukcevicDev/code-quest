@@ -81,12 +81,6 @@ export class BookListPageComponent implements OnInit, OnDestroy {
       .subscribe((state) => console.log('BookListPageComponent', { state }));
   }
 
-  clearSearch() {
-    this.searchTerm = '';
-    const page = 1;
-    this.store.dispatch(loadBookListAction({ payload: page }));
-  }
-
   onCreateFavoriteBook(bookId: string) {
     this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
     this.store.dispatch(createBookFavoriteAction({ payload: bookId }));
