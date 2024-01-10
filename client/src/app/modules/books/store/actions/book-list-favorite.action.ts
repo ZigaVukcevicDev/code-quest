@@ -1,5 +1,5 @@
-import Book from '@app/data/books/models/book.interface';
 import { BookListFavoriteActionTypes } from '@app/modules/books/store/data/models/book-list-favorite/book-list-favorite.action-types.enum';
+import { BookListFavoriteState } from '@app/modules/books/store/data/models/book-list-favorite/book-list-favorite.state.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadBookListFavoriteAction = createAction(
@@ -7,7 +7,7 @@ export const loadBookListFavoriteAction = createAction(
 );
 export const loadBookListFavoriteSuccessAction = createAction(
   BookListFavoriteActionTypes.LOAD_BOOK_LIST_FAVORITE_SUCCESS,
-  props<{ payload: Book[] }>()
+  props<{ payload: BookListFavoriteState['data'] }>()
 );
 export const loadBookListFavoriteErrorAction = createAction(
   BookListFavoriteActionTypes.LOAD_BOOK_LIST_FAVORITE_ERROR

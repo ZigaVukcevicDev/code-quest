@@ -4,12 +4,17 @@ import { MemoizedSelector, createSelector } from '@ngrx/store';
 
 const bookListSelect = (state: AppState): BookListState => state.bookList;
 
-export const selectBookListWithTotal: MemoizedSelector<
+export const selectBookList: MemoizedSelector<
   AppState,
-  { data: BookListState['data']; total: BookListState['total'] }
+  {
+    data: BookListState['data'];
+    total: BookListState['total'];
+    currentPage: BookListState['currentPage'];
+  }
 > = createSelector(bookListSelect, (state: BookListState) => ({
   data: state.data,
   total: state.total,
+  currentPage: state.currentPage,
 }));
 
 export const selectBookListIsLoading: MemoizedSelector<AppState, boolean> =

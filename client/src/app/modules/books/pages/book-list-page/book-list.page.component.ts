@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
-import Book from '@app/data/books/models/book.interface';
 import perPage from '@app/data/shared/pagination.config';
 import { UrlPath } from '@app/data/shared/url-path.enum';
 import {
@@ -9,14 +8,15 @@ import {
   loadBookListByNameAction,
   updateBookAsFavoriteAction,
 } from '@app/modules/books/store/actions/book-list.action';
+import { BookListState } from '@app/modules/books/store/data/models/book-list/book-list.state.interface';
 import {
   createBookFavoriteAction,
   removeBookFavoriteAction,
 } from '@modules/books/store/actions/book-favorite.action';
 import {
+  selectBookList,
   selectBookListHasLoaded,
   selectBookListIsLoading,
-  selectBookListWithTotal,
 } from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
@@ -27,17 +27,22 @@ import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
   styleUrls: ['./book-list.page.component.scss'],
 })
 export class BookListPageComponent implements OnInit {
+  readonly UrlPath: typeof UrlPath = UrlPath;
+
   searchTerm: string = '';
   searchTermChange$ = new Subject<string>();
 
-  bookListWithTotal$: Observable<{ data: Book[]; total: number }> =
-    this.store.select(selectBookListWithTotal);
-  isLoading$: Observable<boolean> = this.store.select(selectBookListIsLoading);
-  hasLoaded$: Observable<boolean> = this.store.select(selectBookListHasLoaded);
+  bookList$: Observable<Pick<BookListState, 'data' | 'total' | 'currentPage'>> =
+    this.store.select(selectBookList);
+  isLoading$: Observable<BookListState['isLoading']> = this.store.select(
+    selectBookListIsLoading
+  );
+  hasLoaded$: Observable<BookListState['hasLoaded']> = this.store.select(
+    selectBookListHasLoaded
+  );
 
-  readonly UrlPath: typeof UrlPath = UrlPath;
-  paginationCurrentPage: number = this.getCurrentPage();
   readonly paginationPerPage: number = perPage;
+  private currentPage: number = 1;
 
   constructor(
     private readonly store: Store<AppState>,
@@ -45,16 +50,20 @@ export class BookListPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.store.dispatch(loadBookListAction());
+    this.bookList$.subscribe((bookList) => {
+      this.currentPage = bookList.currentPage;
+    });
 
     this.searchTermChange$
       .pipe(debounceTime(200), distinctUntilChanged())
       .subscribe(() => {
         const actionToDispatch = this.searchTerm
           ? loadBookListByNameAction({ payload: this.searchTerm })
-          : loadBookListAction();
+          : loadBookListAction({ payload: this.currentPage });
         this.store.dispatch(actionToDispatch);
       });
+
+    this.store.dispatch(loadBookListAction({ payload: this.currentPage }));
 
     // TODO: remove
     this.store
@@ -62,14 +71,10 @@ export class BookListPageComponent implements OnInit {
       .subscribe((state) => console.log('BookListPageComponent', { state }));
   }
 
-  getCurrentPage() {
-    const queryParam = this.route.snapshot.queryParamMap.get('page');
-    return queryParam ? Number(queryParam) : 1;
-  }
-
   clearSearch() {
     this.searchTerm = '';
-    this.store.dispatch(loadBookListAction());
+    const page = 1;
+    this.store.dispatch(loadBookListAction({ payload: page }));
   }
 
   onCreateFavoriteBook(bookId: string) {
@@ -80,5 +85,9 @@ export class BookListPageComponent implements OnInit {
   onRemoveFavoriteBook(bookId: string) {
     this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
     this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
+  }
+
+  onPageChange(page: number) {
+    this.store.dispatch(loadBookListAction({ payload: page }));
   }
 }

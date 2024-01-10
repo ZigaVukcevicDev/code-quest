@@ -1,9 +1,10 @@
-import Book from '@app/data/books/models/book.interface';
 import { BookListActionTypes } from '@app/modules/books/store/data/models/book-list/book-list.action-types.enum';
+import { BookListState } from '@app/modules/books/store/data/models/book-list/book-list.state.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadBookListAction = createAction(
-  BookListActionTypes.LOAD_BOOK_LIST
+  BookListActionTypes.LOAD_BOOK_LIST,
+  props<{ payload: number }>()
 );
 export const loadBookListByNameAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_BY_NAME,
@@ -11,7 +12,13 @@ export const loadBookListByNameAction = createAction(
 );
 export const loadBookListSuccessAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_SUCCESS,
-  props<{ payload: { data: Book[]; total: number } }>()
+  props<{
+    payload: {
+      data: BookListState['data'];
+      total: BookListState['total'];
+      currentPage: BookListState['currentPage'];
+    };
+  }>()
 );
 export const loadBookListErrorAction = createAction(
   BookListActionTypes.LOAD_BOOK_LIST_ERROR
