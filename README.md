@@ -3,6 +3,7 @@
 <!--
 TODO: add screenshot of landing page and compodoc
 -->
+<img width="865" alt="app" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/03d38f6c-3465-46e8-881d-a3cd00ba9da8">
 
 ### Overview 🔖
 
