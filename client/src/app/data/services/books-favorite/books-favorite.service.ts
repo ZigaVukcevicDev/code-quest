@@ -7,8 +7,6 @@ import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
 export class BooksFavoriteService {
   private favoriteBookIdListSubject$$ = new BehaviorSubject<string[]>([]);
 
-  constructor() {}
-
   createFavoriteBook(bookId: string): Observable<void> {
     const currentList = this.favoriteBookIdListSubject$$.value;
     const updatedList = [...currentList, bookId];

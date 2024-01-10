@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import BookDetail from '@app/data/books/models/book-detail.interface';
@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   templateUrl: './book-detail.page.component.html',
   styleUrls: ['./book-detail.page.component.scss'],
 })
-export class BookDetailPageComponent {
+export class BookDetailPageComponent implements OnInit {
   readonly UrlPath: typeof UrlPath = UrlPath;
 
   bookDetail$: Observable<BookDetail | null> =

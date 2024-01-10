@@ -12,7 +12,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root',
 })
 export class BooksService {
-  private apiUrl: string = `${ApiUrl.BASE}/${ApiUrl.PATH}`;
+  private apiUrl = `${ApiUrl.BASE}/${ApiUrl.PATH}`;
 
   constructor(private http: HttpClient) {}
 

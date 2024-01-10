@@ -29,8 +29,8 @@
 
 <div *ngIf="isLoading$ | async">Loading ...</div>
 
-<ng-container *ngIf="!(isLoading$ | async)">
-  <ng-container *ngIf="!(hasLoaded$ | async)">
+<ng-container *ngIf="(isLoading$ | async) === false">
+  <ng-container *ngIf="(hasLoaded$ | async) === false">
     <!--
       Note to code reviewer:
 

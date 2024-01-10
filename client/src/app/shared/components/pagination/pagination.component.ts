@@ -7,13 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
   @Input({ required: true }) urlPath: string | undefined;
-  @Input({ required: true }) currentPage: number = 1;
-  @Input({ required: true }) perPage: number = 0;
-  @Input({ required: true }) total: number = 0;
+  @Input({ required: true }) currentPage = 1;
+  @Input({ required: true }) perPage = 0;
+  @Input({ required: true }) total = 0;
 
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
 
-  numberOfPages: number = 0;
+  numberOfPages = 0;
   pageList: number[] = [];
 
   ngOnInit() {

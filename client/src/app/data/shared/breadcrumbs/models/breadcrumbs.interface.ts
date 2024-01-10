@@ -3,7 +3,7 @@ export default interface Breadcrumbs {
   link: {
     title: string;
     href: string;
-    queryParams: { [key: string]: any } | null;
+    queryParams: { [key: string]: string | number } | null;
   } | null;
   childText: string | null;
 }

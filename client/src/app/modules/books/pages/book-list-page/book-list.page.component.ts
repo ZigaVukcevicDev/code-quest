@@ -35,7 +35,7 @@ import {
 export class BookListPageComponent implements OnInit, OnDestroy {
   readonly UrlPath: typeof UrlPath = UrlPath;
 
-  searchTerm: string = '';
+  searchTerm = '';
   searchTermChange$ = new Subject<string>();
 
   bookList$: Observable<Pick<BookListState, 'data' | 'total' | 'currentPage'>> =
@@ -48,7 +48,7 @@ export class BookListPageComponent implements OnInit, OnDestroy {
   );
 
   readonly paginationPerPage: number = perPage;
-  private currentPage: number = 1;
+  private currentPage = 1;
   private destroy$ = new Subject<void>();
 
   constructor(
