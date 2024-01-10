@@ -23,7 +23,7 @@ User is available to run application, then:
 > Please note that page refresh or server restart will cause DATA LOSS of all favorite books.
 
 #### Technical details
-<img width="1094" alt="compodoc" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/7553a421-ffd0-47c3-9680-ac9a7072b087">
+<img width="1094" alt="compodoc" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/bf6ff867-9619-4fd4-bfab-0f9bf59c9e84">
 
 - **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
 - **modules** (books, shared and design system) with lazy loading
