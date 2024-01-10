@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
-  @Input({ required: true }) urlPath: string = '';
+  @Input({ required: true }) urlPath: string | undefined;
   @Input({ required: true }) currentPage: number = 1;
   @Input({ required: true }) perPage: number = 0;
   @Input({ required: true }) total: number = 0;

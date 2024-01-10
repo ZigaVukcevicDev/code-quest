@@ -1,7 +1,3 @@
-<div class="mb-5">
-  <cq-breadcrumbs [breadcrumbs]="breadcrumbs"></cq-breadcrumbs>
-</div>
-
 <div *ngIf="isLoading$ | async">Loading ...</div>
 
 <ng-container *ngIf="!(isLoading$ | async)">
@@ -10,6 +6,19 @@
   </ng-container>
   <ng-container *ngIf="hasLoaded$ | async">
     <ng-container *ngIf="bookDetail$ | async as bookDetail">
+      <div class="mb-5">
+        <cq-breadcrumbs
+          [breadcrumbs]="{
+            text: 'Books',
+            link: {
+              title: 'Books',
+              href: '/' + UrlPath.BOOK_LIST,
+              queryParams: { page: 1 }
+            },
+            childText: bookDetail.name
+          }"
+        ></cq-breadcrumbs>
+      </div>
       <cq-book-detail [bookDetail]="bookDetail"></cq-book-detail>
     </ng-container>
   </ng-container>

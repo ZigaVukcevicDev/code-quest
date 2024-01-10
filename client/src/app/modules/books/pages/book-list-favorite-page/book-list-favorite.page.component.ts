@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
-import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { removeBookFavoriteAction } from '@app/modules/books/store/actions/book-favorite.action';
 import {
   loadBookListFavoriteAction,
@@ -21,12 +20,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book-list-favorite.page.component.scss'],
 })
 export class BookFavoriteListPageComponent {
-  breadcrumbs: Breadcrumbs = {
-    text: 'Favorite books',
-    link: null,
-    childText: null,
-  };
-
   bookListFavorite$: Observable<Book[]> = this.store.select(
     selectBookListFavorite
   );

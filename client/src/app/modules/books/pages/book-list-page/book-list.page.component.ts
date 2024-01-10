@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
-import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import perPage from '@app/data/shared/pagination.config';
 import { UrlPath } from '@app/data/shared/url-path.enum';
 import {
@@ -28,12 +27,6 @@ import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
   styleUrls: ['./book-list.page.component.scss'],
 })
 export class BookListPageComponent implements OnInit {
-  breadcrumbs: Breadcrumbs = {
-    text: 'Books',
-    link: null,
-    childText: null,
-  };
-
   searchTerm: string = '';
   searchTermChange$ = new Subject<string>();
 

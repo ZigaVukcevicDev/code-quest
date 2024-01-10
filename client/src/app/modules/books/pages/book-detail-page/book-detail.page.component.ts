@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import BookDetail from '@app/data/books/models/book-detail.interface';
-import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 import { UrlPath } from '@app/data/shared/url-path.enum';
 import { loadBookDetailAction } from '@app/modules/books/store/actions/book-detail.action';
 import {
@@ -19,15 +18,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book-detail.page.component.scss'],
 })
 export class BookDetailPageComponent {
-  breadcrumbs: Breadcrumbs = {
-    text: 'Books',
-    link: {
-      title: 'Books',
-      href: `/${UrlPath.BOOK_LIST}`,
-      queryParams: { page: 1 },
-    },
-    childText: 'TODO',
-  };
+  readonly UrlPath: typeof UrlPath = UrlPath;
 
   bookDetail$: Observable<BookDetail | null> =
     this.store.select(selectBookDetail);
@@ -48,6 +39,18 @@ export class BookDetailPageComponent {
     if (id) {
       this.store.dispatch(loadBookDetailAction({ payload: id }));
     }
+
+    // this.bookDetail$.subscribe((book: BookDetail) => {
+    //   this.breadcrumbs = {
+    //     text: 'Books',
+    //     link: {
+    //       title: 'Books',
+    //       href: `/${UrlPath.BOOK_LIST}`,
+    //       queryParams: { page: 1 },
+    //     },
+    //     childText: book.name,
+    //   };
+    // });
 
     // TODO: remove
     this.store

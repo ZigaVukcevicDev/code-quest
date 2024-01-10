@@ -16,12 +16,6 @@ import Pagination from '@app/data/shared/pagination/models/pagination.interface'
   styleUrls: ['./design-system.page.component.scss'],
 })
 export class DesignSystemPageComponent {
-  breadcrumbs: Breadcrumbs = {
-    text: 'Design system',
-    link: null,
-    childText: null,
-  };
-
   breadcrumbsExample1: Breadcrumbs = breadcrumbsMock1;
   breadcrumbsExample2: Breadcrumbs = breadcrumbsMock2;
 
