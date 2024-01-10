@@ -48,7 +48,6 @@ export class BookListPageComponent implements OnInit {
   paginationTotal: number = 12;
 
   constructor(
-    // TODO: remove
     private readonly store: Store<AppState>,
     private route: ActivatedRoute
   ) {}

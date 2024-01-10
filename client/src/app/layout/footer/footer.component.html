@@ -3,21 +3,21 @@
     <li>
       <small>
         <a
-          href="https://zigavukcevic.dev/"
-          title="Author's website"
-          target="_blank"
-          rel="noopener"
-          >zigavukcevic.dev</a
+          *ngIf="!environment.production"
+          [routerLink]="UrlPath.DESIGN_SYSTEM"
+          title="Design system"
+          >Design system</a
         >
       </small>
     </li>
     <li>
       <small>
         <a
-          *ngIf="!environment.production"
-          [routerLink]="UrlPath.DESIGN_SYSTEM"
-          title="Design system"
-          >Design system</a
+          href="https://zigavukcevic.dev/"
+          title="Author's website"
+          target="_blank"
+          rel="noopener"
+          >zigavukcevic.dev</a
         >
       </small>
     </li>

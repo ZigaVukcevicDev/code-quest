@@ -2,4 +2,15 @@
   <cq-breadcrumbs [breadcrumbs]="breadcrumbs"></cq-breadcrumbs>
 </div>
 
-<cq-book-detail [bookDetail]="bookDetail"></cq-book-detail>
+<div *ngIf="isLoading$ | async">Loading ...</div>
+
+<ng-container *ngIf="!(isLoading$ | async)">
+  <ng-container *ngIf="!(hasLoaded$ | async)">
+    <cq-error-generic></cq-error-generic>
+  </ng-container>
+  <ng-container *ngIf="hasLoaded$ | async">
+    <ng-container *ngIf="bookDetail$ | async as bookDetail">
+      <cq-book-detail [bookDetail]="bookDetail"></cq-book-detail>
+    </ng-container>
+  </ng-container>
+</ng-container>

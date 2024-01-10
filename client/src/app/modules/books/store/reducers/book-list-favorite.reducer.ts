@@ -6,7 +6,7 @@ import {
   loadBookListFavoriteSuccessAction,
   removeBookFavoriteInListAction,
 } from '@app/modules/books/store/actions/book-list-favorite.action';
-import { BookListFavoriteState } from '@app/modules/books/store/data/models/book-list-favorite.state.interface';
+import { BookListFavoriteState } from '@app/modules/books/store/data/models/book-list-favorite/book-list-favorite.state.interface';
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
 export const initialState: BookListFavoriteState = {

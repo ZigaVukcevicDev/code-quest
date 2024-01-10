@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Book from '@app/data/books/models/book.interface';
+import BookDetailFromApi from '@app/data/services/api/books/models/book-detail-from-api.interface';
 import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
 import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
 import perPage from '@app/data/shared/pagination.config';
@@ -58,5 +59,9 @@ export class BooksService {
 
   getBookById(id: string): Observable<BookFromApi> {
     return this.http.get<BookFromApi>(`${this.apiUrl}/${id}`);
+  }
+
+  getBookDetailById(id: string): Observable<BookDetailFromApi> {
+    return this.http.get<BookDetailFromApi>(`${this.apiUrl}/${id}`);
   }
 }

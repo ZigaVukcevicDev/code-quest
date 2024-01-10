@@ -1,6 +1,6 @@
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
-import { BookListFavoriteState } from '@app/modules/books/store/data/models/book-list-favorite.state.interface';
+import { BookListFavoriteState } from '@app/modules/books/store/data/models/book-list-favorite/book-list-favorite.state.interface';
 import { MemoizedSelector, createSelector } from '@ngrx/store';
 
 const bookListFavoriteSelect = (state: AppState): BookListFavoriteState =>
