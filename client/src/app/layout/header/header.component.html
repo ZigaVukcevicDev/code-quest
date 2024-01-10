@@ -1,39 +1,40 @@
 <header class="py-5 sm:flex">
+  <!-- Todo -->
+  <!--
   <a
     [routerLink]="['/']"
     routerLinkActive=""
     [routerLinkActiveOptions]="{ exact: true }"
     title="Home"
-    class="bg-black flex justify-center mb-3"
+    class="flex justify-center mb-3"
   >
     <ng-icon
       name="featherBook"
       strokeWidth="1"
       size="48"
-      class="text-rose-600"
+      class="text-rose-500"
     ></ng-icon>
   </a>
-  <nav>
-    <ul class="flex justify-center">
-      <li class="bg-black w-32 text-center mr-1 pt-3 pb-4">
+  -->
+  <nav class="w-full">
+    <ul class="flex justify-start shadow-xl">
+      <li class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
           [routerLink]="['/' + UrlPath.BOOK_LIST]"
           [queryParams]="{ page: 1 }"
-          routerLinkActive="text-red-300"
+          routerLinkActive="text-orange-500"
           title="Books"
-          class="block"
+          class="py-3 block no-underline text-yellow-500 hover:text-yellow-300"
           >Books</a
         >
       </li>
-      <li
-        routerLinkActive="mt-5"
-        class="bg-black w-32 text-center ml-1 pt-3 pb-4"
-      >
+      <li routerLinkActive="mt-5" class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
           [routerLink]="['/' + UrlPath.BOOK_FAVORITE_LIST]"
-          routerLinkActive="text-red-300"
+          routerLinkActive="text-orange-500"
           [routerLinkActiveOptions]="{ exact: true }"
           title="Books"
+          class="py-3 block no-underline text-yellow-500 hover:text-yellow-300"
           >Favorite books</a
         >
       </li>
