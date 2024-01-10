@@ -22,6 +22,7 @@ export class BookDetailEffects {
       ofType(loadBookDetailAction),
       map((action) => action.payload),
       exhaustMap((id) =>
+        // TODO: refactor if time, put object modification in service
         this.booksService.getBookDetailById(id).pipe(
           map((book) => ({
             id: parseIdFromApiBookUrlProperty(book),

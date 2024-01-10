@@ -54,6 +54,7 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
       })
     ),
     on(updateBookAsFavoriteAction, (state, { payload }): BookListState => {
+      // TODO: refactor if time, two almost same logic
       const updatedData = state.data.map((book: Book) => {
         if (book.id === payload) {
           return { ...book, isFavorite: true };

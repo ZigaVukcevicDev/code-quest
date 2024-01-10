@@ -31,6 +31,7 @@ export class BookListFavoriteEffects {
         this.booksFavoriteService.getFavoriteBookIdList().pipe(
           switchMap((favoriteBookIdList) => {
             const requests = favoriteBookIdList.map((bookId) =>
+              // TODO: refactor if time, put object modification in service
               this.booksService.getBookById(bookId).pipe(
                 map((book) => {
                   return {
