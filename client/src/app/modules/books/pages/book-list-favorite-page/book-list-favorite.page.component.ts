@@ -31,20 +31,10 @@ export class BookFavoriteListPageComponent implements OnInit {
     selectBookListFavoriteHasLoaded
   );
 
-  constructor(
-    // TODO: remove
-    private readonly store: Store<AppState>
-  ) {}
+  constructor(private readonly store: Store<AppState>) {}
 
   ngOnInit() {
     this.store.dispatch(loadBookListFavoriteAction());
-
-    // TODO: remove
-    this.store
-      .select((state) => state)
-      .subscribe((state) =>
-        console.log('BookFavoriteListPageComponent', { state })
-      );
   }
 
   onRemoveFavoriteBook(bookId: string) {

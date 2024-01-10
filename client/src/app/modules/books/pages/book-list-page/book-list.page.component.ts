@@ -4,7 +4,6 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import perPage from '@app/data/shared/pagination.config';
 import { UrlPath } from '@app/data/shared/url-path.enum';
@@ -57,10 +56,7 @@ export class BookListPageComponent implements OnInit, OnDestroy {
   private currentPage = 1;
   private destroy$ = new Subject<void>();
 
-  constructor(
-    private readonly store: Store<AppState>,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private readonly store: Store<AppState>) {}
 
   ngOnInit() {
     this.searchTermChange$
@@ -74,11 +70,6 @@ export class BookListPageComponent implements OnInit, OnDestroy {
       });
 
     this.store.dispatch(loadBookListAction({ payload: this.currentPage }));
-
-    // TODO: remove
-    this.store
-      .select((state) => state)
-      .subscribe((state) => console.log('BookListPageComponent', { state }));
   }
 
   onCreateFavoriteBook(bookId: string) {

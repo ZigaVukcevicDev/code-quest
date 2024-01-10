@@ -40,22 +40,5 @@ export class BookDetailPageComponent implements OnInit {
     if (id) {
       this.store.dispatch(loadBookDetailAction({ payload: id }));
     }
-
-    // this.bookDetail$.subscribe((book: BookDetail) => {
-    //   this.breadcrumbs = {
-    //     text: 'Books',
-    //     link: {
-    //       title: 'Books',
-    //       href: `/${UrlPath.BOOK_LIST}`,
-    //       queryParams: { page: 1 },
-    //     },
-    //     childText: book.name,
-    //   };
-    // });
-
-    // TODO: remove
-    this.store
-      .select((state) => state)
-      .subscribe((state) => console.log('BookDetailPageComponent', { state }));
   }
 }
