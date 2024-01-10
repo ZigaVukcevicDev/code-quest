@@ -26,6 +26,7 @@ export class BookListEffects {
       mergeMap((action) =>
         forkJoin({
           bookList: this.booksService.getBookList(action.payload),
+          // TODO: note for code reviewer
           total: this.booksService.getBookListTotal(),
         }).pipe(
           switchMap((result) => {

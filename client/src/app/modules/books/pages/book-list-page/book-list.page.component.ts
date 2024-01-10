@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import perPage from '@app/data/shared/pagination.config';
@@ -19,14 +19,20 @@ import {
   selectBookListIsLoading,
 } from '@modules/books/store/selectors/book-list.selector';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
+import {
+  Observable,
+  Subject,
+  debounceTime,
+  distinctUntilChanged,
+  takeUntil,
+} from 'rxjs';
 
 @Component({
   selector: 'cq-book-list.page',
   templateUrl: './book-list.page.component.html',
   styleUrls: ['./book-list.page.component.scss'],
 })
-export class BookListPageComponent implements OnInit {
+export class BookListPageComponent implements OnInit, OnDestroy {
   readonly UrlPath: typeof UrlPath = UrlPath;
 
   searchTerm: string = '';
@@ -43,6 +49,7 @@ export class BookListPageComponent implements OnInit {
 
   readonly paginationPerPage: number = perPage;
   private currentPage: number = 1;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private readonly store: Store<AppState>,
@@ -50,12 +57,13 @@ export class BookListPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.bookList$.subscribe((bookList) => {
+    this.bookList$.pipe(takeUntil(this.destroy$)).subscribe((bookList) => {
       this.currentPage = bookList.currentPage;
     });
 
     this.searchTermChange$
       .pipe(debounceTime(200), distinctUntilChanged())
+      .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         const actionToDispatch = this.searchTerm
           ? loadBookListByNameAction({ payload: this.searchTerm })
@@ -89,5 +97,10 @@ export class BookListPageComponent implements OnInit {
 
   onPageChange(page: number) {
     this.store.dispatch(loadBookListAction({ payload: page }));
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
