@@ -10,11 +10,12 @@ Explore the world of Angular and NgRx with **Code quest**, a single-page applica
 
 User is available to run application, then:
 
-- visit page with books
-  - perform search for book's name
-  - add/remove book to favorite books
-- visit page with favorite books
-  - remove book from favorite books
+- visit **paginated page with books**
+  - perform **search** for book's name
+  - **add/remove book** to/from **favorites**
+- visit **page with book detail**
+- visit **page with favorite books**
+  - **remove** book from **favorites**
 
 > IMPORTANT
 >
@@ -26,22 +27,21 @@ User is available to run application, then:
 - **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
 - **modules** (books, shared and design system) with lazy loading
 - **layout** (header with navigation, footer and main)
-- **components** (breadcrumbs, pagination, generic error, book, book list and book detail)
+- **components** (breadcrumbs, pagination, generic error, book, book list and book detail - prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries)
 - **routing with page components**
-  - /
-  - /books
-  - /books/detail/:id
-  - /books/favorite
-  - /design-system
+  - `/`
+  - `/books` (accepts page query parameter, e.g. `/books?page=2`)
+  - `/books/detail/:id`
+  - `/books/favorite`
+  - `/design-system`
 - **services** (books and favorite books)
 - **store** (using actions, effects, reducers and selectors for books and favorite books)
 - **pipes** (divider and numeric list)
 - **icons with lazy loading**
 - **mocks** (used at design system page and unit tests)
+- **basic unit tests for creation**
 - **utility functions**
 - **generated documentation** of application parts
-
-All components are prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries.
 
 ### Project structure of monorepo and tech stack 💻
 
