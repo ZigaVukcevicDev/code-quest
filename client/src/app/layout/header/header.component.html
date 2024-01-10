@@ -16,7 +16,7 @@
     ></ng-icon>
   </a>
   -->
-  <nav class="w-full">
+  <nav class="w-full bg-indigo-300 bg-opacity-5">
     <ul class="flex justify-start shadow-xl">
       <li class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
@@ -28,12 +28,12 @@
           >Books</a
         >
       </li>
-      <li routerLinkActive="mt-5" class="w-32 text-center mr-1 h-12 rounded-xl">
+      <li class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
           [routerLink]="['/' + UrlPath.BOOK_FAVORITE_LIST]"
           routerLinkActive="text-orange-500"
           [routerLinkActiveOptions]="{ exact: true }"
-          title="Books"
+          title="Favorite books"
           class="py-3 block no-underline text-yellow-500 hover:text-yellow-300"
           >Favorite books</a
         >
