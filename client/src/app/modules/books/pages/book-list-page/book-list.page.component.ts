@@ -58,7 +58,7 @@ export class BookListPageComponent implements OnInit, OnDestroy {
 
   constructor(private readonly store: Store<AppState>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.searchTermChange$
       .pipe(debounceTime(200), distinctUntilChanged())
       .pipe(takeUntil(this.destroy$))
@@ -72,17 +72,17 @@ export class BookListPageComponent implements OnInit, OnDestroy {
     this.store.dispatch(loadBookListAction({ payload: this.currentPage }));
   }
 
-  onCreateFavoriteBook(bookId: string) {
+  onCreateFavoriteBook(bookId: string): void {
     this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
     this.store.dispatch(createBookFavoriteAction({ payload: bookId }));
   }
 
-  onRemoveFavoriteBook(bookId: string) {
+  onRemoveFavoriteBook(bookId: string): void {
     this.store.dispatch(updateBookAsFavoriteAction({ payload: bookId }));
     this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
   }
 
-  onPageChange(page: number) {
+  onPageChange(page: number): void {
     this.store.dispatch(loadBookListAction({ payload: page }));
 
     this.bookList$.pipe(takeUntil(this.destroy$)).subscribe((bookList) => {
@@ -90,7 +90,7 @@ export class BookListPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

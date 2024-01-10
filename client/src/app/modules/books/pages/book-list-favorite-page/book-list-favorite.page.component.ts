@@ -33,12 +33,11 @@ export class BookFavoriteListPageComponent implements OnInit {
 
   constructor(private readonly store: Store<AppState>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(loadBookListFavoriteAction());
   }
 
-  onRemoveFavoriteBook(bookId: string) {
-    console.log('onRemoveFavoriteBook here?');
+  onRemoveFavoriteBook(bookId: string): void {
     this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
     this.store.dispatch(removeBookFavoriteInListAction({ payload: bookId }));
   }

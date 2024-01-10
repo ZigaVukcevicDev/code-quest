@@ -24,15 +24,15 @@ export class PaginationComponent implements OnInit {
   numberOfPages = 0;
   pageList: number[] = [];
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.numberOfPages = this.calculateNumberOfPages();
   }
 
-  emitPageChange(page: number) {
+  emitPageChange(page: number): void {
     this.pageChange.emit(page);
   }
 
-  calculateNumberOfPages() {
+  calculateNumberOfPages(): number {
     return this.perPage > 0 && this.total > 0
       ? Math.ceil(this.total / this.perPage)
       : 0;

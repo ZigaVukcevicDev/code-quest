@@ -39,13 +39,13 @@ export class BookComponent {
   @Output() removeFavoriteBook: EventEmitter<string> =
     new EventEmitter<string>();
 
-  emitCreateFavoriteBook() {
+  emitCreateFavoriteBook(): void {
     if (this.book) {
       this.createFavoriteBook.emit(this.book.id);
     }
   }
 
-  emitRemoveFavoriteBook() {
+  emitRemoveFavoriteBook(): void {
     if (this.book) {
       this.removeFavoriteBook.emit(this.book.id);
     }

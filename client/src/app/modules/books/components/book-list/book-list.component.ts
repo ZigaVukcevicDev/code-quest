@@ -16,6 +16,7 @@ import Book from '@app/data/books/models/book.interface';
 })
 export class BookListComponent {
   @Input({ required: true }) list: Book[] = [];
+
   @Output() createFavoriteBook: EventEmitter<string> =
     new EventEmitter<string>();
   @Output() removeFavoriteBook: EventEmitter<string> =
@@ -51,15 +52,15 @@ export class BookListComponent {
    */
 
   // `_` stands as a placeholder for an unused parameter
-  trackBookById(_: number, item: Book) {
+  trackBookById(_: number, item: Book): string {
     return item.id;
   }
 
-  onCreateFavoriteBook(bookId: string) {
+  onCreateFavoriteBook(bookId: string): void {
     this.createFavoriteBook.emit(bookId);
   }
 
-  onRemoveFavoriteBook(bookId: string) {
+  onRemoveFavoriteBook(bookId: string): void {
     this.removeFavoriteBook.emit(bookId);
   }
 }

@@ -35,7 +35,7 @@ export class BookDetailPageComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.store.dispatch(loadBookDetailAction({ payload: id }));
