@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'cq-pagination',
@@ -11,11 +11,17 @@ export class PaginationComponent implements OnInit {
   @Input({ required: true }) perPage: number = 0;
   @Input({ required: true }) total: number = 0;
 
+  @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
+
   numberOfPages: number = 0;
   pageList: number[] = [];
 
   ngOnInit() {
     this.numberOfPages = this.calculateNumberOfPages();
+  }
+
+  emitPageChange(page: number) {
+    this.pageChange.emit(page);
   }
 
   calculateNumberOfPages() {

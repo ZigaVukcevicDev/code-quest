@@ -16,14 +16,19 @@ export class BookListEffects {
   loadBookList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadBookListAction),
-      mergeMap(() =>
+      map((action) => action.payload),
+      mergeMap((page) =>
         forkJoin({
-          bookList: this.booksService.getBookList(),
+          bookList: this.booksService.getBookList(page),
           total: this.booksService.getBookListTotal(),
         }).pipe(
           map((result) =>
             loadBookListSuccessAction({
-              payload: { data: result.bookList, total: result.total },
+              payload: {
+                data: result.bookList,
+                total: result.total,
+                currentPage: page,
+              },
             })
           ),
           catchError(() => of(loadBookListErrorAction()))
@@ -40,7 +45,11 @@ export class BookListEffects {
         this.booksService.getBookListByName(searchTerm).pipe(
           map((bookList) =>
             loadBookListSuccessAction({
-              payload: { data: bookList, total: bookList.length },
+              payload: {
+                data: bookList,
+                total: bookList.length,
+                currentPage: 1, // Assuming that we can not have so many items (books) to pagination be needed
+              },
             })
           ),
           catchError(() => of(loadBookListErrorAction()))

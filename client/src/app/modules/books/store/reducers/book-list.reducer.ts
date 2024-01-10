@@ -13,6 +13,7 @@ import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 export const initialState: BookListState = {
   data: [],
   total: 0,
+  currentPage: 1,
   isLoading: false,
   hasLoaded: false,
 };
@@ -42,6 +43,7 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
         ...state,
         data: payload.data,
         total: payload.total,
+        currentPage: payload.currentPage,
         isLoading: false,
         hasLoaded: true,
       })

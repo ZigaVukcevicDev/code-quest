@@ -22,16 +22,17 @@
   </p>
 </div>
 <!-- / Header -->
-
-<ng-container *ngIf="list.length > 0">
-  <div *ngFor="let book of list; trackBy: trackBookById" class="mb-6 sm:mb-3">
-    <cq-book
-      [book]="book"
-      [columnClasses]="columnClasses"
-      (createFavoriteBook)="onCreateFavoriteBook($event)"
-      (removeFavoriteBook)="onRemoveFavoriteBook($event)"
-    ></cq-book>
-  </div>
-</ng-container>
+<div class="sm:min-h-64">
+  <ng-container *ngIf="list.length > 0">
+    <div *ngFor="let book of list; trackBy: trackBookById" class="mb-6 sm:mb-3">
+      <cq-book
+        [book]="book"
+        [columnClasses]="columnClasses"
+        (createFavoriteBook)="onCreateFavoriteBook($event)"
+        (removeFavoriteBook)="onRemoveFavoriteBook($event)"
+      ></cq-book>
+    </div>
+  </ng-container>
+</div>
 
 <p *ngIf="list.length === 0">List seems to be empty.</p>

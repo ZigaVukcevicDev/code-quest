@@ -1,4 +1,4 @@
-<div class="w-full flex justify-center mt-5 mb-10">
+<div class="w-full flex justify-center">
   <ul class="list-none flex flex-wrap justify-center">
     <li *ngFor="let page of numberOfPages | numericList" class="py-2">
       <ng-template [ngIf]="page === currentPage" [ngIfElse]="elseTemplate">
@@ -10,6 +10,7 @@
           [queryParams]="{ page }"
           [title]=""
           class="mx-2 my-2 p-4"
+          (click)="emitPageChange(page)"
           >{{ page }}</a
         >
       </ng-template>

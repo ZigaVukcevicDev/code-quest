@@ -16,9 +16,9 @@ export class BooksService {
 
   constructor(private http: HttpClient) {}
 
-  getBookList(): Observable<Book[]> {
+  getBookList(page: number): Observable<Book[]> {
     const newParams = new HttpParams();
-    const params = { ...newParams, page: 1, pageSize: perPage };
+    const params = { ...newParams, page, pageSize: perPage };
 
     return this.http.get<BookFromApi[]>(this.apiUrl, { params }).pipe(
       map((bookListFromApi: BookFromApi[]) => {
