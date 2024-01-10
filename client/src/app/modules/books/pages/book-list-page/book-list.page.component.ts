@@ -63,10 +63,6 @@ export class BookListPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.bookList$.pipe(takeUntil(this.destroy$)).subscribe((bookList) => {
-      this.currentPage = bookList.currentPage;
-    });
-
     this.searchTermChange$
       .pipe(debounceTime(200), distinctUntilChanged())
       .pipe(takeUntil(this.destroy$))
@@ -103,6 +99,10 @@ export class BookListPageComponent implements OnInit, OnDestroy {
 
   onPageChange(page: number) {
     this.store.dispatch(loadBookListAction({ payload: page }));
+
+    this.bookList$.pipe(takeUntil(this.destroy$)).subscribe((bookList) => {
+      this.currentPage = bookList.currentPage;
+    });
   }
 
   ngOnDestroy() {
