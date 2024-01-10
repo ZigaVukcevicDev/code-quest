@@ -59,34 +59,29 @@ export const bookListReducer: ActionReducer<BookListState, Action> =
       })
     ),
     on(updateBookAsFavoriteAction, (state, { payload }): BookListState => {
-      // TODO: refactor if time, two almost same logic
-      const updatedData = state.data.map((book: Book) => {
-        if (book.id === payload) {
-          return { ...book, isFavorite: true };
-        }
-        return { ...book };
-      });
-
-      return {
-        ...state,
-        data: updatedData,
-        isLoading: false,
-        hasLoaded: true,
-      };
+      return updateBookAndReturnState(state, payload, true);
     }),
     on(updateBookAsNotFavoriteAction, (state, { payload }): BookListState => {
-      const updatedData = state.data.map((book: Book) => {
-        if (book.id === payload) {
-          return { ...book, isFavorite: false };
-        }
-        return book;
-      });
-
-      return {
-        ...state,
-        data: updatedData,
-        isLoading: false,
-        hasLoaded: true,
-      };
+      return updateBookAndReturnState(state, payload, false);
     })
   );
+
+function updateBookAndReturnState(
+  state: BookListState,
+  payload: string,
+  isFavorite: boolean
+): BookListState {
+  const updatedData = state.data.map((book: Book) => {
+    if (book.id === payload) {
+      return { ...book, isFavorite };
+    }
+    return { ...book };
+  });
+
+  return {
+    ...state,
+    data: updatedData,
+    isLoading: false,
+    hasLoaded: true,
+  };
+}
