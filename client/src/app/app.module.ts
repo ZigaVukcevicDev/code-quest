@@ -6,6 +6,8 @@ import { AppComponent } from '@app/app.component';
 import { MainPageComponent } from '@app/layout/main-page/main.page.component';
 import { FooterComponent } from '@layout/footer/footer.component';
 import { HeaderComponent } from '@layout/header/header.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { featherBook } from '@ng-icons/feather-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '@shared/shared.module';
@@ -24,6 +26,9 @@ import { SharedModule } from '@shared/shared.module';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
+    NgIconsModule.withIcons({
+      featherBook,
+    }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot({}),
   ],
