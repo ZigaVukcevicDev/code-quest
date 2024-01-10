@@ -24,8 +24,15 @@ export class BookComponent {
   // Column classes are used for widths above small devices
   @Input({ required: true }) columnClasses: BookColumnWidthsClasses | undefined;
 
-  // TODO: write note how this work
-  // TODO: write fot the reviewer, is there a better practice, but still keep dumb component?
+  /**
+   * Note: To keep this component as presentational, events for creating/removing favorite are being
+   * forwarded-up through this and book list component. Then pages are calling the store.
+   */
+
+  /**
+   * Note to code reviewer: I am interested how could this be done better, as when having "output-drilling" it
+   * gets hard to maintain components by figuring out the data flow.
+   */
 
   @Output() createFavoriteBook: EventEmitter<string> =
     new EventEmitter<string>();

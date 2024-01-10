@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import BookDetail from '@app/data/books/models/book-detail.interface';
 import Book from '@app/data/books/models/book.interface';
 import BookDetailFromApi from '@app/data/services/api/books/models/book-detail-from-api.interface';
 import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
@@ -35,7 +36,12 @@ export class BooksService {
     );
   }
 
-  // TODO: add comment for code reviewer that this is bad
+  /**
+   * Note to code reviewer:
+   *
+   * Please see comment in file book-list.effect.ts in loadBookList$ effect.
+   */
+
   getBookListTotal(): Observable<number> {
     return this.http
       .get<BookFromApi[]>(this.apiUrl)
@@ -64,11 +70,33 @@ export class BooksService {
     return this.http.get<Book[]>(this.apiUrl, { params });
   }
 
-  getBookById(id: string): Observable<BookFromApi> {
-    return this.http.get<BookFromApi>(`${this.apiUrl}/${id}`);
+  getBookById(id: string): Observable<Book> {
+    return this.http.get<BookFromApi>(`${this.apiUrl}/${id}`).pipe(
+      map((book) => {
+        return {
+          id: parseIdFromApiBookUrlProperty(book),
+          name: book.name,
+          authors: book.authors,
+          publisher: book.publisher,
+          isFavorite: true,
+        };
+      })
+    );
   }
 
-  getBookDetailById(id: string): Observable<BookDetailFromApi> {
-    return this.http.get<BookDetailFromApi>(`${this.apiUrl}/${id}`);
+  getBookDetailById(id: string): Observable<BookDetail> {
+    return this.http.get<BookDetailFromApi>(`${this.apiUrl}/${id}`).pipe(
+      map((book) => ({
+        id: parseIdFromApiBookUrlProperty(book),
+        name: book.name,
+        authors: book.authors,
+        publisher: book.publisher,
+        isFavorite: true,
+        isbn: book.isbn,
+        numberOfPages: book.numberOfPages,
+        country: book.country,
+        mediaType: book.mediaType,
+      }))
+    );
   }
 }

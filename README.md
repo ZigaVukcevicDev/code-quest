@@ -1,6 +1,8 @@
 ## 🚀 Code quest
 
+<!--
 TODO: add screenshot of landing page and compodoc
+-->
 
 ### Overview 🔖
 

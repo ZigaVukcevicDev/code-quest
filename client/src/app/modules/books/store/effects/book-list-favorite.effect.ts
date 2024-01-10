@@ -6,7 +6,6 @@ import {
   loadBookListFavoriteErrorAction,
   loadBookListFavoriteSuccessAction,
 } from '@app/modules/books/store/actions/book-list-favorite.action';
-import parseIdFromApiBookUrlProperty from '@app/shared/utils/parse-id-from-api-book-url-property';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { forkJoin, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
@@ -31,18 +30,7 @@ export class BookListFavoriteEffects {
         this.booksFavoriteService.getFavoriteBookIdList().pipe(
           switchMap((favoriteBookIdList) => {
             const requests = favoriteBookIdList.map((bookId) =>
-              // TODO: refactor if time, put object modification in service
-              this.booksService.getBookById(bookId).pipe(
-                map((book) => {
-                  return {
-                    id: parseIdFromApiBookUrlProperty(book),
-                    name: book.name,
-                    authors: book.authors,
-                    publisher: book.publisher,
-                    isFavorite: true,
-                  };
-                })
-              )
+              this.booksService.getBookById(bookId)
             );
 
             return forkJoin(requests).pipe(

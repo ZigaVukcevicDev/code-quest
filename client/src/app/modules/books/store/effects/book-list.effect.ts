@@ -26,7 +26,21 @@ export class BookListEffects {
       mergeMap((action) =>
         forkJoin({
           bookList: this.booksService.getBookList(action.payload),
-          // TODO: note for code reviewer
+          /**
+           * Note to code reviewer:
+           *
+           * When getting paginated items from API, it normally also returns the total (overall) number of items.
+           * Having that information (and how many items per page) you can compose pagination.
+           *
+           * Since API does not support total value, bellow is an extra call to achieve this.
+           *
+           * IMPORTANT!
+           *
+           * This is a bad practice and should not be done in real case scenario. By making that kind of call,
+           * you put burden on server, not to mention the client (browser). List of items can be very long and
+           * those items also can have children with even more data.
+           *
+           */
           total: this.booksService.getBookListTotal(),
         }).pipe(
           switchMap((result) => {
