@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   breadcrumbsMock1,
   breadcrumbsMock2,
@@ -14,6 +14,7 @@ import Pagination from '@app/data/shared/pagination/models/pagination.interface'
   selector: 'cq-design-system-page',
   templateUrl: './design-system.page.component.html',
   styleUrls: ['./design-system.page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DesignSystemPageComponent {
   breadcrumbsExample1: Breadcrumbs = breadcrumbsMock1;

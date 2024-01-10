@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import BookDetail from '@app/data/books/models/book-detail.interface';
@@ -16,6 +16,7 @@ import { Observable } from 'rxjs';
   selector: 'cq-book-detail-page',
   templateUrl: './book-detail.page.component.html',
   styleUrls: ['./book-detail.page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailPageComponent implements OnInit {
   readonly UrlPath: typeof UrlPath = UrlPath;

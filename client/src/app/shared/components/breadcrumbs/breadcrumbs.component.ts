@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interface';
 
 /**
@@ -13,6 +13,7 @@ import Breadcrumbs from '@app/data/shared/breadcrumbs/models/breadcrumbs.interfa
   selector: 'cq-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsComponent {
   @Input({ required: true }) breadcrumbs: Breadcrumbs | undefined;

@@ -27,7 +27,7 @@ User is available to run application, then:
 - **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
 - **modules** (books, shared and design system) with lazy loading
 - **layout** (header with navigation, footer and main)
-- **components** (breadcrumbs, pagination, generic error, book, book list and book detail - prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries)
+- **components** (breadcrumbs, pagination, generic error, book, book list and book detail - prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries, all components are using **onPush strategy detection**)
 - **routing with page components**
   - `/`
   - `/books` (accepts page query parameter, e.g. `/books?page=2`)

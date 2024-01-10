@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AppState } from '@app/app.state.interface';
 import Book from '@app/data/books/models/book.interface';
 import { removeBookFavoriteAction } from '@app/modules/books/store/actions/book-favorite.action';
@@ -18,6 +18,7 @@ import { Observable } from 'rxjs';
   selector: 'cq-book-favorite-list-page',
   templateUrl: './book-list-favorite.page.component.html',
   styleUrls: ['./book-list-favorite.page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookFavoriteListPageComponent implements OnInit {
   bookListFavorite$: Observable<Book[]> = this.store.select(

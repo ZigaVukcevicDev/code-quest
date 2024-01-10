@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import BookColumnWidthsClasses from '@app/data/books/models/book-column-classes.interface';
 import Book from '@app/data/books/models/book.interface';
 import { Divider } from '@app/data/shared/divider.enum';
@@ -8,6 +14,7 @@ import { UrlPath } from '@app/data/shared/url-path.enum';
   selector: 'cq-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookComponent {
   readonly Divider: typeof Divider = Divider;

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import BookDetail from '@app/data/books/models/book-detail.interface';
 import { Divider } from '@app/data/shared/divider.enum';
 
@@ -6,6 +6,7 @@ import { Divider } from '@app/data/shared/divider.enum';
   selector: 'cq-book-detail',
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailComponent {
   readonly Divider: typeof Divider = Divider;

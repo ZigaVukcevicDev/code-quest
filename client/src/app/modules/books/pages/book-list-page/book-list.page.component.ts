@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '@app/app.state.interface';
 import perPage from '@app/data/shared/pagination.config';
@@ -31,6 +36,7 @@ import {
   selector: 'cq-book-list.page',
   templateUrl: './book-list.page.component.html',
   styleUrls: ['./book-list.page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookListPageComponent implements OnInit, OnDestroy {
   readonly UrlPath: typeof UrlPath = UrlPath;
