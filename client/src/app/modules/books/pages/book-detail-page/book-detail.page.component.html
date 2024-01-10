@@ -1,5 +1,6 @@
 <div *ngIf="isLoading$ | async">Loading ...</div>
 
+<!-- Todo: refactor with if/else blocks -->
 <ng-container *ngIf="(isLoading$ | async) === false">
   <ng-container *ngIf="(hasLoaded$ | async) === false">
     <cq-error-generic></cq-error-generic>
