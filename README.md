@@ -3,8 +3,7 @@
 ### Overview 🔖
 
 Explore the world of Angular and NgRx with **Code quest**, a single-page application (SPA) that showcases key features in frontend development.
-
-<img width="865" alt="app" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/03d38f6c-3465-46e8-881d-a3cd00ba9da8">
+<img width="1087" alt="app" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/3abb8852-47f0-467b-811e-2be12c1e532d">
 
 ### Features 🎁
 
