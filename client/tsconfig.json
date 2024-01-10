@@ -6,14 +6,8 @@
       "@app/*": [
         "app/*"
       ],
-      "@core/*": [
-        "app/core/*"
-      ],
       "@shared/*": [
         "app/shared/*"
-      ],
-      "@components/*": [
-        "app/shared/components/*"
       ],
       "@environments/*": [
         "environments/*"
