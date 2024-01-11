@@ -7,7 +7,10 @@
 <div class="mt-3 mb-10"></div>
 <!-- / Create favorite -->
 
-<div *ngIf="isLoading$ | async">Loading ...</div>
+<cq-loading-indicator
+  *ngIf="isLoading$ | async"
+  type="data"
+></cq-loading-indicator>
 
 <!-- Todo: refactor with if/else blocks -->
 <ng-container *ngIf="(isLoading$ | async) === false">

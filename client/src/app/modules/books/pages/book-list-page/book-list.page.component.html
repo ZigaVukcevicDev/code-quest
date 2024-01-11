@@ -27,7 +27,10 @@
 </div>
 <!-- Search -->
 
-<div *ngIf="isLoading$ | async">Loading ...</div>
+<cq-loading-indicator
+  *ngIf="(isLoading$ | async) === true"
+  type="data"
+></cq-loading-indicator>
 
 <!-- Todo: refactor with if/else blocks -->
 <ng-container *ngIf="(isLoading$ | async) === false">

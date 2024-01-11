@@ -1,26 +1,31 @@
-<div *ngIf="isLoading$ | async">Loading ...</div>
+<div class="mt-10">
+  <cq-loading-indicator
+    *ngIf="(isLoading$ | async) === false"
+    type="data"
+  ></cq-loading-indicator>
 
-<!-- Todo: refactor with if/else blocks -->
-<ng-container *ngIf="(isLoading$ | async) === false">
-  <ng-container *ngIf="(hasLoaded$ | async) === false">
-    <cq-error-generic></cq-error-generic>
-  </ng-container>
-  <ng-container *ngIf="hasLoaded$ | async">
-    <ng-container *ngIf="bookDetail$ | async as bookDetail">
-      <div class="mb-5">
-        <cq-breadcrumbs
-          [breadcrumbs]="{
-            text: 'Books',
-            link: {
-              title: 'Books',
-              href: '/' + UrlPath.BOOK_LIST,
-              queryParams: { page: 1 }
-            },
-            childText: bookDetail.name
-          }"
-        ></cq-breadcrumbs>
-      </div>
-      <cq-book-detail [bookDetail]="bookDetail"></cq-book-detail>
+  <!-- Todo: refactor with if/else blocks -->
+  <ng-container *ngIf="(isLoading$ | async) === true">
+    <ng-container *ngIf="(hasLoaded$ | async) === false">
+      <cq-error-generic></cq-error-generic>
+    </ng-container>
+    <ng-container *ngIf="hasLoaded$ | async">
+      <ng-container *ngIf="bookDetail$ | async as bookDetail">
+        <div class="mb-5">
+          <cq-breadcrumbs
+            [breadcrumbs]="{
+              text: 'Books',
+              link: {
+                title: 'Books',
+                href: '/' + UrlPath.BOOK_LIST,
+                queryParams: { page: 1 }
+              },
+              childText: bookDetail.name
+            }"
+          ></cq-breadcrumbs>
+        </div>
+        <cq-book-detail [bookDetail]="bookDetail"></cq-book-detail>
+      </ng-container>
     </ng-container>
   </ng-container>
-</ng-container>
+</div>

@@ -31,6 +31,7 @@ User is available to run application, then:
 - **layout** (header with navigation, footer and main)
 - **components** (prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries, all components are using **onPush** strategy detection)
   - breadcrumbs
+  - loading indicator
   - pagination
   - generic error
   - book
@@ -66,6 +67,8 @@ project-root/
 - [Angular (v16.2)](https://angular.dev/)
 - [NgRx (v16)](https://ngrx.io/)
 - [Nest.js (v10.0)](https://nestjs.com/)
+
+Worked with [Node.js v18.12.1](https://nodejs.org/en)
 
 > To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
 
