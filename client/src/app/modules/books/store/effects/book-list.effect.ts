@@ -41,7 +41,7 @@ export class BookListEffects {
            * those items also can have children with even more data.
            *
            */
-          total: this.booksService.getBookListTotal(),
+          total: this.booksService.getBookListTotalNumber(),
         }).pipe(
           switchMap((result) => {
             const { bookList, total } = result;

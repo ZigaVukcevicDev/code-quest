@@ -2,8 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import BookDetail from '@app/data/books/models/book-detail.interface';
 import Book from '@app/data/books/models/book.interface';
-import BookDetailFromApi from '@app/data/services/api/books/models/book-detail-from-api.interface';
-import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
+import BookDetailResponseDto from '@app/data/services/api/books/models/book-detail-response.dto';
+import BookResponseDto from '@app/data/services/api/books/models/book-response.dto';
 import { ApiUrl } from '@app/data/services/api/models/api-url.enum';
 import perPage from '@app/data/shared/pagination.config';
 import parseIdFromApiBookUrlProperty from '@app/shared/utils/parse-id-from-api-book-url-property';
@@ -21,9 +21,9 @@ export class BooksService {
     const newParams = new HttpParams();
     const params = { ...newParams, page, pageSize: perPage };
 
-    return this.http.get<BookFromApi[]>(this.apiUrl, { params }).pipe(
-      map((bookListFromApi: BookFromApi[]) => {
-        return bookListFromApi.map((book, index) => {
+    return this.http.get<BookResponseDto[]>(this.apiUrl, { params }).pipe(
+      map((bookList: BookResponseDto[]) => {
+        return bookList.map((book, index) => {
           return {
             id: parseIdFromApiBookUrlProperty(book),
             name: book.name,
@@ -42,10 +42,10 @@ export class BooksService {
    * Please see comment in file book-list.effect.ts in loadBookList$ effect.
    */
 
-  getBookListTotal(): Observable<number> {
+  getBookListTotalNumber(): Observable<number> {
     return this.http
-      .get<BookFromApi[]>(this.apiUrl)
-      .pipe(map((bookListFromApi: BookFromApi[]) => bookListFromApi.length));
+      .get<BookResponseDto[]>(this.apiUrl)
+      .pipe(map((bookList: BookResponseDto[]) => bookList.length));
   }
 
   /**
@@ -71,7 +71,7 @@ export class BooksService {
   }
 
   getBookById(id: string): Observable<Book> {
-    return this.http.get<BookFromApi>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.get<BookResponseDto>(`${this.apiUrl}/${id}`).pipe(
       map((book) => {
         return {
           id: parseIdFromApiBookUrlProperty(book),
@@ -85,7 +85,7 @@ export class BooksService {
   }
 
   getBookDetailById(id: string): Observable<BookDetail> {
-    return this.http.get<BookDetailFromApi>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.get<BookDetailResponseDto>(`${this.apiUrl}/${id}`).pipe(
       map((book) => ({
         id: parseIdFromApiBookUrlProperty(book),
         name: book.name,

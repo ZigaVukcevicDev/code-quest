@@ -1,4 +1,4 @@
-export default interface BookFromApi {
+export default interface BookResponseDto {
   url: string;
   name: string;
   authors: string[];
