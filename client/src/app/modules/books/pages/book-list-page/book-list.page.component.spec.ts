@@ -16,6 +16,7 @@ describe('BookListPageComponent', () => {
     const initialState: BookListState = {
       data: [bookMock1, bookMock2],
       total: 2,
+      currentPage: 1,
       isLoading: false,
       hasLoaded: false,
     };

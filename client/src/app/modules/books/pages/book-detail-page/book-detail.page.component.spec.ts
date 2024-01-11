@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookDetailComponent } from '@app/modules/books/components/book-detail/book-detail.component';
 import { BookDetailPageComponent } from '@app/modules/books/pages/book-detail-page/book-detail.page.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { StoreModule } from '@ngrx/store';
 
 describe('BookDetailPageComponent', () => {
   let component: BookDetailPageComponent;
@@ -15,7 +16,7 @@ describe('BookDetailPageComponent', () => {
         // Pages
         BookDetailPageComponent,
       ],
-      imports: [SharedModule],
+      imports: [SharedModule, StoreModule],
     });
     fixture = TestBed.createComponent(BookDetailPageComponent);
     component = fixture.componentInstance;

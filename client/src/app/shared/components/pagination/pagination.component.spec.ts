@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NumericListPipe } from '@app/shared/pipes/numeric-list/numeric-list.pipe';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 
 describe('PaginationComponent', () => {
@@ -7,7 +8,7 @@ describe('PaginationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PaginationComponent],
+      declarations: [PaginationComponent, NumericListPipe],
     });
     fixture = TestBed.createComponent(PaginationComponent);
     component = fixture.componentInstance;
