@@ -1,5 +1,21 @@
 ## 🚀 Code quest
 
+Table of contents
+
+- [Overview](#overview-🔖)
+- [Features](#features-🎁)
+  - [Technical details](#technical-details)
+- [Getting started](#getting-started-💪)
+  - [Installation](#installation)
+- [Usage](#usage-📚)
+  - [Running the client](#running-the-client)
+  - [Running the API](#running-the-api)
+- [Project structure of monorepo and tech stack](#project-structure-of-monorepo-and-tech-stack-💻)
+- [API](#api)
+- [Design system](#design-system-🎨)
+- [VSC plugins for smoother DX 🏄](#vsc-plugins-for-smoother-dx-🏄)
+- [Resources for best practices](#resources-for-best-practices)
+
 ### Overview 🔖
 
 Explore the world of Angular and NgRx with **Code quest**, a single-page application (SPA) that showcases key features in frontend development.
@@ -52,32 +68,6 @@ User is available to run application, then:
 - **utility functions**
 - **generated documentation** of application parts
 
-### Project structure of monorepo and tech stack 💻
-
-```bash
-project-root/
-│
-├── client/
-│ └── ...
-│
-└── api/
-  └── ...
-```
-
-- [Angular (v16.2)](https://angular.dev/)
-- [NgRx (v16)](https://ngrx.io/)
-- [Nest.js (v10.0)](https://nestjs.com/)
-
-Worked with [Node.js v18.12.1](https://nodejs.org/en)
-
-> To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
-
-You can read more at [official page of compodoc](https://compodoc.app/).
-
-### API
-
-[An API of Ice And Fire](https://anapioficeandfire.com/) has been used to provide mock data.
-
 ### Getting started 💪
 
 #### Installation
@@ -108,6 +98,32 @@ Visit
 
 - [http://localhost:4200](http://localhost:4200) for the client and
 - [http://localhost:3000](http://localhost:3000) for the API.
+
+### Project structure of monorepo and tech stack 💻
+
+```bash
+project-root/
+│
+├── client/
+│ └── ...
+│
+└── api/
+  └── ...
+```
+
+- [Angular (v16.2)](https://angular.dev/)
+- [NgRx (v16)](https://ngrx.io/)
+- [Nest.js (v10.0)](https://nestjs.com/)
+
+Worked with [Node.js v18.12.1](https://nodejs.org/en)
+
+> To have better understanding of application parts and details, run `yarn compodoc` and visit [http://127.0.0.1:8080](http://127.0.0.1:8080).
+
+You can read more at [official page of compodoc](https://compodoc.app/).
+
+### API
+
+[An API of Ice And Fire](https://anapioficeandfire.com/) has been used to provide mock data.
 
 ### Design system 🎨
 
