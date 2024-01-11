@@ -1,8 +1,10 @@
 <div class="main-background"></div>
-<div class="container mx-auto px-4 max-w-[768px]">
+<div class="fixed top-0 left-0 right-0 z-10">
   <cq-header></cq-header>
-  <main class="mb-3">
-    <router-outlet></router-outlet>
-  </main>
+</div>
+<main class="container mx-auto max-w-[992px] my-28 px-4">
+  <router-outlet></router-outlet>
+</main>
+<div class="fixed bottom-0 left-0 right-0">
   <cq-footer></cq-footer>
 </div>

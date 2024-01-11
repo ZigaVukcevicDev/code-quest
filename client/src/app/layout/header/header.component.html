@@ -1,4 +1,4 @@
-<header class="py-5 sm:flex">
+<header class="py-5 shadow-xl bg-black">
   <!-- Todo -->
   <!--
   <a
@@ -16,13 +16,13 @@
     ></ng-icon>
   </a>
   -->
-  <nav class="w-full bg-indigo-300 bg-opacity-5">
-    <ul class="flex justify-start shadow-xl">
+  <nav class="w-full">
+    <ul class="flex justify-start items-center">
       <li class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
           [routerLink]="['/' + UrlPath.BOOK_LIST]"
           [queryParams]="{ page: 1 }"
-          routerLinkActive="text-orange-500"
+          routerLinkActive="text-yellow-300"
           title="Books"
           class="py-3 block no-underline text-yellow-500 hover:text-yellow-300"
           >Books</a
@@ -31,7 +31,7 @@
       <li class="w-32 text-center mr-1 h-12 rounded-xl">
         <a
           [routerLink]="['/' + UrlPath.BOOK_FAVORITE_LIST]"
-          routerLinkActive="text-orange-500"
+          routerLinkActive="text-yellow-300"
           [routerLinkActiveOptions]="{ exact: true }"
           title="Favorite books"
           class="py-3 block no-underline text-yellow-500 hover:text-yellow-300"

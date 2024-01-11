@@ -26,7 +26,7 @@ User is available to run application, then:
 
 <img width="1094" alt="compodoc" src="https://github.com/ZigaVukcevicDev/code-quest/assets/10107183/bf6ff867-9619-4fd4-bfab-0f9bf59c9e84">
 
-- **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind
+- **complete UI styling with responsiveness** (mobile and desktop, starting with mobile first), having good UX in mind, tested with [Chrome browser](https://www.google.com/chrome/)
 - **modules** (books, shared and design system) with lazy loading
 - **layout** (header with navigation, footer and main)
 - **components** (prefixed with `cq` (i.e. code quest), e.g. **cq-breadcrumbs** to potentially avoid conflicts with other libraries, all components are using **onPush** strategy detection)
