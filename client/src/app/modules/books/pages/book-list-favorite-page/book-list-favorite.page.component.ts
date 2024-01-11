@@ -30,6 +30,7 @@ export class BookFavoriteListPageComponent implements OnInit {
   hasLoaded$: Observable<boolean> = this.store.select(
     selectBookListFavoriteHasLoaded
   );
+  selectedFavoriteBook = '';
 
   constructor(private readonly store: Store<AppState>) {}
 
@@ -40,5 +41,10 @@ export class BookFavoriteListPageComponent implements OnInit {
   onRemoveFavoriteBook(bookId: string): void {
     this.store.dispatch(removeBookFavoriteAction({ payload: bookId }));
     this.store.dispatch(removeBookFavoriteInListAction({ payload: bookId }));
+  }
+
+  createFavoriteBook(): void {
+    // TODO
+    console.log('adding to favs', this.selectedFavoriteBook);
   }
 }
