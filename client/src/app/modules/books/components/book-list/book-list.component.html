@@ -23,6 +23,7 @@
 </div>
 <!-- / Header -->
 <div class="sm:min-h-64">
+  <p *ngIf="list.length === 0" class="mt-2">List seems to be empty.</p>
   <ng-container *ngIf="list.length > 0">
     <div *ngFor="let book of list; trackBy: trackBookById" class="mb-6 sm:mb-3">
       <cq-book
@@ -34,5 +35,3 @@
     </div>
   </ng-container>
 </div>
-
-<p *ngIf="list.length === 0">List seems to be empty.</p>
