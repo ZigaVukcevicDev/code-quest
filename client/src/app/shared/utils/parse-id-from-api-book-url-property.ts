@@ -1,7 +1,7 @@
-import BookFromApi from '@app/data/services/api/books/models/book-from-api.interface';
+import BookResponseDto from '@app/data/services/api/books/models/book-response.dto';
 
 export default function parseIdFromApiBookUrlProperty(
-  book: BookFromApi
+  book: BookResponseDto
 ): string {
   /**
    * API does not specifically return an id property.
